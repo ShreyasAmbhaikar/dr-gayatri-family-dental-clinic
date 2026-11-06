@@ -106,23 +106,23 @@ export default function BeforeAfterSlider({
 
         {/* Split Divider Handle */}
         <div
-          className="absolute top-0 bottom-0 w-[2px] bg-white shadow-md z-20 cursor-ew-resize flex items-center justify-center transform -translate-x-1/2"
+          className="absolute top-0 bottom-0 w-[2.5px] bg-white shadow-[0_0_8px_rgba(0,0,0,0.3)] z-20 cursor-ew-resize flex items-center justify-center transform -translate-x-1/2"
           style={{ left: `${sliderPosition}%` }}
           onMouseDown={handleMouseDown}
           onTouchStart={() => setIsDragging(true)}
         >
-          <div className="w-7 h-7 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-[#009eb8]">
+          <div className="w-8 h-8 rounded-full bg-white shadow-lg border-2 border-[#009eb8] flex items-center justify-center text-[#009eb8] hover:scale-110 transition-transform">
             <svg
               viewBox="0 0 24 24"
-              className="w-3.5 h-3.5"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <polyline points="15 18 9 12 15 6" />
-              <polyline points="9 18 3 12 9 6" />
+              <polyline points="8 16 4 12 8 8" />
+              <polyline points="16 8 20 12 16 16" />
             </svg>
           </div>
         </div>

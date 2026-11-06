@@ -96,7 +96,7 @@ export default function AppointmentModal({
               <span className="text-xs font-bold tracking-[0.16em] text-[#009eb8] uppercase block mb-1">
                 DR. GAYATRI&apos;S CLINIC
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1c1549]">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1d174e]">
                 Book Your Consultation
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -243,7 +243,7 @@ export default function AppointmentModal({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#372379] hover:bg-[#2c1a63] text-white py-3.5 px-6 rounded-full font-semibold text-sm shadow-md shadow-indigo-950/20 transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
+                  className="w-full bg-[#38247b] hover:bg-[#2c1a63] text-white py-3.5 px-6 rounded-full font-semibold text-sm shadow-md shadow-indigo-950/20 transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
                 >
                   {isSubmitting ? (
                     <span className="inline-flex items-center gap-2">
@@ -267,7 +267,7 @@ export default function AppointmentModal({
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
-            <h3 className="font-serif text-2xl font-bold text-[#1c1549] mb-2">
+            <h3 className="font-serif text-2xl font-bold text-[#1d174e] mb-2">
               Appointment Request Received!
             </h3>
 
@@ -281,11 +281,11 @@ export default function AppointmentModal({
             <div className="bg-[#f0fbfd] border border-cyan-100 rounded-2xl p-4 text-xs text-slate-600 mb-6 text-left w-full space-y-1">
               <div className="flex justify-between">
                 <span className="font-medium text-slate-500">Location:</span>
-                <span className="font-bold text-[#1c1549]">Amorea Park Town, Viman Nagar, Pune</span>
+                <span className="font-bold text-[#1d174e]">Amanora Park Town, Hadapsar, Pune</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium text-slate-500">Doctor:</span>
-                <span className="font-bold text-[#1c1549]">Dr. Gayatri</span>
+                <span className="font-bold text-[#1d174e]">Dr. Gayatri</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium text-slate-500">Confirmation SMS:</span>
@@ -295,7 +295,7 @@ export default function AppointmentModal({
 
             <button
               onClick={handleReset}
-              className="bg-[#372379] text-white py-3 px-8 rounded-full text-sm font-semibold shadow-md hover:bg-[#2c1a63] transition-colors"
+              className="bg-[#38247b] text-white py-3 px-8 rounded-full text-sm font-semibold shadow-md hover:bg-[#2c1a63] transition-colors"
             >
               Done
             </button>

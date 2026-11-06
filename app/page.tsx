@@ -6,9 +6,10 @@ import HeroSection from "@/components/HeroSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
 import StatsBanner from "@/components/StatsBanner";
 import AboutSection from "@/components/AboutSection";
+import PatientJourneySection from "@/components/PatientJourneySection";
 import ClinicExperienceSection from "@/components/ClinicExperienceSection";
 import PatientStoriesSection from "@/components/PatientStoriesSection";
-import PatientJourneySection from "@/components/PatientJourneySection";
+import FaqSection from "@/components/FaqSection";
 import AppointmentCtaSection from "@/components/AppointmentCtaSection";
 import Footer from "@/components/Footer";
 import AppointmentModal from "@/components/AppointmentModal";
@@ -31,29 +32,32 @@ export default function Home() {
         {/* 2. Hero Section */}
         <HeroSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
 
-        {/* 3. Treatments Section (Directly under Hero as in Reference 1) */}
+        {/* 3. Treatments Section */}
         <TreatmentsSection onSelectTreatment={handleOpenBooking} />
 
-        {/* 4. Stats / Trust Bar (Between Treatments and About Us as in Reference 1) */}
+        {/* 4. Stats / Trust Bar */}
         <StatsBanner />
 
         {/* 5. About the Dentist (Dr. Gayatri) */}
         <AboutSection onOpenBooking={() => handleOpenBooking("Consultation")} />
 
-        {/* 6. Modern Clinic Experience ("Designed for Your Comfort") */}
-        <ClinicExperienceSection />
-
-        {/* 7. Patient Stories & Before/After */}
-        <PatientStoriesSection />
-
-        {/* 8. Patient Journey ("Simple Steps to a Healthier Smile") */}
+        {/* 6. Patient Journey (Moved above with styled background) */}
         <PatientJourneySection />
 
-        {/* 9. Appointment CTA ("Book Your Appointment Today") - No FAQ in Reference 1 */}
-        <AppointmentCtaSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
+        {/* 7. Modern Clinic Experience ("Designed for Your Comfort") */}
+        <ClinicExperienceSection />
+
+        {/* 8. Patient Stories & Before/After */}
+        <PatientStoriesSection />
+
+        {/* 9. FAQs Section */}
+        <FaqSection />
+
+        {/* 10. Appointment CTA Section with 3D Tooth Artwork & Multi-Layered Waves */}
+        <AppointmentCtaSection onOpenBooking={() => handleOpenBooking("Consultation")} />
       </main>
 
-      {/* 10. Complete Footer with Layered Waves & Interactive Map Card */}
+      {/* 11. Complete Footer with Dark Navy Background & Services/Links/Map */}
       <Footer />
 
       {/* Accessible Interactive Appointment Modal */}
