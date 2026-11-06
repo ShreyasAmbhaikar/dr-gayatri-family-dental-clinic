@@ -2,24 +2,23 @@
 
 @layer base {
   :root {
-    --primary-navy: #1f1a53;
-    --primary-indigo: #271f65;
-    --brand-purple: #3b2484;
-    --brand-purple-hover: #2e1a6c;
-    --accent-cyan: #00a4c4;
-    --accent-cyan-dark: #0087a3;
-    --accent-cyan-light: #e6f9fc;
-    --accent-cyan-glow: #c7f3fa;
-    --bg-soft-blue: #f2fbfd;
-    --card-border: #e2f2f7;
-    --footer-dark: #160f3e;
-    --footer-teal: #0d3d57;
+    --primary-purple: #1d174e;
+    --primary-indigo: #271a5f;
+    --brand-btn-purple: #38247b;
+    --brand-btn-purple-hover: #2a1a61;
+    --accent-cyan: #009eb8;
+    --accent-cyan-hover: #00879e;
+    --accent-cyan-light: #e5f8fb;
+    --accent-cyan-glow: #bceef6;
+    --bg-page-soft: #f7fcfd;
+    --footer-bg: #140d3a;
   }
 
   body {
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     color: #1e293b;
     background-color: #ffffff;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, .font-serif-heading {
@@ -31,69 +30,57 @@
   }
 }
 
-/* Custom Soft Wave Divider & Mask Utilities */
-.hero-mask {
-  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+/* Specific Organic Masks matching Reference 1 */
+.mask-hero-patient {
+  border-radius: 200px 200px 40px 40px;
 }
 
-.arch-mask {
-  border-radius: 180px 180px 40px 40px;
+.mask-doctor-card {
+  border-radius: 160px 160px 40px 40px;
 }
 
-.capsule-mask {
-  border-radius: 120px 120px 30px 30px;
+.mask-operatory {
+  border-radius: 120px 120px 40px 40px;
 }
 
-/* Floating animation for subtle realism */
-@keyframes floatGentle {
+/* Glassmorphism Badge */
+.glass-badge-ref {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 35px -5px rgba(0, 158, 184, 0.15), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Gentle floating animation */
+@keyframes floatSubtle {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
 }
 
-.animate-float {
-  animation: floatGentle 5s ease-in-out infinite;
+.animate-float-subtle {
+  animation: floatSubtle 4.5s ease-in-out infinite;
 }
 
-.animate-float-delayed {
-  animation: floatGentle 6s ease-in-out 2s infinite;
-}
-
-/* Glassmorphism Badge */
-.glass-badge {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 20px 35px -10px rgba(0, 164, 196, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.glass-badge-dark {
-  background: rgba(22, 15, 62, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Custom Scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f8fa;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a5e5f0;
-  border-radius: 5px;
+  background: #9fe5f1;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00a4c4;
+  background: #009eb8;
 }
 
-/* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

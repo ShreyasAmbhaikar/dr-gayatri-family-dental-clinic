@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import StatsBanner from "@/components/StatsBanner";
 import TreatmentsSection from "@/components/TreatmentsSection";
+import StatsBanner from "@/components/StatsBanner";
 import AboutSection from "@/components/AboutSection";
 import ClinicExperienceSection from "@/components/ClinicExperienceSection";
 import PatientStoriesSection from "@/components/PatientStoriesSection";
 import PatientJourneySection from "@/components/PatientJourneySection";
-import FaqSection from "@/components/FaqSection";
 import AppointmentCtaSection from "@/components/AppointmentCtaSection";
 import Footer from "@/components/Footer";
 import AppointmentModal from "@/components/AppointmentModal";
@@ -18,113 +17,43 @@ export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedTreatment, setSelectedTreatment] = useState("General Dentistry");
 
-  // GSAP scroll trigger subtle reveal
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    // Respect reduced-motion preferences
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    let ctx: any;
-    const initGsap = async () => {
-      try {
-        const { default: gsap } = await import("gsap");
-        const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-        gsap.registerPlugin(ScrollTrigger);
-
-        ctx = gsap.context(() => {
-          // Subtle fade up for sections
-          const animatedElements = document.querySelectorAll<HTMLElement>(".gsap-reveal");
-          animatedElements.forEach((el) => {
-            gsap.fromTo(
-              el,
-              { y: 30, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.75,
-                ease: "power2.out",
-                scrollTrigger: {
-                  trigger: el,
-                  start: "top 88%",
-                  toggleActions: "play none none reverse",
-                },
-              }
-            );
-          });
-        });
-      } catch (err) {
-        // Fallback gracefully if GSAP isn't available
-        console.warn("GSAP subtle animation deferred:", err);
-      }
-    };
-
-    initGsap();
-
-    return () => {
-      if (ctx) ctx.revert();
-    };
-  }, []);
-
   const handleOpenBooking = (treatmentName: string = "General Dentistry") => {
     setSelectedTreatment(treatmentName);
     setIsBookingOpen(true);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Sticky Navigation */}
+    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+      {/* 1. Header & Sticky Navbar */}
       <Navbar onOpenBooking={() => handleOpenBooking("General Dentistry")} />
 
-      {/* Main Page Flow Matching Reference Layout */}
       <main className="flex-grow">
-        {/* 1. Hero Section */}
+        {/* 2. Hero Section */}
         <HeroSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
 
-        {/* 2. Stats / Trust Bar */}
-        <div className="gsap-reveal">
-          <StatsBanner />
-        </div>
+        {/* 3. Treatments Section (Directly under Hero as in Reference 1) */}
+        <TreatmentsSection onSelectTreatment={handleOpenBooking} />
 
-        {/* 3. Treatments Section */}
-        <div className="gsap-reveal">
-          <TreatmentsSection onSelectTreatment={handleOpenBooking} />
-        </div>
+        {/* 4. Stats / Trust Bar (Between Treatments and About Us as in Reference 1) */}
+        <StatsBanner />
 
-        {/* 4. About the Dentist */}
-        <div className="gsap-reveal">
-          <AboutSection onOpenBooking={() => handleOpenBooking("Consultation")} />
-        </div>
+        {/* 5. About the Dentist (Dr. Gayatri) */}
+        <AboutSection onOpenBooking={() => handleOpenBooking("Consultation")} />
 
-        {/* 5. Modern Clinic Experience */}
-        <div className="gsap-reveal">
-          <ClinicExperienceSection />
-        </div>
+        {/* 6. Modern Clinic Experience ("Designed for Your Comfort") */}
+        <ClinicExperienceSection />
 
-        {/* 6. Patient Stories & Before/After */}
-        <div className="gsap-reveal">
-          <PatientStoriesSection />
-        </div>
+        {/* 7. Patient Stories & Before/After */}
+        <PatientStoriesSection />
 
-        {/* 7. Patient Journey */}
-        <div className="gsap-reveal">
-          <PatientJourneySection />
-        </div>
+        {/* 8. Patient Journey ("Simple Steps to a Healthier Smile") */}
+        <PatientJourneySection />
 
-        {/* 8. FAQs */}
-        <div className="gsap-reveal">
-          <FaqSection />
-        </div>
-
-        {/* 9. Appointment CTA Banner */}
-        <div className="gsap-reveal">
-          <AppointmentCtaSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
-        </div>
+        {/* 9. Appointment CTA ("Book Your Appointment Today") - No FAQ in Reference 1 */}
+        <AppointmentCtaSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
       </main>
 
-      {/* 10. Contact & Footer */}
+      {/* 10. Complete Footer with Layered Waves & Interactive Map Card */}
       <Footer />
 
       {/* Accessible Interactive Appointment Modal */}
