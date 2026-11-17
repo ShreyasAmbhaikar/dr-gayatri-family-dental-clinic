@@ -1,152 +1,241 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Menu, X, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowRight, Menu, X, Phone, ChevronDown, ChevronRight } from "lucide-react";
+import { LogoMark, RainbowBar } from "@/components/ui/icons";
+import { CATEGORY_ORDER, TREATMENTS, treatmentPath } from "@/lib/treatments/summary";
 
 interface NavbarProps {
   onOpenBooking: () => void;
 }
 
+// Every service, grouped by category, for the Treatments mega-menu and the mobile menu.
+const MENU_GROUPS = CATEGORY_ORDER.map((category) => ({
+  category,
+  items: TREATMENTS.filter((t) => t.category === category),
+})).filter((g) => g.items.length > 0);
+
+// Structured 3-column layout with balanced spacing between categories for desktop mega menu
+const MENU_COLUMNS = [
+  {
+    groups: [
+      { category: "Restorative", items: TREATMENTS.filter((t) => t.category === "Restorative") },
+      { category: "Orthodontic", items: TREATMENTS.filter((t) => t.category === "Orthodontic") },
+    ],
+  },
+  {
+    groups: [
+      { category: "Preventive", items: TREATMENTS.filter((t) => t.category === "Preventive") },
+      { category: "Surgical", items: TREATMENTS.filter((t) => t.category === "Surgical") },
+    ],
+  },
+  {
+    groups: [
+      { category: "Cosmetic", items: TREATMENTS.filter((t) => t.category === "Cosmetic") },
+      { category: "Pediatric", items: TREATMENTS.filter((t) => t.category === "Pediatric") },
+      { category: "Emergency", items: TREATMENTS.filter((t) => t.category === "Emergency") },
+    ],
+  },
+];
+
+// Three balanced columns for the desktop mega menu (each column lists its categories top to bottom).
+const MEGA_COLUMNS = [
+  ["Restorative"],
+  ["Preventive", "Orthodontic"],
+  ["Cosmetic", "Surgical", "Pediatric", "Emergency"],
+].map((cats) => cats.map((c) => MENU_GROUPS.find((g) => g.category === c)).filter((g): g is (typeof MENU_GROUPS)[number] => Boolean(g)));
+
 export default function Navbar({ onOpenBooking }: NavbarProps) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [treatmentsDropdownOpen, setTreatmentsDropdownOpen] = useState(false);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const isHomePage = pathname === "/" || pathname === "";
+  const isTreatmentsPage = Boolean(pathname?.startsWith("/treatments"));
+  const isAboutPage = Boolean(pathname?.startsWith("/about"));
+  const isGalleryPage = Boolean(pathname?.startsWith("/gallery"));
+  const isContactPage = Boolean(pathname?.startsWith("/contact"));
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Real, crawlable pages.
+  const navLinks = [
+    { href: "/", label: "Home", isActive: isHomePage },
+    { href: "/about", label: "About", isActive: isAboutPage },
+    { href: "/treatments", label: "Treatments", isActive: isTreatmentsPage, isDropdown: true },
+    { href: "/gallery", label: "Gallery", isActive: isGalleryPage },
+    { href: "/contact", label: "Contact", isActive: isContactPage },
+  ];
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setTreatmentsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setTreatmentsDropdownOpen(false);
+    }, 260);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-2.5 sm:py-3"
-          : "bg-white/90 backdrop-blur-xs py-3.5 sm:py-4"
+        scrolled || mobileMenuOpen
+          ? "bg-white/90 backdrop-blur-md shadow-[0_4px_20px_-10px_rgba(29,23,78,0.25)] py-2.5"
+          : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
-        {/* Brand Logo matching Reference Image 1 exactly */}
+      <div className="page-container flex items-center justify-between">
         <Link
-          href="#home"
-          className="flex items-center gap-3 group focus:outline-none"
+          href={isHomePage ? "#home" : "/"}
+          className="flex items-center gap-2.5 group focus:outline-none"
           aria-label="Dr. Gayatri's Family Dental Clinic Home"
         >
-          {/* Circular Navy Shield with Tooth & Cyan Medical Cross */}
-          <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
-            <svg
-              viewBox="0 0 48 48"
-              className="w-full h-full drop-shadow-xs"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Dark Navy Circular Badge */}
-              <circle cx="24" cy="24" r="23" fill="#1d174e" />
-
-              {/* White Stylized Tooth Silhouette */}
-              <path
-                d="M24 10 C18.2 10 14 13.5 14 19 C14 23.8 16.5 27.5 17.6 32.5 C18.2 35.2 19.6 37.8 21.2 37.8 C22.8 37.8 23.3 35.2 24 32.5 C24.7 35.2 25.2 37.8 26.8 37.8 C28.4 37.8 29.8 35.2 30.4 32.5 C31.5 27.5 34 23.8 34 19 C34 13.5 29.8 10 24 10 Z"
-                fill="white"
-              />
-
-              {/* Inner subtle vertical tooth cleft line */}
-              <path
-                d="M24 16 V24"
-                stroke="#1d174e"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                opacity="0.3"
-              />
-
-              {/* Vibrant Cyan Medical Cross Badge on Top-Left Shoulder */}
-              <circle cx="15.5" cy="15.5" r="6.5" fill="#00b4d8" stroke="#ffffff" strokeWidth="1.5" />
-              {/* Crisp White Cross */}
-              <path
-                d="M15.5 12 V19 M12 15.5 H19"
-                stroke="white"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-
-          {/* Clinic Name & Multi-Color Accent Stripe Underline */}
+          <LogoMark className="w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 transition-transform duration-200 group-hover:scale-105" />
           <div className="flex flex-col">
-            <span className="font-serif text-[19px] sm:text-[21px] font-bold tracking-tight text-[#1d174e] leading-tight">
+            <span className="font-serif text-[20px] sm:text-[22px] font-bold tracking-tight text-navy leading-none">
               Dr. Gayatri&apos;s
             </span>
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-[#1d174e] uppercase leading-tight mt-0.5">
+            <span className="text-[12px] sm:text-[13px] font-medium text-purple leading-tight mt-1">
               Family Dental Clinic
             </span>
-            {/* The 5-color accent bar directly under text matching Reference 1 */}
-            <div className="h-[2.5px] w-full max-w-[124px] rounded-full mt-1 bg-gradient-to-r from-[#f59e0b] via-[#ec4899] via-[#8b5cf6] via-[#00b4d8] to-[#10b981]" />
+            <RainbowBar className="w-full mt-1" />
           </div>
         </Link>
 
-        {/* Desktop Navigation Links with Active 'Home' Pill Indicator */}
-        <nav
-          className="hidden md:flex items-center gap-7 lg:gap-8 text-[13.5px] font-medium"
-          aria-label="Main Navigation"
-        >
-          {/* Active Home item */}
-          <Link
-            href="#home"
-            className="text-[#38247b] font-semibold relative py-1 flex flex-col items-center"
-          >
-            <span>Home</span>
-            <span className="w-5 h-[2.5px] bg-[#38247b] rounded-full mt-0.5" />
-          </Link>
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[13.5px] font-medium" aria-label="Main Navigation">
+          {navLinks.map((link) => {
+            if (link.isDropdown) {
+              return (
+                <div
+                  key={link.label}
+                  className=""
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link
+                    href={link.href}
+                    className={`relative py-1 flex items-center gap-1 transition-colors ${
+                      link.isActive ? "text-navy font-semibold" : "text-slate-600 hover:text-teal"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        treatmentsDropdownOpen ? "rotate-180 text-teal" : link.isActive ? "text-navy" : "text-slate-400"
+                      }`}
+                    />
+                    {link.isActive && (
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[120%] h-[2px] rounded-full bg-purple" />
+                    )}
+                  </Link>
 
-          <Link
-            href="#about"
-            className="text-slate-600 hover:text-[#009eb8] transition-colors py-1"
-          >
-            About
-          </Link>
-          <Link
-            href="#treatments"
-            className="text-slate-600 hover:text-[#009eb8] transition-colors py-1"
-          >
-            Treatments
-          </Link>
-          <Link
-            href="#patient-stories"
-            className="text-slate-600 hover:text-[#009eb8] transition-colors py-1"
-          >
-            Patient Stories
-          </Link>
-          <Link
-            href="#clinic"
-            className="text-slate-600 hover:text-[#009eb8] transition-colors py-1"
-          >
-            Gallery
-          </Link>
-          <Link
-            href="#contact"
-            className="text-slate-600 hover:text-[#009eb8] transition-colors py-1"
-          >
-            Contact
-          </Link>
+                  {/* Mega menu: every treatment, grouped by category */}
+                  {treatmentsDropdownOpen && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[min(960px,calc(100vw-2rem))] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="grid grid-cols-[250px_1fr] rounded-[24px] bg-white border border-slate-100 shadow-[0_28px_70px_-18px_rgba(29,23,78,0.35)] overflow-hidden">
+                        {/* Intro column */}
+                        <div className="flex flex-col p-7 bg-[linear-gradient(165deg,#e6f7fb_0%,#f3fbfd_70%,#ffffff_100%)] border-r border-slate-100">
+                          <span className="text-[11px] font-semibold tracking-[0.24em] text-teal uppercase mb-2">Treatments</span>
+                          <p className="font-serif font-bold text-navy text-[24px] leading-[1.15]">Complete care for the whole family</p>
+                          <p className="mt-3 text-[13px] leading-relaxed text-body">
+                            {TREATMENTS.length} treatments across {MENU_GROUPS.length} categories, all under one roof in Amanora Park Town.
+                          </p>
+                          <Link
+                            href="/treatments"
+                            onClick={() => setTreatmentsDropdownOpen(false)}
+                            className="btn-primary-grad mt-5 inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full h-11 px-4 text-white text-[12.5px] font-semibold hover:scale-[1.02] transition-transform"
+                          >
+                            Browse all treatments
+                            <ArrowRight className="w-4 h-4" />
+                          </Link>
+                          <div className="mt-auto pt-6">
+                            <p className="text-[11px] uppercase tracking-[0.16em] font-bold text-body/70">Dental emergency?</p>
+                            <a href="tel:+917841930325" className="mt-1 inline-flex items-center gap-2 text-[14px] font-bold text-navy hover:text-teal transition-colors">
+                              <Phone className="w-4 h-4 text-teal" />
+                              +91 78419 30325
+                            </a>
+                          </div>
+                        </div>
+
+                        {/* Category columns */}
+                        <div className="grid grid-cols-3 gap-x-7 p-7">
+                          {MEGA_COLUMNS.map((col, i) => (
+                            <div key={i} className="flex flex-col gap-6">
+                              {col.map((g) => (
+                                <div key={g.category}>
+                                  <p className="flex items-center gap-2 pb-2 mb-1.5 border-b border-slate-100 text-[11px] font-bold uppercase tracking-[0.16em] text-teal">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-teal" aria-hidden="true" />
+                                    {g.category}
+                                  </p>
+                                  <ul>
+                                    {g.items.map((t) => (
+                                      <li key={t.slug}>
+                                        <Link
+                                          href={treatmentPath(t.slug)}
+                                          onClick={() => setTreatmentsDropdownOpen(false)}
+                                          className="group/item flex items-center justify-between gap-2 rounded-lg px-2.5 py-[7px] -mx-2.5 text-[13.5px] font-medium text-slate-700 hover:bg-cyan-50 hover:text-teal transition-colors"
+                                        >
+                                          <span>{t.name}</span>
+                                          <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`relative py-1 transition-colors ${
+                  link.isActive ? "text-navy font-semibold" : "text-slate-600 hover:text-teal"
+                }`}
+              >
+                {link.label}
+                {link.isActive && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[130%] h-[2px] rounded-full bg-purple" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Header Action Button - Royal Purple Pill */}
         <div className="hidden sm:flex items-center">
           <button
+            type="button"
             onClick={onOpenBooking}
-            className="group inline-flex items-center gap-2 bg-[#38247b] hover:bg-[#2c1a63] text-white text-[13px] font-semibold px-5 sm:px-6 py-2.5 rounded-full shadow-md shadow-indigo-950/20 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+            className="group btn-primary-grad inline-flex items-center gap-2 text-white text-[13px] font-semibold px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             <span>Book Appointment</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
+          type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-700 hover:text-cyan-600 focus:outline-none"
+          className="md:hidden p-2 rounded-lg text-slate-700 hover:text-teal focus:outline-none"
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle navigation menu"
         >
@@ -154,70 +243,64 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-100 px-5 pt-3 pb-6 shadow-xl transition-all">
+        <div className="md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-100 px-5 pt-3 pb-6 shadow-xl max-h-[calc(100vh-70px)] overflow-y-auto">
           <nav className="flex flex-col gap-3.5 text-base font-medium text-slate-700">
-            <Link
-              href="#home"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 text-[#38247b] font-semibold"
-            >
-              Home
-            </Link>
-            <Link
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#009eb8]"
-            >
-              About
-            </Link>
-            <Link
-              href="#treatments"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#009eb8]"
-            >
-              Treatments
-            </Link>
-            <Link
-              href="#patient-stories"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#009eb8]"
-            >
-              Patient Stories
-            </Link>
-            <Link
-              href="#clinic"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#009eb8]"
-            >
-              Gallery
-            </Link>
-            <Link
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1.5 hover:text-[#009eb8]"
-            >
-              Contact
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-1.5 ${link.isActive ? "text-purple font-semibold" : "hover:text-teal"}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pl-3 border-l-2 border-teal/40 mt-1 space-y-4">
+              {MENU_GROUPS.map((g) => (
+                <div key={g.category}>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-coral mb-1.5">{g.category}</p>
+                  <div className="grid gap-1.5">
+                    {g.items.map((t) => (
+                      <Link
+                        key={t.slug}
+                        href={treatmentPath(t.slug)}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block text-sm font-semibold text-teal"
+                      >
+                        {t.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <Link
+                href="/treatments"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-sm font-bold text-navy"
+              >
+                View all treatments →
+              </Link>
+            </div>
           </nav>
 
           <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2.5">
             <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#38247b] text-white py-3 rounded-full font-semibold text-sm shadow-md"
+              className="btn-primary-grad w-full inline-flex items-center justify-center gap-2 text-white py-3 rounded-full font-semibold text-sm"
             >
               <span>Book Appointment</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <a
-              href="tel:+919876543210"
+              href="tel:+917841930325"
               className="w-full inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 py-2.5 rounded-full font-medium text-sm hover:bg-slate-50"
             >
-              <Phone className="w-4 h-4 text-[#009eb8]" />
+              <Phone className="w-4 h-4 text-teal" />
               <span>Call Now</span>
             </a>
           </div>

@@ -1,114 +1,72 @@
 "use client";
 
 import React from "react";
-import { Trophy, Star, Users, ShieldCheck } from "lucide-react";
+import { Trophy, Star } from "lucide-react";
+import { ShieldCheckFilledIcon, UsersFilledIcon } from "@/components/ui/icons";
+
+const STATS = [
+  {
+    icon: <Trophy className="w-10 h-10 text-teal stroke-[2.2]" />,
+    value: "10+",
+    label: "Years of Care",
+    note: "Trusted by families in Hadapsar",
+  },
+  {
+    icon: <Star className="w-10 h-10 fill-amber-400 stroke-amber-500 stroke-[1.2] drop-shadow-[0_3px_6px_rgba(245,158,11,0.35)]" />,
+    value: "4.9/5",
+    label: "Patient Rating",
+    note: "Based on 200+ Google reviews",
+  },
+  {
+    icon: <UsersFilledIcon className="w-11 h-10 text-teal-bright" />,
+    value: "1000+",
+    label: "Happy Smiles",
+    note: "Across all age groups",
+  },
+  {
+    icon: <ShieldCheckFilledIcon className="w-9 h-10 text-teal-bright" />,
+    value: null,
+    label: "Patient-First Approach",
+    note: "Safe, hygienic & compassionate care",
+  },
+];
 
 export default function StatsBanner() {
   return (
-    <section className="pt-6 pb-8 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 bg-gradient-to-b from-[#f3f9fc] via-[#eaf7fa] to-[#f4fafc] relative overflow-hidden">
-      {/* Decorative Organic Wave Layers in Background */}
-      <div className="absolute top-0 left-0 w-96 h-48 pointer-events-none -z-0 overflow-hidden opacity-70">
-        <svg
-          viewBox="0 0 380 180"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 0 C110 50, 220 20, 380 120 L380 0 L0 0 Z"
-            fill="#d2f2fa"
-          />
+    <section aria-label="Clinic highlights" className="relative pb-16 sm:pb-32">
+      {/* Aqua band: flat top (matches the treatments wave), wavy bottom */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <svg viewBox="0 0 1440 300" preserveAspectRatio="none" className="w-full h-full block">
+          <defs>
+            <linearGradient id="statsBand" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#d6f1f7" />
+              <stop offset="100%" stopColor="#e9f7fb" />
+            </linearGradient>
+          </defs>
+          <path d="M0,0 L1440,0 L1440,232 C1220,272 940,214 660,246 C400,276 180,236 0,256 Z" fill="url(#statsBand)" />
+          <path d="M0,232 C180,212 400,252 660,224 C940,194 1220,250 1440,212 L1440,232 C1220,272 940,214 660,246 C400,276 180,236 0,256 Z" fill="#ffffff" opacity="0.6" />
         </svg>
       </div>
 
-      <div className="absolute top-0 right-0 w-80 h-44 pointer-events-none -z-0 overflow-hidden opacity-50">
-        <svg
-          viewBox="0 0 320 160"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M320 0 C220 40, 140 10, 0 80 L0 0 L320 0 Z"
-            fill="#d8f4fa"
-          />
-        </svg>
-      </div>
-
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        {/* White Floating Pill Card matching Reference Image */}
-        <div className="bg-white rounded-[26px] sm:rounded-[36px] py-6 sm:py-7 px-6 sm:px-10 border border-[#e2f1f6] shadow-[0_8px_32px_rgba(0,120,180,0.06)] hover:shadow-[0_12px_40px_rgba(0,120,180,0.09)] transition-shadow duration-300">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-0 lg:divide-x divide-slate-100">
-            {/* Stat 1: 10+ Years of Care */}
-            <div className="flex items-center gap-4 lg:px-6 xl:px-8">
-              <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center text-[#009eb8]">
-                <Trophy className="w-9 h-9 stroke-[1.8]" />
-              </div>
-              <div className="flex flex-col">
-                <div className="font-serif text-[26px] sm:text-[28px] font-extrabold text-[#1d174e] leading-none mb-1">
-                  10+
-                </div>
-                <div className="text-[12.5px] font-bold text-[#1d174e] leading-tight">
-                  Years of Care
-                </div>
-                <div className="text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
-                  Trusted by families in Viman Nagar
+      <div className="page-container relative z-10">
+        <div className="glass-card rounded-[26px] sm:rounded-[30px] py-6 sm:py-7 px-6 sm:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200/80">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="flex items-center gap-4 lg:justify-center lg:px-5 xl:px-8">
+                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center">{stat.icon}</div>
+                <div className="flex flex-col">
+                  {stat.value && (
+                    <span className="font-serif text-[30px] sm:text-[32px] font-bold text-navy leading-none mb-1.5">
+                      {stat.value}
+                    </span>
+                  )}
+                  <span className={`font-bold text-navy leading-tight ${stat.value ? "text-[14px]" : "text-[16px] max-w-[130px]"}`}>
+                    {stat.label}
+                  </span>
+                  <span className="text-[12px] text-body leading-snug mt-1 max-w-[160px]">{stat.note}</span>
                 </div>
               </div>
-            </div>
-
-            {/* Stat 2: 4.9/5 Patient Rating */}
-            <div className="flex items-center gap-4 lg:px-6 xl:px-8">
-              <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center text-amber-400">
-                <Star className="w-9 h-9 fill-amber-400 stroke-amber-400" />
-              </div>
-              <div className="flex flex-col">
-                <div className="font-serif text-[26px] sm:text-[28px] font-extrabold text-[#1d174e] leading-none mb-1">
-                  4.9/5
-                </div>
-                <div className="text-[12.5px] font-bold text-[#1d174e] leading-tight">
-                  Patient Rating
-                </div>
-                <div className="text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
-                  Based on 200+ Google reviews
-                </div>
-              </div>
-            </div>
-
-            {/* Stat 3: 1000+ Happy Smiles */}
-            <div className="flex items-center gap-4 lg:px-6 xl:px-8">
-              <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center text-[#009eb8]">
-                <Users className="w-9 h-9 stroke-[1.8]" />
-              </div>
-              <div className="flex flex-col">
-                <div className="font-serif text-[26px] sm:text-[28px] font-extrabold text-[#1d174e] leading-none mb-1">
-                  1000+
-                </div>
-                <div className="text-[12.5px] font-bold text-[#1d174e] leading-tight">
-                  Happy Smiles
-                </div>
-                <div className="text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
-                  Across all age groups
-                </div>
-              </div>
-            </div>
-
-            {/* Stat 4: Patient-First Approach */}
-            <div className="flex items-center gap-4 lg:px-6 xl:px-8">
-              <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center text-[#009eb8]">
-                <ShieldCheck className="w-9 h-9 stroke-[1.8]" />
-              </div>
-              <div className="flex flex-col">
-                <div className="text-[13.5px] font-bold text-[#1d174e] leading-tight mb-0.5">
-                  Patient-First <br className="hidden sm:inline" /> Approach
-                </div>
-                <div className="text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
-                  Safe, hygienic &amp; compassionate care
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

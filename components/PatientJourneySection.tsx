@@ -1,133 +1,117 @@
 "use client";
 
 import React from "react";
-import { Calendar, UserCheck, ClipboardList } from "lucide-react";
-
-// Clean custom vector tooth icon for Step 4
-function ToothIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M7 3C4.24 3 2 5.24 2 8c0 4.42 2.5 7.5 3.5 11 .5 1.75 2 2 3.5 2 1.3 0 2.2-.8 3-2 .8 1.2 1.7 2 3 2 1.5 0 3-.25 3.5-2 1-3.5 3.5-6.58 3.5-11 0-2.76-2.24-5-5-5-2.2 0-3.5 1.5-4.5 3-1-1.5-2.3-3-4.5-3z" />
-    </svg>
-  );
-}
+import { CalendarDays, Stethoscope, ClipboardList } from "lucide-react";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { ToothIcon } from "@/components/ui/icons";
 
 const JOURNEY_STEPS = [
   {
     number: "01",
     title: "Book Appointment",
-    description: "Choose a convenient time for your visit.",
-    icon: Calendar,
+    description: "Choose a convenient time online or by calling our friendly desk.",
+    icon: CalendarDays,
+    gradient: "from-[#38bdf8] via-[#22d3ee] to-[#06b6d4]",
+    halo: "rgba(34, 211, 238, 0.35)",
+    badgeBg: "bg-gradient-to-r from-[#0284c7] to-[#06b6d4] text-white",
   },
   {
     number: "02",
     title: "Consultation",
-    description: "We understand your needs and examine your oral health.",
-    icon: UserCheck,
+    description: "We understand your concerns with digital oral screening.",
+    icon: Stethoscope,
+    gradient: "from-[#a78bfa] via-[#818cf8] to-[#6366f1]",
+    halo: "rgba(167, 139, 250, 0.35)",
+    badgeBg: "bg-gradient-to-r from-[#7c3aed] to-[#6366f1] text-white",
   },
   {
     number: "03",
     title: "Treatment Plan",
-    description: "Get a personalized plan tailored to your smile goals.",
+    description: "Get a clear, transparent roadmap tailored to your comfort.",
     icon: ClipboardList,
+    gradient: "from-[#f472b6] via-[#fb7185] to-[#f87171]",
+    halo: "rgba(251, 113, 133, 0.35)",
+    badgeBg: "bg-gradient-to-r from-[#e11d48] to-[#f43f5e] text-white",
   },
   {
     number: "04",
     title: "Enjoy Your Smile",
-    description: "Experience gentle, effective care and lasting results.",
+    description: "Experience gentle care and long-lasting dental confidence.",
     icon: ToothIcon,
+    gradient: "from-[#34d399] via-[#2dd4bf] to-[#14b8a6]",
+    halo: "rgba(45, 212, 191, 0.35)",
+    badgeBg: "bg-gradient-to-r from-[#059669] to-[#0d9488] text-white",
   },
 ];
 
 export default function PatientJourneySection() {
   return (
-    <section id="journey" className="py-14 sm:py-16 lg:py-20 bg-gradient-to-b from-[#eaf6f9] via-[#f2fafc] to-[#e8f5f8] border-y border-[#d8eef3] relative overflow-hidden">
-      {/* Decorative Background Waves */}
-      <div className="absolute top-0 right-0 w-80 h-40 pointer-events-none -z-0 opacity-40">
-        <svg viewBox="0 0 320 160" fill="none" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M0 0 C120 40, 220 20, 320 80 L320 0 L0 0 Z" fill="#bcebf5" />
-        </svg>
-      </div>
+    <section id="journey" className="relative scroll-mt-20 pt-12 pb-28 sm:pt-16 sm:pb-32">
+      <div className="page-container relative z-10">
+        <SectionHeading
+          eyebrow="Your Smile Journey"
+          align="center"
+          titleClassName="text-[26px] sm:text-[32px] lg:text-[34px]"
+          title="Simple Steps to a Healthier Smile"
+          className="mb-14 sm:mb-16"
+        />
 
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        {/* Centered Section Header */}
-        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
-          <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-[#009eb8] uppercase block mb-2.5">
-            YOUR SMILE JOURNEY
-          </span>
-          <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] leading-tight font-bold text-[#1d174e] mb-3">
-            Simple Steps to a Healthier Smile
-          </h2>
-          {/* 3-segment color accent bar */}
-          <div className="h-[3.5px] w-14 rounded-full mx-auto mb-2 flex overflow-hidden">
-            <div className="w-1/3 bg-[#38247b]" />
-            <div className="w-1/3 bg-[#f43f5e]" />
-            <div className="w-1/3 bg-[#00b4d8]" />
-          </div>
-        </div>
-
-        {/* 4 Steps Flow with Smooth Curved Dotted Connecting Wave */}
         <div className="relative">
-          {/* Gentle Curved Dotted Wave Line behind circles on Desktop */}
-          <div className="hidden lg:block absolute top-9 left-[10%] right-[10%] h-12 pointer-events-none -z-0">
-            <svg
-              viewBox="0 0 1000 60"
+          {/* Dashed sine-wave connector through the circle centres */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1000 80"
+            preserveAspectRatio="none"
+            className="hidden lg:block absolute top-[12px] left-[12.5%] right-[12.5%] w-[75%] h-[80px] pointer-events-none"
+          >
+            <path
+              d="M0,40 C55,8 110,72 166,40 S277,8 333,40 S444,72 500,40 S611,8 666,40 S777,72 833,40 S944,8 1000,40"
+              stroke="#0e9aa7"
+              strokeWidth="2"
+              strokeDasharray="4 6"
+              strokeLinecap="round"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M50 30 Q170 5 290 30 T530 30 T770 30 T950 30"
-                stroke="#9ce1ef"
-                strokeWidth="1.5"
-                strokeDasharray="4 5"
-                fill="none"
-              />
-            </svg>
-          </div>
+              opacity="0.4"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 relative z-10">
-            {JOURNEY_STEPS.map((step, idx) => {
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 relative">
+            {JOURNEY_STEPS.map((step) => {
               const Icon = step.icon;
               return (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center text-center group"
-                >
-                  {/* Step Icon in Cyan Glow Halo Circle (Vector SVG, Not Screenshot) */}
-                  <div className="w-18 h-18 sm:w-[76px] sm:h-[76px] rounded-full bg-gradient-to-tr from-[#dff7fc] via-[#ebfbfc] to-white border-2 border-[#b2eaf5] shadow-md shadow-cyan-900/10 flex items-center justify-center transition-all duration-300 group-hover:scale-108 group-hover:border-[#009eb8]">
-                    <div className="w-12 h-12 rounded-full bg-white shadow-2xs flex items-center justify-center text-[#009eb8] group-hover:text-[#38247b] transition-colors">
-                      <Icon className="w-6 h-6 stroke-[2]" />
+                <li key={step.number} className="flex flex-col items-center text-center group">
+                  {/* Distinct, colorful circle that never blends into background */}
+                  <div className="relative mb-6">
+                    {/* Glowing outer soft ring */}
+                    <div
+                      className="w-[96px] h-[96px] rounded-full flex items-center justify-center p-2 transition-transform duration-300 group-hover:scale-105"
+                      style={{
+                        background: `radial-gradient(circle, ${step.halo} 0%, transparent 72%)`,
+                      }}
+                    >
+                      {/* Vibrant Gradient Circle with thick white border */}
+                      <div
+                        className={`w-[78px] h-[78px] rounded-full bg-gradient-to-br ${step.gradient} border-4 border-white shadow-[0_12px_24px_-6px_rgba(0,0,0,0.25)] flex items-center justify-center text-white`}
+                      >
+                        <Icon className="w-8 h-8 stroke-[2.2]" />
+                      </div>
                     </div>
+
+                    {/* Step Number Badge - single line guarantee */}
+                    <span
+                      className={`absolute -bottom-2 left-1/2 -translate-x-1/2 ${step.badgeBg} text-[11px] font-bold tracking-wider px-3.5 py-0.5 rounded-full shadow-md border-2 border-white uppercase whitespace-nowrap inline-flex items-center justify-center min-w-[76px]`}
+                    >
+                      Step {step.number}
+                    </span>
                   </div>
 
-                  {/* Step Number in Bold Navy Text below Circle matching Reference */}
-                  <div className="text-[13px] sm:text-[14px] font-bold text-[#1d174e] mt-3.5 mb-1 tracking-wide">
-                    {step.number}
-                  </div>
-
-                  {/* Title in Bold Sans-serif Navy */}
-                  <h3 className="font-sans text-[14.5px] sm:text-[15px] font-bold text-[#1d174e] mb-1.5 group-hover:text-[#009eb8] transition-colors">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[#64748b] text-[11px] sm:text-[11.5px] leading-relaxed max-w-[195px] font-normal">
-                    {step.description}
-                  </p>
-                </div>
+                  <h3 className="font-sans text-[16px] font-bold text-navy mt-1 mb-1.5">{step.title}</h3>
+                  <p className="text-body text-[13px] leading-relaxed max-w-[210px]">{step.description}</p>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

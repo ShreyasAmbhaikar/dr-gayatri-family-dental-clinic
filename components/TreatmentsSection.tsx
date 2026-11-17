@@ -2,7 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Calendar } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Calendar, ExternalLink } from "lucide-react";
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 interface TreatmentsSectionProps {
   onSelectTreatment: (treatmentName: string) => void;
@@ -27,7 +30,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Comprehensive dental examinations, digital diagnostic radiographs, ultrasonic plaque scaling, and tooth-colored composite restorations designed to prevent oral complications.",
     benefits: [
       "Digital cavity and plaque assessment",
-      "Painless ultrasonic cleaning & polishing",
+      "Gentle ultrasonic cleaning & polishing",
       "Fluoride varnish & preventive remineralization",
       "Custom oral hygiene regimen",
     ],
@@ -39,9 +42,9 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Root Canal Treatment",
     description: "Relieve pain and save your natural tooth",
     longDescription:
-      "State-of-the-art painless single-sitting root canal treatment utilizing rotary endodontic files, apex locators, and bio-ceramic sealers to eliminate infection while conserving original tooth structure.",
+      "Gentle, modern root canal treatment utilizing rotary endodontic files, apex locators, and bio-ceramic sealers to eliminate infection while conserving original tooth structure.",
     benefits: [
-      "100% painless procedure with gentle anesthesia",
+      "Comfortable procedure under local anaesthesia",
       "Single-visit completion in most cases",
       "Preserves natural jawbone & tooth structure",
       "High-precision computerized apex localization",
@@ -111,108 +114,90 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
   },
 ];
 
+// Each homepage treatment card links to its dedicated, SEO-optimised page.
+const PAGE_FOR: Record<string, string> = {
+  "root-canal": "/treatments/root-canal-treatment",
+  "general-dentistry": "/treatments/dental-checkup",
+  "dental-implants": "/treatments/dental-implants",
+  "pediatric-dentistry": "/treatments/kids-dentistry",
+  "teeth-whitening": "/treatments/teeth-whitening",
+  "braces-aligners": "/treatments/braces",
+};
+
 export default function TreatmentsSection({ onSelectTreatment }: TreatmentsSectionProps) {
   const [selectedModalTreatment, setSelectedModalTreatment] = useState<TreatmentItem | null>(null);
 
   return (
-    <section id="treatments" className="py-14 sm:py-16 lg:py-20 bg-gradient-to-b from-[#f3f9fc] via-[#f7fcfe] to-white relative overflow-hidden">
-      {/* Soft Fluid Aqua Wave at Bottom-Left matching Reference Image */}
-      <div className="absolute bottom-0 left-0 w-72 sm:w-96 h-36 pointer-events-none z-0 overflow-hidden">
-        <svg
-          viewBox="0 0 380 160"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover object-bottom"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 160 C80 110, 180 135, 380 50 L380 160 L0 160 Z"
-            fill="#d2f2fa"
-            opacity="0.85"
-          />
-          <path
-            d="M0 160 C60 130, 140 140, 300 80 L300 160 L0 160 Z"
-            fill="#9dd7eb"
-            opacity="0.5"
-          />
+    <section id="treatments" className="relative pt-10 sm:pt-14 lg:pt-16 pb-28 sm:pb-36 lg:pb-40">
+      {/* Aqua wave rising from the bottom-left; its bottom colour continues into the stats band */}
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[180px] sm:h-[240px] pointer-events-none">
+        <svg viewBox="0 0 1440 240" preserveAspectRatio="none" className="w-full h-full block">
+          <defs>
+            <linearGradient id="treatmentsWave" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#e6f7fb" />
+              <stop offset="100%" stopColor="#d6f1f7" />
+            </linearGradient>
+          </defs>
+          <path d="M0,30 C200,50 360,160 660,178 C940,196 1200,150 1440,118 L1440,240 L0,240 Z" fill="url(#treatmentsWave)" />
+          <path d="M0,92 C240,120 470,200 800,204 C1080,208 1260,170 1440,150 L1440,170 C1260,190 1080,226 800,222 C470,218 240,140 0,112 Z" fill="#ffffff" opacity="0.55" />
         </svg>
       </div>
 
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        {/* Split 2-Column Section Layout Matching Reference Image Exactly */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-start">
-          {/* Left Column: Section Title, Accent Bar, Intro & Action Button */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-start pt-2">
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-[#009eb8] uppercase block mb-3">
-              OUR TREATMENTS
-            </span>
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.12] font-bold text-[#1d174e] mb-4">
-              Complete Dental Care <br />
-              <span className="text-[#1d174e]">Under One Roof</span>
-            </h2>
+      <div className="page-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-start">
+          <div className="lg:col-span-5 flex flex-col items-start">
+            <SectionHeading
+              eyebrow="Our Treatments"
+              accent
+              titleClassName="text-[30px] sm:text-[38px] lg:text-[38px] xl:text-[42px]"
+              title={
+                <>
+                  Complete Dental Care <br />
+                  Under One Roof
+                </>
+              }
+            />
 
-            {/* 3-segment color accent bar matching Reference Image exactly */}
-            <div className="h-[3px] w-14 rounded-full mb-5 flex overflow-hidden">
-              <div className="w-1/3 bg-[#38247b]" />
-              <div className="w-1/3 bg-[#f43f5e]" />
-              <div className="w-1/3 bg-[#00b4d8]" />
-            </div>
-
-            <p className="text-[#556070] text-[13.5px] sm:text-[14.5px] leading-relaxed mb-7 max-w-[340px] font-normal">
+            <p className="text-body text-[14.5px] sm:text-[15.5px] leading-relaxed mt-5 mb-8 max-w-[470px]">
               From preventive care to advanced treatments, we offer personalized solutions for every member of your family.
             </p>
 
-            {/* Pill CTA button matching Reference Image */}
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 border-[1.5px] border-[#38247b] hover:bg-[#38247b] text-[#38247b] hover:text-white text-[13px] font-semibold px-6 py-2.5 rounded-full transition-all duration-200 shadow-2xs hover:shadow-md"
-            >
-              <span>View All Treatments</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </a>
+            <Button href="/treatments" variant="outline" size="sm" arrow className="px-6">
+              View All Treatments
+            </Button>
           </div>
 
-          {/* Right Column: 3x2 Grid of 6 Treatment Cards with 3D Graphical Assets */}
-          <div className="lg:col-span-7 xl:col-span-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+          <div className="lg:col-span-7 pt-2 lg:pt-9 xl:pt-11">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               {TREATMENTS_DATA.map((treatment) => (
-                <div
+                <button
+                  type="button"
                   key={treatment.id}
                   onClick={() => setSelectedModalTreatment(treatment)}
-                  className="group relative bg-white rounded-[22px] p-4 sm:p-4.5 border border-[#e8f3f6] hover:border-cyan-300 shadow-[0_4px_18px_rgba(0,100,150,0.04)] hover:shadow-lg hover:shadow-cyan-900/10 transition-all duration-200 flex flex-col justify-between cursor-pointer hover:-translate-y-1"
+                  aria-label={`${treatment.title}: view details`}
+                  className="group relative glass-card rounded-[20px] px-3 sm:px-4 pt-4 pb-5 text-center flex flex-col items-center cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_36px_-14px_rgba(14,110,150,0.35)]"
                 >
-                  <div className="flex flex-col items-center text-center">
-                    {/* Authentic 3D Graphical Master Asset matching User Attachment exactly */}
-                    <div className="w-24 h-24 sm:w-[100px] sm:h-[100px] mb-3 relative flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
-                      <Image
-                        src={treatment.image}
-                        alt={treatment.title}
-                        width={100}
-                        height={100}
-                        className="object-contain drop-shadow-[0_4px_16px_rgba(0,180,216,0.2)]"
-                        priority
-                        unoptimized
-                      />
-                    </div>
-
-                    {/* Title in sans-serif matching Reference Image exactly */}
-                    <h3 className="font-sans text-[14px] sm:text-[14.5px] font-bold text-[#1d174e] leading-snug mb-1 group-hover:text-[#009eb8] transition-colors">
-                      {treatment.title}
-                    </h3>
-
-                    {/* Subtitle / Description */}
-                    <p className="text-[#64748b] text-[11px] sm:text-[11.5px] leading-snug mb-3 max-w-[155px]">
-                      {treatment.description}
-                    </p>
+                  <div className="w-[84px] h-[84px] sm:w-[96px] sm:h-[96px] mb-2 relative transition-transform duration-200 group-hover:scale-105">
+                    <Image
+                      src={treatment.image}
+                      alt=""
+                      fill
+                      sizes="96px"
+                      className="object-contain drop-shadow-[0_6px_14px_rgba(14,154,167,0.18)]"
+                    />
                   </div>
 
-                  {/* Circular Cyan Arrow Button on Bottom Right matching Reference Image */}
-                  <div className="flex justify-end mt-auto pt-0.5">
-                    <div className="w-[22px] h-[22px] rounded-full bg-[#009eb8] group-hover:bg-[#38247b] text-white flex items-center justify-center transition-colors shadow-2xs">
-                      <ArrowRight className="w-2.5 h-2.5 stroke-[2.5] transition-transform group-hover:translate-x-0.5" />
-                    </div>
-                  </div>
-                </div>
+                  <h3 className="font-sans text-[13.5px] sm:text-[14.5px] font-bold text-navy leading-snug mb-1 group-hover:text-teal transition-colors">
+                    {treatment.title}
+                  </h3>
+                  <p className="text-body text-[11.5px] sm:text-[12px] leading-snug max-w-[150px] pr-4 sm:pr-0">
+                    {treatment.description}
+                  </p>
+
+                  <span className="absolute bottom-3.5 right-3.5 w-[22px] h-[22px] rounded-full bg-teal group-hover:bg-purple text-white flex items-center justify-center transition-colors">
+                    <ArrowRight className="w-3 h-3 stroke-[2.5]" />
+                  </span>
+                </button>
               ))}
             </div>
           </div>
@@ -285,17 +270,28 @@ export default function TreatmentsSection({ onSelectTreatment }: TreatmentsSecti
                   setSelectedModalTreatment(null);
                   onSelectTreatment(name);
                 }}
-                className="flex-1 bg-[#38247b] hover:bg-[#2c1a63] text-white font-semibold py-2.5 px-5 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md"
+                className="flex-1 bg-[#38247b] hover:bg-[#2c1a63] text-white font-semibold py-2.5 px-5 rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book This Treatment</span>
               </button>
-              <button
-                onClick={() => setSelectedModalTreatment(null)}
-                className="px-5 py-2.5 border border-slate-200 hover:bg-slate-50 rounded-full text-slate-700 text-xs sm:text-sm font-medium"
-              >
-                Close
-              </button>
+              {PAGE_FOR[selectedModalTreatment.id] ? (
+                <Link
+                  href={PAGE_FOR[selectedModalTreatment.id]}
+                  onClick={() => setSelectedModalTreatment(null)}
+                  className="px-5 py-2.5 border border-teal text-teal hover:bg-cyan-50 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Dedicated Page</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </Link>
+              ) : (
+                <button
+                  onClick={() => setSelectedModalTreatment(null)}
+                  className="px-5 py-2.5 border border-slate-200 hover:bg-slate-50 rounded-full text-slate-700 text-xs sm:text-sm font-medium cursor-pointer"
+                >
+                  Close
+                </button>
+              )}
             </div>
           </div>
         </div>

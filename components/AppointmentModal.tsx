@@ -1,5 +1,7 @@
 "use client";
 
+import { TREATMENTS } from "@/lib/treatments/summary";
+
 import React, { useState, useEffect } from "react";
 import {
   X,
@@ -100,7 +102,7 @@ export default function AppointmentModal({
                 Book Your Consultation
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Fast, painless, and gentle dental appointments in Viman Nagar, Pune.
+                Gentle, unhurried dental appointments in Hadapsar, Pune.
               </p>
             </div>
 
@@ -118,12 +120,17 @@ export default function AppointmentModal({
                   required
                 >
                   <option value="General Dentistry">General Dentistry &amp; Routine Checkup</option>
-                  <option value="Root Canal Treatment">Painless Root Canal Treatment</option>
+                  <option value="Root Canal Treatment">Root Canal Treatment</option>
                   <option value="Dental Implants">Dental Implants &amp; Crowns</option>
-                  <option value="Teeth Whitening">Laser Teeth Whitening</option>
+                  <option value="Teeth Whitening">Teeth Whitening</option>
                   <option value="Pediatric Dentistry">Pediatric / Child Dental Care</option>
                   <option value="Braces & Aligners">Orthodontic Braces &amp; Clear Aligners</option>
                   <option value="Emergency Dental Pain">Urgent / Emergency Consultation</option>
+                  {TREATMENTS.filter((t) => !t.bookingValue).map((t) => (
+                    <option key={t.slug} value={t.name}>
+                      {t.name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -214,12 +221,12 @@ export default function AppointmentModal({
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 text-sm text-slate-800 bg-white"
                   >
-                    <option value="10:00 AM">10:00 AM (Morning)</option>
-                    <option value="11:30 AM">11:30 AM (Morning)</option>
-                    <option value="01:00 PM">01:00 PM (Afternoon)</option>
-                    <option value="03:30 PM">03:30 PM (Afternoon)</option>
-                    <option value="05:30 PM">05:30 PM (Evening)</option>
+                    <option value="11:00 AM">11:00 AM (Morning)</option>
+                    <option value="12:30 PM">12:30 PM (Afternoon)</option>
+                    <option value="06:00 PM">06:00 PM (Evening)</option>
                     <option value="07:00 PM">07:00 PM (Evening)</option>
+                    <option value="08:00 PM">08:00 PM (Evening)</option>
+                    <option value="08:30 PM">08:30 PM (Evening)</option>
                   </select>
                 </div>
               </div>

@@ -1,50 +1,25 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { SITE, absoluteUrl } from "@/lib/site";
+import { TREATMENTS, treatmentPath } from "@/lib/treatments/summary";
 
+/**
+ * Lists only real, indexable pages (no #fragment URLs, which search engines ignore).
+ * New treatment pages are picked up automatically from lib/treatments/summary.ts.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://drgayatridental.com";
+  const lastModified = new Date(SITE.contentUpdated);
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+    { url: absoluteUrl("/"), lastModified, changeFrequency: "weekly", priority: 1 },
+    { url: absoluteUrl("/treatments"), lastModified, changeFrequency: "weekly", priority: 0.9 },
+    ...TREATMENTS.map((t) => ({
+      url: absoluteUrl(treatmentPath(t.slug)),
+      lastModified,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#treatments`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#clinic`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#patient-stories`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#faqs`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    })),
+    { url: absoluteUrl("/about"), lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/contact"), lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/gallery"), lastModified, changeFrequency: "monthly", priority: 0.5 },
   ];
 }

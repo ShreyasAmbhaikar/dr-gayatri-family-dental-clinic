@@ -1,143 +1,101 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { ArrowRight, ClipboardCheck, ShieldCheck, Sparkles, Smile } from "lucide-react";
+import { ClipboardPen, ShieldPlus, ShieldCheck, HeartHandshake } from "lucide-react";
+import Button from "@/components/ui/Button";
+import OrganicImage from "@/components/ui/OrganicImage";
+import ScriptBubble from "@/components/ui/ScriptBubble";
+import SectionHeading, { Highlight } from "@/components/ui/SectionHeading";
 
 interface AboutSectionProps {
   onOpenBooking: () => void;
 }
 
+const FEATURES = [
+  { icon: ClipboardPen, label: ["Personalized", "Care Plans"] },
+  { icon: ShieldPlus, label: ["Hygienic & Safe", "Environment"] },
+  { icon: ShieldCheck, label: ["Modern", "Technology"] },
+  { icon: HeartHandshake, label: ["Comfortable", "Experience"] },
+];
+
+function DoctorPortrait({ compact = false }: { compact?: boolean }) {
+  return (
+    <OrganicImage
+      src="/images/doctor/dr-gayatri-lead-dentist.webp"
+      alt="Dr. Gayatri - Chief Dental Surgeon & Family Dentist at Dr. Gayatri's Family Dental Clinic in Hadapsar, Pune"
+      shape="about"
+      sizes="(max-width: 1024px) 100vw, 50vw"
+      className="w-full h-full"
+      imgClassName="object-[50%_20%]"
+      layers={[
+        { className: "bg-aqua-300/60", blur: true, scale: 1.02 },
+        { className: "bg-gradient-to-bl from-[#d7f3f9] via-[#eaf8fb] to-[#bfe9f3]", x: compact ? "8px" : "16px", y: compact ? "-8px" : "-14px" },
+      ]}
+      decor={
+        <>
+          <path d="M0,0.6 C0.08,0.76 0.24,0.86 0.46,0.9 C0.58,0.92 0.66,0.94 0.7,0.97 C0.5,1 0.22,0.99 0,0.96 Z" fill="#1ab3c2" opacity="0.85" />
+          <path d="M0,0.72 C0.12,0.86 0.3,0.93 0.52,0.95 C0.6,0.96 0.64,0.97 0.66,0.985 C0.44,1 0.2,0.995 0,0.985 Z" fill="#0e9aa7" />
+          <path d="M0.55,0.95 C0.72,0.93 0.86,0.86 0.95,0.72 C0.96,0.8 0.93,0.88 0.86,0.93 C0.78,0.98 0.66,0.985 0.55,0.95 Z" fill="#a6e0ec" opacity="0.85" />
+        </>
+      }
+    >
+      <ScriptBubble
+        shape="blob"
+        lines={["Care", "Compassion", "Confidence"]}
+        className={
+          compact
+            ? "absolute left-[4%] top-[10%] w-[140px] h-[108px]"
+            : "absolute left-[5%] top-[12%] w-[200px] h-[156px] xl:w-[220px] xl:h-[170px]"
+        }
+        textClassName={compact ? "text-[21px]" : "text-[28px] xl:text-[31px]"}
+      />
+    </OrganicImage>
+  );
+}
+
 export default function AboutSection({ onOpenBooking }: AboutSectionProps) {
   return (
-    <section id="about" className="py-14 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
-      {/* Soft Ambient Cyan Wave in Background */}
-      <div className="absolute top-10 left-0 w-80 sm:w-96 h-[500px] pointer-events-none -z-0 overflow-hidden">
-        <svg
-          viewBox="0 0 380 500"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover object-left"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 0 C140 40, 220 160, 200 320 C180 440, 90 490, 0 500 Z"
-            fill="#e2f7fb"
-            opacity="0.6"
-          />
-        </svg>
+    <section id="about" className="relative scroll-mt-20 lg:min-h-[600px] xl:min-h-[640px] flex items-center">
+      {/* Desktop portrait bleeding off the left edge */}
+      <div className="hidden lg:block absolute left-0 -top-12 bottom-0 w-[50%] max-w-[900px]">
+        <DoctorPortrait />
       </div>
 
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
-          {/* Left Column: Doctor Portrait in Organic Shaped Frame with Cursive Card */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[420px] sm:max-w-[440px]">
-              {/* Layered Cyan Organic Background Blob */}
-              <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-tr from-[#9fe4f1] via-[#cbf2f8] to-[#edfcfd] rounded-[55px_75px_60px_85px]/[70px_60px_85px_65px] transform -rotate-2 -z-10 shadow-lg shadow-cyan-900/5" />
+      <div className="page-container relative z-10 py-8 lg:py-16">
+        <div className="lg:hidden relative w-[calc(100%+1rem)] sm:w-[calc(100%+1.5rem)] -ml-4 sm:-ml-6 aspect-[1.25] max-w-[680px] mb-10">
+          <DoctorPortrait compact />
+        </div>
 
-              {/* Doctor High-Resolution Photo Container with Organic Curve Flow */}
-              <div className="relative rounded-[45px_70px_50px_75px]/[60px_50px_75px_55px] overflow-hidden border-4 border-white shadow-xl shadow-cyan-950/10 aspect-[4/4.5] bg-slate-100">
-                <Image
-                  src="/images/dr-gayatri.jpg"
-                  alt="Dr. Gayatri - Chief Dental Surgeon & Family Dentist in Pune"
-                  fill
-                  priority
-                  className="object-cover object-[center_top] hover:scale-103 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 440px"
-                />
-              </div>
+        <div className="lg:ml-[52%] flex flex-col items-start">
+          <SectionHeading
+            eyebrow="About Us"
+            titleClassName="text-[30px] sm:text-[38px] lg:text-[38px] xl:text-[44px]"
+            title={
+              <>
+                Your Partner in <br />
+                <Highlight>Lifelong Oral Health</Highlight>
+              </>
+            }
+          />
 
-              {/* Pure CSS/HTML Cursive Badge (Not a Screenshot) floating on the left */}
-              <div className="absolute top-6 -left-4 sm:-left-8 z-20 transform -rotate-6 select-none bg-white/95 backdrop-blur-md rounded-[24px] px-5 py-3.5 shadow-xl border border-white/90">
-                <span className="font-script text-2xl sm:text-[28px] text-[#1d174e] font-bold leading-tight block">
-                  Care <br />
-                  Compassion <br />
-                  <span className="text-[#009eb8]">Confidence ♡</span>
+          <p className="text-body text-[14.5px] sm:text-[15.5px] leading-relaxed mt-5 mb-8 max-w-[540px]">
+            At Dr. Gayatri&apos;s Family Dental Clinic, we combine advanced technology with a compassionate approach to provide high-quality and painless dental care for you and your family. Our focus is on building long-term relationships and helping you achieve healthy, confident smiles at every stage of life.
+          </p>
+
+          <Button href="/about" arrow className="mb-10 px-8">
+            Know More About Us
+          </Button>
+
+          <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-[580px]">
+            {FEATURES.map(({ icon: Icon, label }) => (
+              <li key={label[0]} className="flex flex-col items-center text-center">
+                <Icon className="w-8 h-8 text-teal stroke-[1.5] mb-2.5" />
+                <span className="text-[12.5px] font-medium text-body leading-snug">
+                  {label[0]} <br /> {label[1]}
                 </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Narrative, CTA & 4 Clean Vector Badges */}
-          <div className="lg:col-span-7 flex flex-col items-start pt-2">
-            {/* Eyebrow */}
-            <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-[#009eb8] uppercase block mb-3">
-              ABOUT US
-            </span>
-
-            {/* Heading: Line 1 Navy, Line 2 Cyan */}
-            <h2 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.14] font-bold mb-4">
-              <span className="text-[#1d174e] block">Your Partner in</span>
-              <span className="text-[#009eb8] block">Lifelong Oral Health</span>
-            </h2>
-
-            {/* 3-segment color accent bar */}
-            <div className="h-[3.5px] w-14 rounded-full mb-6 flex overflow-hidden">
-              <div className="w-1/3 bg-[#38247b]" />
-              <div className="w-1/3 bg-[#f43f5e]" />
-              <div className="w-1/3 bg-[#00b4d8]" />
-            </div>
-
-            {/* Narrative text */}
-            <p className="text-[#556070] text-[13.5px] sm:text-[14.5px] leading-relaxed mb-6 max-w-xl font-normal">
-              At Dr. Gayatri&apos;s Family Dental Clinic, we combine advanced technology with a compassionate approach to provide high-quality and painless dental care for you and your family. Our focus is on building long-term relationships and helping you achieve healthy, confident smiles at every stage of life.
-            </p>
-
-            {/* CTA Button */}
-            <div className="mb-8">
-              <button
-                onClick={onOpenBooking}
-                className="group inline-flex items-center gap-2 bg-[#38247b] hover:bg-[#2c1a63] text-white text-[13px] font-semibold px-7 py-3 rounded-full shadow-md shadow-indigo-950/20 transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <span>Know More About Us</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
-            </div>
-
-            {/* 4 Clean Vector Badges in Row (Lucide Vector Icons, Not Screenshots) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-3 border-t border-slate-100 w-full">
-              {/* Feature 1 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="w-10 h-10 rounded-xl bg-cyan-50/80 text-[#009eb8] flex items-center justify-center mb-2 shadow-2xs">
-                  <ClipboardCheck className="w-5 h-5 stroke-[2]" />
-                </div>
-                <span className="text-[12px] font-bold text-[#1d174e] leading-snug">
-                  Personalized <br /> Care Plans
-                </span>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="w-10 h-10 rounded-xl bg-cyan-50/80 text-[#009eb8] flex items-center justify-center mb-2 shadow-2xs">
-                  <ShieldCheck className="w-5 h-5 stroke-[2]" />
-                </div>
-                <span className="text-[12px] font-bold text-[#1d174e] leading-snug">
-                  Hygienic &amp; Safe <br /> Environment
-                </span>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="w-10 h-10 rounded-xl bg-cyan-50/80 text-[#009eb8] flex items-center justify-center mb-2 shadow-2xs">
-                  <Sparkles className="w-5 h-5 stroke-[2]" />
-                </div>
-                <span className="text-[12px] font-bold text-[#1d174e] leading-snug">
-                  Modern <br /> Technology
-                </span>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="w-10 h-10 rounded-xl bg-cyan-50/80 text-[#009eb8] flex items-center justify-center mb-2 shadow-2xs">
-                  <Smile className="w-5 h-5 stroke-[2]" />
-                </div>
-                <span className="text-[12px] font-bold text-[#1d174e] leading-snug">
-                  Comfortable <br /> Experience
-                </span>
-              </div>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
