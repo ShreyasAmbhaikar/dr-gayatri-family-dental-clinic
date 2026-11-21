@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
@@ -12,30 +13,29 @@ import PatientStoriesSection from "@/components/PatientStoriesSection";
 import PatientJourneySection from "@/components/PatientJourneySection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
-import AppointmentModal from "@/components/AppointmentModal";
 import WaveDivider from "@/components/ui/WaveDivider";
+import { SITE } from "@/lib/site";
 
 export default function HomePage() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedTreatment, setSelectedTreatment] = useState("General Dentistry");
+  const router = useRouter();
 
-  const handleOpenBooking = (treatmentName: string = "General Dentistry") => {
-    setSelectedTreatment(treatmentName);
-    setIsBookingOpen(true);
+  const handleNavigateToContact = (treatmentName?: string) => {
+    const url = treatmentName ? `/contact?treatment=${encodeURIComponent(treatmentName)}` : "/contact";
+    router.push(url);
   };
 
   return (
     <div className="page-bg min-h-screen flex flex-col overflow-x-hidden selection:bg-cyan-500 selection:text-white">
-      <Navbar onOpenBooking={() => handleOpenBooking("General Dentistry")} />
+      <Navbar onOpenBooking={() => handleNavigateToContact()} />
 
       <main className="flex-grow">
-        <HeroSection onOpenBooking={() => handleOpenBooking("General Dentistry")} />
-        <TreatmentsSection onSelectTreatment={handleOpenBooking} />
+        <HeroSection onOpenBooking={() => handleNavigateToContact("General Dentistry")} />
+        <TreatmentsSection onSelectTreatment={handleNavigateToContact} />
         <StatsBanner />
-        <AboutSection onOpenBooking={() => handleOpenBooking("Consultation")} />
+        <AboutSection onOpenBooking={() => handleNavigateToContact("Consultation")} />
         <ClinicExperienceSection />
-        <BeforeAfterSection onOpenBooking={handleOpenBooking} />
-        <PatientStoriesSection />
+        <BeforeAfterSection onOpenBooking={handleNavigateToContact} />
+        {SITE.showPatientStories && <PatientStoriesSection />}
         <PatientJourneySection />
         <FaqSection />
         {/* Layered aqua → teal → indigo wave leading seamlessly into footer */}
@@ -45,12 +45,6 @@ export default function HomePage() {
       </main>
 
       <Footer />
-
-      <AppointmentModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        initialTreatment={selectedTreatment}
-      />
     </div>
   );
 }

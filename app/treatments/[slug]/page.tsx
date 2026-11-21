@@ -8,8 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
-// Every service page is generated at build time. Root Canal Treatment keeps its own
-// hand-built page at /treatments/root-canal-treatment, which takes precedence over this route.
+// Every service page, including Root Canal Treatment, is generated at build time from lib/treatments.
 export function generateStaticParams() {
   return TEMPLATE_SLUGS.map((slug) => ({ slug }));
 }

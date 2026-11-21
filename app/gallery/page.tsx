@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteShell from "@/components/site/SiteShell";
 import PageHero from "@/components/site/PageHero";
 import BentoGallery, { type BentoItem } from "@/components/site/BentoGallery";
 import FooterWave from "@/components/site/FooterWave";
 import JsonLd from "@/components/site/JsonLd";
-import { Band, Highlight } from "@/components/site/Section";
+import { BODY, Band, Highlight, SectionTitle } from "@/components/site/Section";
 import { absoluteUrl } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { pageGraph } from "@/lib/schema";
@@ -21,70 +22,70 @@ export const metadata: Metadata = buildMetadata({
   keywords: ["dental clinic gallery hadapsar", "dental clinic photos pune", "dr gayatri dental clinic photos", "smile results hadapsar", "clinic tour amanora"],
 });
 
-// Authentic clinic photography optimized in WebP format adhering to Core Web Vitals
+// Clinic photography in WebP format for fast loading
 const ITEMS: BentoItem[] = [
   {
     src: "/images/gallery/clinic-operatory-dental-chair.webp",
-    alt: "Modern ergonomic dental operatory with comfortable treatment chair and welcoming interior at Dr. Gayatri's Family Dental Clinic Hadapsar",
-    caption: "Modern Treatment Operatory",
-    span: "col-span-2 row-span-2",
-    position: "50% 50%",
+    alt: "Bright dental operatory with a comfortable treatment chair at Dr. Gayatri's Family Dental Clinic, Hadapsar",
+    caption: "Treatment Operatory",
+    width: 1280,
+    height: 1148,
   },
   {
     src: "/images/gallery/sterilized-dental-instruments-tray.webp",
-    alt: "Autoclaved and sterilized precision dental diagnostic instruments on surgical tray demonstrating strict hygiene protocols",
-    caption: "Sterile Diagnostic Instruments",
-    span: "col-span-1 row-span-1",
-    position: "50% 50%",
+    alt: "Sterilised dental instruments laid out on a clean tray before an appointment",
+    caption: "Sterilised Instruments",
+    width: 1280,
+    height: 921,
   },
   {
     src: "/images/doctor/dr-gayatri-lead-dentist.webp",
     alt: "Dr. Gayatri, Chief Dental Surgeon and Family Dentist at Dr. Gayatri's Family Dental Clinic in Hadapsar, Pune",
     caption: "Dr. Gayatri, Chief Dentist",
-    span: "col-span-1 row-span-2",
-    position: "50% 20%",
+    width: 1280,
+    height: 1280,
   },
   {
     src: "/images/gallery/custom-dental-crown-prosthesis-model.webp",
-    alt: "Precision ceramic dental prosthesis and custom crown model with Dr. Gayatri Dental Clinic entrance branding in the background",
-    caption: "Precision Dental Prosthetics",
-    span: "col-span-1 row-span-1",
-    position: "50% 50%",
+    alt: "Ceramic dental bridge on a working model with Dr. Gayatri's clinic signage in the background",
+    caption: "Crowns & Bridges",
+    width: 960,
+    height: 1280,
   },
   {
     src: "/images/gallery/advanced-digital-dental-treatment-chair.webp",
-    alt: "Advanced computerized dental delivery unit with high-definition digital consultation monitor for precise dental diagnosis",
-    caption: "Digital Consultation Suite",
-    span: "col-span-2 row-span-1",
-    position: "50% 45%",
+    alt: "Dental treatment chair with a digital consultation monitor used to explain X-rays and diagnosis",
+    caption: "Digital Consultation Screen",
+    width: 1280,
+    height: 1104,
   },
   {
     src: "/images/gallery/calming-ceiling-sky-view-operatory.webp",
-    alt: "Soothing illuminated sky and foliage ceiling view above patient dental chair to relieve anxiety during dental treatments",
-    caption: "Anxiety-Free Sky Ceiling View",
-    span: "col-span-1 row-span-2",
-    position: "50% 50%",
+    alt: "Calming illuminated sky and foliage ceiling above the patient dental chair",
+    caption: "Calming Sky Ceiling View",
+    width: 1280,
+    height: 1168,
   },
   {
     src: "/images/gallery/overhead-view-modern-dental-operatory.webp",
-    alt: "High-angle view of the fully equipped dental treatment station and digital operatory setup in Amanora Park Town, Hadapsar",
-    caption: "High-Tech Treatment Station",
-    span: "col-span-1 row-span-1",
-    position: "50% 50%",
+    alt: "High-angle view of the dental treatment station and operatory in Amanora Park Town, Hadapsar",
+    caption: "Treatment Station",
+    width: 1280,
+    height: 1102,
   },
   {
     src: "/images/gallery/clinic-facilities-multi-view-collage.webp",
-    alt: "Comprehensive clinic overview collage featuring treatment operatories, sterilized equipment, and soothing patient amenities",
-    caption: "Clinic Overview & Mezzanine",
-    span: "col-span-2 row-span-1",
-    position: "50% 50%",
+    alt: "Collage of the clinic's treatment rooms, equipment and patient amenities",
+    caption: "Clinic Overview",
+    width: 896,
+    height: 1195,
   },
   {
     src: "/images/gallery/single-sitting-root-canal-treatment-xray.webp",
-    alt: "Digital dental X-ray radiograph proving successful single-sitting root canal treatment and hermetic obturation at Dr. Gayatri's Dental Clinic",
-    caption: "Single-Sitting RCT Digital X-Ray",
-    span: "col-span-1 row-span-1",
-    position: "50% 50%",
+    alt: "Dental X-ray of a tooth after root canal treatment",
+    caption: "Root Canal X-ray",
+    width: 960,
+    height: 1280,
   },
 ];
 
@@ -120,11 +121,38 @@ export default function GalleryPage() {
             Inside Our Clinic <Highlight>in Hadapsar</Highlight>
           </>
         }
-        sub="A calm space, a friendly team and smiles we are proud of. Tap any photo to view it full screen."
+        sub="A calm space and a friendly team at our family dental clinic in Amanora Park Town. Tap any photo to view it full screen."
       />
 
       <Band tone="aqua" className="!pt-6 sm:!pt-8">
         <BentoGallery items={ITEMS} />
+      </Band>
+
+      <Band id="visit" labelledBy="visit-title">
+        <SectionTitle
+          id="visit-title"
+          align="center"
+          eyebrow="Visit us"
+          title={
+            <>
+              Your Dental Clinic in <Highlight>Hadapsar, Pune</Highlight>
+            </>
+          }
+          className="mb-5"
+        />
+        <p className={`${BODY} text-center max-w-3xl mx-auto`}>
+          Dr. Gayatri&apos;s Family Dental Clinic is on Tupe Patil Road in Amanora Park Town, near Kotak Mahindra Bank and opposite Sadhna Bank, a short
+          drive from Magarpatta City, Mundhwa and Keshav Nagar. The treatment rooms are bright and calm, instruments are sterilised for every
+          appointment, and a digital screen lets us show you your X-rays and explain your options. Browse our{" "}
+          <Link href="/treatments" className="font-semibold text-teal hover:underline">
+            dental treatments
+          </Link>{" "}
+          or{" "}
+          <Link href="/contact" className="font-semibold text-teal hover:underline">
+            contact us
+          </Link>{" "}
+          to book a visit.
+        </p>
       </Band>
 
       <FooterWave />

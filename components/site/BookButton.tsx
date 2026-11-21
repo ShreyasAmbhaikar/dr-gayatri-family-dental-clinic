@@ -1,18 +1,18 @@
 "use client";
 
-import React from "react";
+import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
-import { useBooking } from "@/components/site/SiteShell";
 
-type Variant = "primary" | "white" | "outline";
+type Variant = "primary" | "teal" | "white" | "outline";
 
 const VARIANTS: Record<Variant, string> = {
   primary: "btn-primary-grad text-white shadow-[0_12px_24px_-10px_rgba(75,43,181,0.65)]",
+  teal: "bg-[#0e9aa7] hover:bg-[#11b5c4] text-white shadow-[0_12px_24px_-6px_rgba(14,154,167,0.65)]",
   white: "bg-white text-navy shadow-[0_14px_30px_-12px_rgba(0,20,70,0.55)]",
   outline: "bg-white/90 text-navy border-[1.5px] border-purple/60 hover:bg-white hover:border-purple",
 };
 
-/** Opens the booking modal, preselecting the given treatment. Safe to use inside server components. */
+/** Navigates directly to the Contact Us page. Safe to use in both Server and Client Components. */
 export default function BookButton({
   treatment,
   variant = "primary",
@@ -26,11 +26,11 @@ export default function BookButton({
   className?: string;
   icon?: boolean;
 }) {
-  const { open } = useBooking();
+  const href = treatment ? `/contact?treatment=${encodeURIComponent(treatment)}` : "/contact";
+
   return (
-    <button
-      type="button"
-      onClick={() => open(treatment)}
+    <Link
+      href={href}
       className={`group inline-flex items-center justify-center gap-2.5 rounded-full px-7 sm:px-8 h-[50px] text-[14.5px] sm:text-[15px] font-semibold whitespace-nowrap hover:scale-[1.02] active:scale-[0.98] transition-transform cursor-pointer ${VARIANTS[variant]} ${className}`}
     >
       {icon && <CalendarDays className={`w-[18px] h-[18px] ${variant === "primary" ? "" : "text-purple"}`} aria-hidden="true" />}
@@ -39,6 +39,6 @@ export default function BookButton({
         className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${variant === "primary" ? "" : "text-purple"}`}
         aria-hidden="true"
       />
-    </button>
+    </Link>
   );
 }

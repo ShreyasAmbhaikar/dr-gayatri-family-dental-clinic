@@ -4,51 +4,7 @@ import React, { useState } from "react";
 import { ChevronDown, PhoneCall } from "lucide-react";
 import SectionHeading, { Highlight } from "@/components/ui/SectionHeading";
 import WaveDivider from "@/components/ui/WaveDivider";
-
-interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
-const FAQS_DATA: FaqItem[] = [
-  {
-    id: "first-visit",
-    question: "What can I expect during my first dental visit?",
-    answer:
-      "During your initial visit, Dr. Gayatri conducts a comprehensive digital oral examination, gentle ultrasonic screening, and low-radiation radiographs if needed. We discuss your oral health goals, answer all your questions, and outline a transparent, personalized care plan tailored to your lifestyle.",
-  },
-  {
-    id: "painless-care",
-    question: "Are treatments at your clinic truly painless?",
-    answer:
-      "We do everything we can to keep you comfortable. We specialize in gentle, anxiety-free dentistry utilizing computerized local anesthesia delivery, micro-invasive rotary tools, and compassionate patient-first protocols so you feel zero discomfort from start to finish.",
-  },
-  {
-    id: "checkup-frequency",
-    question: "How often should my family visit for routine checkups?",
-    answer:
-      "We recommend preventive checkups and ultrasonic cleanings every 6 months. Regular maintenance catches early decay before it causes pain, removes hardened tartar, and protects your natural tooth structure for life.",
-  },
-  {
-    id: "pediatric-care",
-    question: "Do you treat infants and young children?",
-    answer:
-      "Absolutely! Our practice is designed to be warm, friendly, and non-intimidating for children of all ages. We provide cavity-preventive fluoride applications, molar pit sealants, space maintainers, and gentle habit guidance with zero fear.",
-  },
-  {
-    id: "emergencies",
-    question: "What should I do in case of a sudden dental emergency?",
-    answer:
-      "If you experience severe toothache, dental trauma, a broken tooth, or facial swelling, call our emergency line immediately. We accommodate same-day emergency appointments in Amanora Park Town, Hadapsar to provide fast, effective pain relief.",
-  },
-  {
-    id: "implants-vs-bridges",
-    question: "What are the advantages of dental implants over bridges?",
-    answer:
-      "Dental implants replace the missing tooth root permanently with medical-grade titanium and zirconia, preventing jawbone loss without filing down adjacent healthy teeth. They look, feel, and function just like your natural teeth.",
-  },
-];
+import { HOME_FAQS } from "@/lib/home-faqs";
 
 export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState<string>("first-visit");
@@ -97,7 +53,7 @@ export default function FaqSection() {
           </div>
 
           <div className="lg:col-span-7 w-full space-y-3">
-            {FAQS_DATA.map((faq) => {
+            {HOME_FAQS.map((faq) => {
               const isOpen = openFaq === faq.id;
               const panelId = `faq-panel-${faq.id}`;
               return (
@@ -122,11 +78,15 @@ export default function FaqSection() {
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div id={panelId} className="px-5 sm:px-6 pb-5 text-body text-[13.5px] sm:text-[14px] leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  )}
+                  {/* Answers stay in the DOM (hidden when closed) so crawlers and screen readers can read them. */}
+                  <div
+                    id={panelId}
+                    role="region"
+                    hidden={!isOpen}
+                    className="px-5 sm:px-6 pb-5 text-body text-[13.5px] sm:text-[14px] leading-relaxed"
+                  >
+                    {faq.answer}
+                  </div>
                 </div>
               );
             })}

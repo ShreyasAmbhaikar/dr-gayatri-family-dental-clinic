@@ -42,12 +42,12 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Root Canal Treatment",
     description: "Relieve pain and save your natural tooth",
     longDescription:
-      "Gentle, modern root canal treatment utilizing rotary endodontic files, apex locators, and bio-ceramic sealers to eliminate infection while conserving original tooth structure.",
+      "Gentle, modern root canal treatment under local anaesthesia that clears the infection and keeps your natural tooth, often in a single sitting.",
     benefits: [
       "Comfortable procedure under local anaesthesia",
-      "Single-visit completion in most cases",
-      "Preserves natural jawbone & tooth structure",
-      "High-precision computerized apex localization",
+      "Often completed in a single sitting",
+      "Preserves your natural tooth and the bone around it",
+      "Examination and X-ray before any decision",
     ],
     duration: "45 - 60 Mins",
     image: "/images/treatments/v2-root-canal.png",
@@ -57,12 +57,12 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Dental Implants",
     description: "Permanent solution for missing teeth",
     longDescription:
-      "Medical-grade titanium and zirconia root implants capped with handcrafted porcelain crowns that look, feel, and function exactly like natural healthy teeth.",
+      "Titanium or zirconia implants topped with custom-made crowns, designed to look and feel like natural teeth and planned around your bone, gums and bite.",
     benefits: [
-      "Permanent lifetime stability & strength",
-      "Zero slippage during chewing or speaking",
-      "Restores 99% of natural bite force",
-      "Preserves facial harmony & bone density",
+      "A fixed, stable replacement for missing teeth",
+      "No slipping, unlike a loose denture",
+      "Helps you chew a wide range of foods",
+      "Helps protect the jawbone where a tooth was lost",
     ],
     duration: "2 - 3 Visits",
     image: "/images/treatments/v2-dental-implants.png",
@@ -72,7 +72,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Pediatric Dentistry",
     description: "Gentle care for your child's smile",
     longDescription:
-      "A compassionate, warm, and playful dental care environment tailored specifically for infants, children, and teenagers to build lifelong positive oral habits with zero anxiety.",
+      "A compassionate, warm, and playful dental care environment tailored specifically for infants, children, and teenagers to build healthy oral habits and help children feel at ease.",
     benefits: [
       "Friendly, child-adapted clinic atmosphere",
       "Fluoride treatments & cavity pit sealants",
@@ -87,12 +87,12 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Teeth Whitening",
     description: "Brighter smiles with safe treatments",
     longDescription:
-      "Clinically supervised laser teeth bleaching that safely removes deep intrinsic and extrinsic stains from tea, coffee, and age, lifting your smile up to 8 shades lighter without damaging enamel.",
+      "Dentist-supervised teeth whitening that lifts stains from tea, coffee and age, planned around your teeth, gums and sensitivity.",
     benefits: [
-      "Up to 8 shades noticeably brighter in 1 hour",
-      "Safe on sensitive enamel & gum tissue",
-      "Immediate, radiant, photo-ready results",
-      "Long-lasting shine with aftercare guidance",
+      "A visibly brighter smile, usually in one visit",
+      "Gums protected during treatment",
+      "Realistic expectations explained upfront",
+      "Aftercare advice to help you keep the shade",
     ],
     duration: "45 - 60 Mins",
     image: "/images/treatments/v2-teeth-whitening.png",
@@ -102,12 +102,12 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
     title: "Braces & Aligners",
     description: "Straighten your teeth with confidence",
     longDescription:
-      "Advanced orthodontic correction featuring customized clear transparent aligners and aesthetic ceramic braces to fix crowded, spaced, rotated teeth comfortably.",
+      "Metal or tooth-coloured ceramic braces and clear aligners to straighten crowded, spaced or rotated teeth, with the option chosen to suit your case.",
     benefits: [
       "Nearly invisible clear aligner options",
-      "Custom 3D digital smile simulation before start",
-      "Comfortable without painful wire pokes",
-      "Removable for effortless eating and brushing",
+      "Metal and ceramic braces for complex cases",
+      "A written plan and estimate before you start",
+      "Aligners are removable for eating and brushing",
     ],
     duration: "Custom Roadmap",
     image: "/images/treatments/v2-braces-aligners.png",

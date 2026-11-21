@@ -63,7 +63,7 @@ export default function AppointmentCtaSection({ onOpenBooking }: AppointmentCtaS
               aria-hidden="true"
               className="font-script absolute right-0 lg:right-[-2%] top-[16%] sm:top-[26%] -rotate-[8deg] text-navy text-[26px] sm:text-[34px] lg:text-[38px] leading-[1.05] select-none pointer-events-none"
             >
-              Painless Care. <br />
+              Gentle Care. <br />
               <span className="pl-4">Beautiful Smiles.</span>
               <span className="text-purple text-[0.75em]"> ♡</span>
             </p>

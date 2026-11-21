@@ -43,8 +43,8 @@ const MENU_COLUMNS = [
 // Three balanced columns for the desktop mega menu (each column lists its categories top to bottom).
 const MEGA_COLUMNS = [
   ["Restorative"],
-  ["Preventive", "Orthodontic"],
-  ["Cosmetic", "Surgical", "Pediatric", "Emergency"],
+  ["Orthodontic", "Pediatric", "Preventive"],
+  ["Surgical", "Cosmetic", "Emergency"],
 ].map((cats) => cats.map((c) => MENU_GROUPS.find((g) => g.category === c)).filter((g): g is (typeof MENU_GROUPS)[number] => Boolean(g)));
 
 export default function Navbar({ onOpenBooking }: NavbarProps) {
@@ -60,6 +60,12 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   const isGalleryPage = Boolean(pathname?.startsWith("/gallery"));
   const isContactPage = Boolean(pathname?.startsWith("/contact"));
 
+  // Individual treatment pages (e.g. /treatments/root-canal-treatment, /treatments/dental-implants)
+  // Have a dark hero banner at the top, so header uses a solid static color matching image 2.
+  const isIndividualTreatment = Boolean(
+    pathname && pathname.startsWith("/treatments/") && pathname !== "/treatments" && pathname !== "/treatments/"
+  );
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     handleScroll();
@@ -70,10 +76,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   // Real, crawlable pages.
   const navLinks = [
     { href: "/", label: "Home", isActive: isHomePage },
-    { href: "/about", label: "About", isActive: isAboutPage },
+    { href: "/about", label: "About Us", isActive: isAboutPage },
     { href: "/treatments", label: "Treatments", isActive: isTreatmentsPage, isDropdown: true },
     { href: "/gallery", label: "Gallery", isActive: isGalleryPage },
-    { href: "/contact", label: "Contact", isActive: isContactPage },
+    { href: "/contact", label: "Contact Us", isActive: isContactPage },
   ];
 
   const handleMouseEnter = () => {
@@ -90,7 +96,9 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
+        isIndividualTreatment
+          ? "bg-white border-b border-slate-100 shadow-[0_4px_20px_-10px_rgba(29,23,78,0.12)] py-2.5 sm:py-3"
+          : scrolled || mobileMenuOpen
           ? "bg-white/90 backdrop-blur-md shadow-[0_4px_20px_-10px_rgba(29,23,78,0.25)] py-2.5"
           : "bg-transparent py-4"
       }`}
@@ -113,7 +121,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[13.5px] font-medium" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-7 lg:gap-9 text-[13.5px] font-medium" aria-label="Main Navigation">
           {navLinks.map((link) => {
             if (link.isDropdown) {
               return (
@@ -222,20 +230,19 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         </nav>
 
         <div className="hidden sm:flex items-center">
-          <button
-            type="button"
-            onClick={onOpenBooking}
+          <Link
+            href="/contact"
             className="group btn-primary-grad inline-flex items-center gap-2 text-white text-[13px] font-semibold px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             <span>Book Appointment</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-          </button>
+          </Link>
         </div>
 
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-700 hover:text-teal focus:outline-none"
+          className="lg:hidden p-2 rounded-lg text-slate-700 hover:text-teal focus:outline-none"
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle navigation menu"
         >
@@ -244,7 +251,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-100 px-5 pt-3 pb-6 shadow-xl max-h-[calc(100vh-70px)] overflow-y-auto">
+        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-100 px-5 pt-3 pb-6 shadow-xl max-h-[calc(100vh-70px)] overflow-y-auto">
           <nav className="flex flex-col gap-3.5 text-base font-medium text-slate-700">
             {navLinks.map((link) => (
               <Link
@@ -285,17 +292,14 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           </nav>
 
           <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2.5">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
               className="btn-primary-grad w-full inline-flex items-center justify-center gap-2 text-white py-3 rounded-full font-semibold text-sm"
             >
               <span>Book Appointment</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
             <a
               href="tel:+917841930325"
               className="w-full inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 py-2.5 rounded-full font-medium text-sm hover:bg-slate-50"

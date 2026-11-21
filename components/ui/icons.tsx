@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type IconProps = { className?: string };
 
@@ -20,26 +21,19 @@ export function ToothIcon({ className }: IconProps) {
   );
 }
 
-/** Clinic logo mark: outlined tooth with a medical-cross badge and a mirror. */
-export function LogoMark({ className, inverted = false }: IconProps & { inverted?: boolean }) {
-  const outline = inverted ? "#ffffff" : "#1d174e";
+/** Clinic logo mark: 3D purple tooth with teal stethoscope and medical cross emblem. */
+export function LogoMark({ className = "w-11 h-11", inverted = false }: IconProps & { inverted?: boolean }) {
   return (
-    <svg viewBox="0 0 48 48" className={className} fill="none" aria-hidden="true">
-      <path
-        d="M24 7.5c-3-2.6-7.6-3.3-11.2-1.4C8.6 8.3 7 13 8 18c1.1 5.4 3.2 9.1 4.3 15.3.8 4.3 2 9.2 4.6 9.2 2.9 0 3.3-4.6 4.2-8.4.5-2.1 1.6-3.3 2.9-3.3s2.4 1.2 2.9 3.3c.9 3.8 1.3 8.4 4.2 8.4 2.6 0 3.8-4.9 4.6-9.2C36.8 27.1 38.9 23.4 40 18c1-5-.6-9.7-4.8-11.9C31.6 4.2 27 4.9 24 7.5z"
-        stroke={outline}
-        strokeWidth="2.6"
-        strokeLinejoin="round"
-        fill={inverted ? "rgba(255,255,255,0.06)" : "#ffffff"}
+    <span className={`relative inline-flex items-center justify-center ${className}`}>
+      <Image
+        src="/clinic-logo.png"
+        alt="Dr. Gayatri's Family Dental Clinic Logo"
+        width={64}
+        height={64}
+        priority
+        className={`w-full h-full object-contain ${inverted ? "drop-shadow-[0_2px_10px_rgba(26,179,194,0.45)]" : "drop-shadow-xs"}`}
       />
-      <path d="M17 12.5c2.2-1.2 4.6-.8 7 1.2" stroke="#1ab3c2" strokeWidth="2" strokeLinecap="round" />
-      {/* Mirror */}
-      <circle cx="30.5" cy="21" r="3.6" stroke="#1ab3c2" strokeWidth="2" />
-      <path d="M28.6 24.2 23.5 34" stroke="#1ab3c2" strokeWidth="2.2" strokeLinecap="round" />
-      {/* Cross badge */}
-      <circle cx="12" cy="12" r="8" fill="#0e9aa7" stroke="#ffffff" strokeWidth="2" />
-      <path d="M12 8v8M8 12h8" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
-    </svg>
+    </span>
   );
 }
 

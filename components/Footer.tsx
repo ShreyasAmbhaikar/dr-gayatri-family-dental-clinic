@@ -12,7 +12,7 @@ const MAPS_URL = SITE.mapsUrl;
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About Dr. Gayatri", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "All Treatments", href: "/treatments" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact Us", href: "/contact" },
@@ -60,24 +60,24 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col items-start">
             <Link
               href="/"
-              className="flex items-center gap-3 mb-2 group"
+              className="flex items-center gap-3.5 mb-2.5 group"
               aria-label="Dr. Gayatri's Dental Clinic Home"
             >
-              <LogoMark inverted className="w-11 h-11 flex-shrink-0 transition-transform group-hover:scale-105" />
+              <LogoMark inverted className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition-transform group-hover:scale-105" />
               <div className="flex flex-col">
-                <span className="font-serif text-[21px] font-bold leading-none text-white tracking-tight">
+                <span className="font-serif text-[24px] sm:text-[26px] font-bold leading-none text-white tracking-tight">
                   Dr. Gayatri&apos;s
                 </span>
-                <span className="text-[12.5px] text-white/90 leading-tight mt-1 font-medium">
+                <span className="text-[14px] sm:text-[14.5px] text-white/95 leading-tight mt-1 font-medium">
                   Family Dental Clinic
                 </span>
-                <RainbowBar className="w-full mt-1.5" />
+                <RainbowBar className="w-full mt-2" />
               </div>
             </Link>
 
             {/* Short, Concise Tagline & Description */}
             <p className="text-teal-bright text-[13px] font-semibold mt-2 tracking-wide">
-              Painless Care. Beautiful Smiles.
+              Gentle Care. Beautiful Smiles.
             </p>
             <p className="text-white/75 text-[12.5px] leading-relaxed max-w-[300px] mt-1.5">
               Gentle, personalized family dental care and advanced root canal therapy in Amanora Park Town, Hadapsar, Pune.

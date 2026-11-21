@@ -1,23 +1,76 @@
 import type { TreatmentContent } from "./types";
+import { local } from "./local";
 
 /** Restorative and implant treatments. */
 export const CONTENT_A: Record<string, TreatmentContent> = {
+  "root-canal-treatment": {
+    metaDescription:
+      "Root canal treatment in Hadapsar, Pune: relieve tooth pain and save your natural tooth with gentle, modern care. See the steps and cost factors. Book today.",
+    heroSub:
+      "Root canal treatment in Hadapsar, Pune relieves tooth pain and saves your natural tooth. We clean out the infection under local anaesthesia, seal the tooth and restore it, often in a single sitting.",
+    quickAnswer:
+      "Root canal treatment (RCT) removes the infected or inflamed pulp from inside a tooth, cleans and disinfects the root canals, and seals them so the tooth can be kept instead of extracted. It is done under local anaesthesia and is usually followed by a filling or crown to protect the tooth.",
+    overview:
+      "Inside every tooth, beneath the enamel and dentine, is a soft core called the pulp, which holds the tooth's nerves and blood vessels. When deep decay, a crack or an injury lets bacteria reach it, the pulp becomes inflamed or infected. The result is the throbbing, lingering pain many people know, and sometimes swelling or an abscess at the root.",
+    symptomsTitle: "When do you need a root canal?",
+    symptoms: [
+      "Persistent or throbbing toothache, especially when chewing or at night",
+      "Sensitivity to hot or cold that lingers for 30 seconds or more after the food or drink is gone",
+      "Swollen, tender gums or a small pimple-like bump (a fistula) near the tooth",
+      "A tooth that has darkened after an injury or from deep decay",
+      "A tooth that hurts to bite on, or feels slightly high or loose",
+      "A deep cavity or cracked tooth that reaches the nerve",
+    ],
+    steps: [
+      { title: "Diagnosis", text: "We examine the tooth, take a digital X-ray and test the nerve, so we can confirm a root canal is needed and plan the safest approach.", art: "xray", image: "/images/rct/step-1-diagnosis.png" },
+      { title: "Cleaning", text: "Under local anaesthesia we make a small opening, remove the infected pulp, and clean and shape the root canals with fine instruments.", art: "decay", image: "/images/rct/step-2-cleaning.png" },
+      { title: "Sealing", text: "The canals are disinfected and sealed with gutta-percha, a biocompatible filling material, so bacteria cannot return. A temporary filling protects the tooth.", art: "stabilise", image: "/images/rct/step-3-sealing.png" },
+      { title: "Restoration", text: "The tooth is rebuilt with a filling or, for back teeth that take heavy chewing forces, a crown, restoring its strength, function and appearance.", art: "crown", image: "/images/rct/step-4-restoration.png" },
+    ],
+    benefits: [
+      "Relieves the pain of an infected or inflamed tooth",
+      "Stops infection spreading to the jawbone and neighbouring teeth",
+      "Saves your natural tooth and the bone around its root",
+      "Restores normal chewing and a natural appearance",
+      "Often costs less than extracting and replacing the tooth",
+    ],
+    suitableTitle: "Root canal or extraction?",
+    suitableFor:
+      "A root canal is usually worth trying when enough healthy tooth remains to rebuild. If the tooth is cracked below the gum, has lost too much structure or the surrounding bone is badly damaged, extraction may be wiser. We examine the tooth, show you the X-ray and explain both routes, including how a missing tooth would later be replaced, so you can choose with confidence.",
+    aftercare: [
+      "Wait until the numbness has worn off before eating or drinking anything hot",
+      "Avoid chewing on the treated tooth until the permanent filling or crown is in place",
+      "Mild soreness for a few days is normal; take any prescribed medicine as advised",
+      "Book the crown or final filling promptly, because a temporary filling is not meant to last",
+      "Brush gently, floss daily and keep your six-monthly check-ups",
+    ],
+    localNote:
+      "A tooth that throbs at night cannot wait for a convenient moment, so location matters. Our Tupe Patil Road clinic in Amanora Park Town, near Kotak Mahindra Bank, is a short drive from Magarpatta City, Mundhwa and Keshav Nagar, with evening hours until 9 PM and Sunday-morning appointments. Call first so we can advise you and fit you in as early as we can.",
+    faqs: [
+      { q: "Is a root canal treatment painful?", a: "The tooth is numbed with local anaesthesia, so root canal treatment should feel much like having a filling. The pain people associate with root canals comes from the infection before treatment, and treatment is what relieves it. Mild soreness for a few days afterwards is normal and is managed with medicines." },
+      { q: "How long does a root canal take, and can it be done in one sitting?", a: "A straightforward tooth can often be treated in a single sitting of about 45 to 60 minutes. A tooth with a severe infection or complex, curved canals may need two visits, so the infection can settle between them. We tell you what to expect after the X-ray." },
+      { q: "Will I need a crown after a root canal?", a: "Usually yes for back teeth (molars and premolars), because a tooth without its nerve is more brittle and has to withstand heavy chewing. A crown protects it from fracturing. Front teeth that are largely intact can sometimes be restored with a filling alone. We advise after examining the tooth." },
+      { q: "How much does root canal treatment cost in Hadapsar, Pune?", a: "The price depends on which tooth is treated, how many canals it has, how severe the infection is and whether you need a crown afterwards, so it varies from tooth to tooth. After an examination and X-ray we give you a written estimate, and you can decide without any obligation." },
+      { q: "Root canal or tooth extraction: which is better?", a: "Saving your own tooth is usually the better long-term option when enough healthy tooth remains. Extraction leaves a gap that is normally replaced with an implant, bridge or denture, which adds cost and time. If the tooth cannot be saved, we tell you honestly and discuss replacement." },
+      local(
+        "Where can I get a root canal near Magarpatta City or Amanora Park Town?",
+        "Diagnosis, root canal treatment and the final crown or filling are all done at one clinic.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
+    ],
+    related: ["crowns-bridges", "tooth-extraction", "emergency-dental-care"],
+    keywords: ["root canal cost in pune", "rct in hadapsar", "single sitting rct pune", "root canal specialist amanora park town", "save natural tooth pune"],
+  },
+
   "dental-implants": {
     metaDescription:
       "Dental implants in Hadapsar, Pune: replace missing teeth with natural-looking, long-lasting implants. Learn the steps, recovery and cost factors. Book today.",
     heroSub:
-      "Replace a missing tooth with a fixed, natural-looking implant that looks, feels and works like your own tooth, planned and placed at our clinic in Amanora Park Town.",
-    facts: [
-      ["Anaesthesia", "Local"],
-      ["Healing before crown", "Usually 3–6 months"],
-      ["Best for", "Missing teeth"],
-    ],
+      "Dental implants in Hadapsar replace a missing tooth with a fixed, natural-looking tooth that looks, feels and works like your own, planned and placed at our clinic in Amanora Park Town.",
     quickAnswer:
       "A dental implant is a small titanium or zirconia post placed in the jawbone to replace a missing tooth root. Once it fuses with the bone, a custom crown is fixed on top. The result is a replacement tooth that stays firmly in place without relying on the neighbouring teeth for support.",
-    overview: [
+    overview:
       "Losing a tooth affects more than your smile. Chewing becomes harder, neighbouring teeth can drift into the gap, and the jawbone under the missing tooth slowly shrinks. A dental implant replaces the root as well as the visible tooth, which is why many patients choose it over a removable denture or a bridge.",
-      "At our clinic near Amanora Park Town, every implant starts with a proper examination and a clear plan. Dr. Gayatri checks your gums, bite and bone, explains your options in plain language, and tells you honestly whether an implant is the right choice for you or whether another treatment suits you better.",
-    ],
     symptomsTitle: "When are dental implants recommended?",
     symptoms: [
       "You have one or more missing teeth and want a fixed replacement",
@@ -28,11 +81,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "You want to help protect the jawbone in the area where a tooth was lost",
     ],
     steps: [
-      { title: "Consultation and examination", text: "We review your medical and dental history, examine your teeth and gums, and discuss what you want from the treatment." },
-      { title: "X-rays and treatment plan", text: "Digital X-rays or a scan show the amount and quality of bone available. You receive a written plan with the number of implants, the timeline and the estimated cost." },
-      { title: "Implant placement", text: "Under local anaesthesia, the implant is placed in the jawbone. Most patients describe the experience as comfortable, with mild soreness afterwards." },
-      { title: "Healing", text: "Over the following months the implant fuses with the bone. A temporary solution can usually be arranged so you are not left with a visible gap." },
-      { title: "Crown placement", text: "Once healing is complete, a custom-made crown matched to your natural teeth is fixed to the implant, and we check your bite carefully." },
+      { title: "Consultation and examination", text: "We review your medical and dental history, examine your teeth and gums, and discuss what you want from the treatment.", art: "exam" },
+      { title: "X-rays and treatment plan", text: "Digital X-rays or a scan show the amount and quality of bone available. You receive a written plan with the number of implants, the timeline and the estimated cost.", art: "xray" },
+      { title: "Implant placement", text: "Under local anaesthesia, the implant is placed in the jawbone. Most patients describe the experience as comfortable, with mild soreness afterwards.", art: "implant" },
+      { title: "Healing", text: "Over the following months the implant fuses with the bone. A temporary solution can usually be arranged so you are not left with a visible gap.", art: "healing" },
+      { title: "Crown placement", text: "Once healing is complete, a custom-made crown matched to your natural teeth is fixed to the implant, and we check your bite carefully.", art: "crown" },
     ],
     benefits: [
       "Looks and feels like a natural tooth",
@@ -52,24 +105,19 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Avoid smoking, which slows healing and raises the risk of failure",
       "Attend review visits and a professional clean every six months",
     ],
-    costIntro:
-      "The cost of a dental implant in Hadapsar and across Pune varies from patient to patient. We do not quote a price over the phone, because the right plan depends on your mouth. After your examination you receive a written estimate that you can take home and consider.",
-    costFactors: [
-      "How many teeth are being replaced",
-      "The implant system and the type of crown chosen",
-      "Whether a bone graft or sinus procedure is needed",
-      "Whether an extraction or gum treatment is needed first",
-      "Your overall oral health and the complexity of your bite",
-    ],
     localNote:
-      "Patients from Amanora Park Town, Magarpatta City and Mundhwa find us easy to reach, which matters because implant care involves several short visits over a few months.",
+      "Implant care involves several short visits over a few months, so a clinic close to home helps. Our Tupe Patil Road clinic in Amanora Park Town is a short drive from Magarpatta City, Mundhwa and Keshav Nagar, with evening hours until 9 PM and Sunday-morning slots for consultations and review visits.",
     faqs: [
       { q: "Is getting a dental implant painful?", a: "The procedure is done under local anaesthesia, so you should not feel pain while it happens. Afterwards, mild soreness and swelling are common for a few days and usually settle with the medicines we prescribe." },
       { q: "How long do dental implants last?", a: "With good oral hygiene, regular check-ups and no smoking, implants are designed to last many years, often decades. The crown on top may need replacing sooner because of normal wear." },
-      { q: "How long does the whole process take?", a: "It depends on the case. Many patients complete treatment in about three to six months, because the implant needs time to fuse with the bone before the final crown is fitted. Cases needing a bone graft can take longer." },
-      { q: "Am I too old for dental implants?", a: "There is no fixed upper age. What matters is your general health and the condition of your gums and bone. We assess each patient individually." },
-      { q: "What is the difference between an implant and a bridge?", a: "A bridge uses the neighbouring teeth as anchors, so they must be shaved down. An implant stands on its own and replaces the root as well. We explain the pros and cons of each for your situation." },
-      { q: "Can I get an implant if I have diabetes or high blood pressure?", a: "Often yes, when the condition is well controlled. We will ask for your medical details and may ask for a note from your physician before planning treatment." },
+      { q: "How long does the dental implant process take?", a: "It depends on the case. Many patients complete treatment in about three to six months, because the implant needs time to fuse with the bone before the final crown is fitted. Cases needing a bone graft can take longer." },
+      { q: "Dental implant or bridge: which is better?", a: "A bridge uses the neighbouring teeth as anchors, so they must be shaved down. An implant stands on its own and replaces the root as well. We explain the pros and cons of each for your situation." },
+      { q: "How much do dental implants cost in Hadapsar, Pune?", a: "The cost depends on how many implants you need, the type of crown and whether a bone graft or other preparation is required, so there is no single price. After an examination and X-rays we give you a written estimate with each part itemised, and you are under no obligation to go ahead." },
+      local(
+        "Where can I get dental implants near Magarpatta or Amanora Park Town?",
+        "Implant planning, placement and the final crown are all done at one clinic, so you do not have to travel between practices.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["full-mouth-implants", "crowns-bridges", "dentures"],
     keywords: ["dental implant cost in pune", "tooth implant hadapsar", "titanium implants", "missing teeth replacement pune"],
@@ -79,18 +127,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     metaDescription:
       "Full mouth dental implants in Hadapsar, Pune: a fixed full-arch solution for missing or failing teeth. Understand the process, timeline and cost. Book now.",
     heroSub:
-      "Replace all or most of your teeth with a secure, fixed set supported by implants, so you can eat, speak and smile without removable dentures.",
-    facts: [
-      ["Approach", "Full-arch, planned in stages"],
-      ["Anaesthesia", "Local"],
-      ["Best for", "Many missing or failing teeth"],
-    ],
+      "Full mouth dental implants in Hadapsar, Pune replace all or most of your teeth with a secure, fixed set supported by implants, so you can eat, speak and smile without removable dentures.",
     quickAnswer:
       "Full mouth dental implants replace an entire upper or lower arch, or both, using a small number of implants to support a fixed set of teeth. They suit people who have lost most of their teeth or whose remaining teeth cannot be saved, and who want a stable alternative to removable dentures.",
-    overview: [
+    overview:
       "Living with many missing teeth, or with dentures that never quite fit, affects nutrition, speech and confidence. Full mouth implant treatment, often called a full-arch or all-on-four style approach, uses carefully placed implants to anchor a fixed bridge of teeth.",
-      "This is a larger treatment than a single implant, so planning matters. At our Hadapsar clinic we assess your bone, gums and bite, explain whether a fixed full-arch solution is realistic for you, and set out each stage and its cost before anything begins.",
-    ],
     symptomsTitle: "When should you consider full mouth implants?",
     symptoms: [
       "Most of your natural teeth are missing, loose or badly decayed",
@@ -100,12 +141,12 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "You have been told that several single implants would be too complex",
     ],
     steps: [
-      { title: "Detailed assessment", text: "We examine your teeth, gums and bite, take X-rays and review your health history to decide whether a full-arch approach is suitable." },
-      { title: "Planning and estimate", text: "You receive a staged plan covering extractions, bone considerations, number of implants, timeline and total estimated cost." },
-      { title: "Preparing the mouth", text: "Teeth that cannot be saved are removed and any infection or gum disease is treated, so the implants heal in a healthy environment." },
-      { title: "Implant placement", text: "Implants are placed under local anaesthesia, and we talk through ways to keep anxious patients comfortable." },
-      { title: "Healing and temporary teeth", text: "A temporary arrangement is provided while the implants fuse with the bone, so you are not without teeth." },
-      { title: "Final teeth and bite check", text: "A custom-made fixed set of teeth is fitted and adjusted, and you receive clear cleaning instructions." },
+      { title: "Detailed assessment", text: "We examine your teeth, gums and bite, take X-rays and review your health history to decide whether a full-arch approach is suitable.", art: "exam" },
+      { title: "Planning and estimate", text: "You receive a staged plan covering extractions, bone considerations, number of implants, timeline and total estimated cost.", art: "plan" },
+      { title: "Preparing the mouth", text: "Teeth that cannot be saved are removed and any infection or gum disease is treated, so the implants heal in a healthy environment.", art: "stabilise" },
+      { title: "Implant placement", text: "Implants are placed under local anaesthesia, and we talk through ways to keep anxious patients comfortable.", art: "implant" },
+      { title: "Healing and temporary teeth", text: "A temporary arrangement is provided while the implants fuse with the bone, so you are not without teeth.", art: "healing" },
+      { title: "Final teeth and bite check", text: "A custom-made fixed set of teeth is fitted and adjusted, and you receive clear cleaning instructions.", art: "bite" },
     ],
     benefits: [
       "A fixed set of teeth that does not slip or need an adhesive",
@@ -116,7 +157,7 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     ],
     suitableTitle: "Is this treatment right for me?",
     suitableFor:
-      "You need reasonable general health, healthy gums once infection is treated, and enough bone, or a plan to rebuild it. Smokers and people with uncontrolled diabetes face higher risks, so we advise on these first. If full mouth implants are not the best option, we will say so and discuss implant-retained dentures or conventional dentures.",
+      "You need reasonable general health, healthy gums once infection is treated, and enough bone, or a plan to rebuild it. Smokers and people with uncontrolled diabetes face higher risks, so we advise on these first. If full mouth implants are not the right option, we will say so and discuss implant-retained dentures or conventional dentures.",
     aftercare: [
       "Follow the soft-food plan we give you for the first weeks",
       "Clean around the implants daily using the tools we show you",
@@ -124,23 +165,18 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Attend every review so the bite and the implants can be checked",
       "Book professional cleaning at least every six months",
     ],
-    costIntro:
-      "Full mouth implant treatment is a significant investment, and costs across Pune vary widely. We give a written, itemised estimate only after a full examination so you can compare it fairly and plan any staged payments with confidence.",
-    costFactors: [
-      "Whether one arch or both arches are treated",
-      "The number of implants and the type of final teeth",
-      "Extractions, gum treatment or bone work needed first",
-      "The materials chosen for the final bridge",
-      "Temporary teeth and the number of follow-up visits",
-    ],
     localNote:
-      "Because full-arch care runs over several months, many patients from Magarpatta City, Amanora Park Town and nearby societies choose us for the short, convenient journey to each visit.",
+      "Full-arch care runs over several months with short visits for review and adjustment, so convenience matters. Our Tupe Patil Road clinic is easy to reach from Magarpatta City, Amanora Park Town and Mundhwa, with evening and Sunday-morning slots to help you keep to the plan.",
     faqs: [
       { q: "How many implants are needed for a full arch?", a: "It depends on your bone and bite. Many full-arch plans use four to six implants per arch, but we confirm the number only after examination and X-rays." },
       { q: "Can I get teeth on the same day?", a: "In some suitable cases a temporary fixed set can be fitted soon after implant placement. We will tell you honestly whether this is possible for you rather than promise it in advance." },
-      { q: "Is the treatment painful?", a: "Treatment is carried out under local anaesthesia, and we talk through ways to keep you comfortable if you are anxious. Some soreness and swelling afterwards is normal and is managed with medicines." },
-      { q: "How long do full mouth implants last?", a: "With good home care and regular check-ups the implants are designed to last for many years. The teeth on top will gradually wear and may need servicing or replacement." },
-      { q: "How is this different from dentures?", a: "Dentures rest on the gums and can move. Implants anchor into the bone, so the teeth stay fixed and chewing feels more secure." },
+      { q: "Is full mouth implant treatment the same as All-on-4?", a: "All-on-4 is one popular design that uses four implants to support a fixed set of teeth on one arch. Some patients need five or six implants depending on their bone and bite, so we choose the design after your scans, not before." },
+      { q: "How much do full mouth dental implants cost in Pune?", a: "Full-arch treatment is a significant investment, and prices across Pune vary widely with the number of implants, the materials and whether one or both arches are treated. After an examination and scans we give you a written, itemised estimate for each stage, so you can compare it fairly and plan ahead." },
+      local(
+        "Do you offer full mouth implants near Magarpatta City and Mundhwa?",
+        "Yes. We plan the whole treatment, from extractions and implants to the final fixed teeth, at one clinic.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-implants", "dentures", "full-mouth-rehabilitation"],
     keywords: ["all on 4 implants pune", "full arch implants hadapsar", "fixed teeth in pune", "implant supported teeth"],
@@ -150,18 +186,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     metaDescription:
       "Dental crowns and bridges in Hadapsar, Pune: restore broken, decayed or missing teeth with strong, natural-looking ceramic work. See how it works and book.",
     heroSub:
-      "Protect a weakened tooth with a custom crown, or close a gap with a bridge, finished to match the colour and shape of your own teeth.",
-    facts: [
-      ["Visits", "Usually 2"],
-      ["Anaesthesia", "Local"],
-      ["Materials", "Zirconia, ceramic, metal-ceramic"],
-    ],
+      "A dental crown or bridge in Hadapsar protects a weakened tooth or closes a gap, custom-made to match the colour and shape of your own teeth.",
     quickAnswer:
       "A dental crown is a custom-made cap that covers a damaged tooth to restore its shape, strength and appearance. A dental bridge replaces one or more missing teeth by attaching an artificial tooth to crowns placed on the teeth on either side of the gap.",
-    overview: [
+    overview:
       "Teeth that are cracked, heavily filled or weakened after a root canal often need a crown to stop them breaking. A bridge is a fixed way of filling a gap, so you can chew properly and the neighbouring teeth do not tilt into the space.",
-      "We design every crown and bridge to fit your bite and blend with your smile. Dr. Gayatri explains the material options, such as zirconia, all-ceramic and metal-ceramic, and recommends the one that suits the tooth and your budget.",
-    ],
     symptomsTitle: "When do you need a crown or bridge?",
     symptoms: [
       "A tooth is cracked, worn down or too broken for a filling",
@@ -172,11 +201,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "You need to cover a dental implant with a tooth-shaped crown",
     ],
     steps: [
-      { title: "Examination and planning", text: "We examine the tooth, take X-rays and agree the best material and shade with you." },
-      { title: "Tooth preparation", text: "Under local anaesthesia the tooth is gently shaped to make room for the crown, and any decay is removed." },
-      { title: "Impression or scan", text: "An accurate impression records your tooth and bite so the lab can make a precise restoration." },
-      { title: "Temporary crown", text: "A temporary crown protects the tooth and keeps your smile looking normal while the final one is made." },
-      { title: "Fitting the final crown or bridge", text: "The permanent restoration is checked for fit, colour and bite, then fixed firmly in place." },
+      { title: "Examination and planning", text: "We examine the tooth, take X-rays and agree the most suitable material and shade with you.", art: "exam" },
+      { title: "Tooth preparation", text: "Under local anaesthesia the tooth is gently shaped to make room for the crown, and any decay is removed.", art: "prep" },
+      { title: "Impression or scan", text: "An accurate impression records your tooth and bite so the lab can make a precise restoration.", art: "impression" },
+      { title: "Temporary crown", text: "A temporary crown protects the tooth and keeps your smile looking normal while the final one is made.", art: "temp" },
+      { title: "Fitting the final crown or bridge", text: "The permanent restoration is checked for fit, colour and bite, then fixed firmly in place.", art: "crown" },
     ],
     benefits: [
       "Restores strength to weak or broken teeth",
@@ -195,23 +224,19 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Tell us if the bite feels high so we can adjust it",
       "Visit every six months for a check-up and cleaning",
     ],
-    costIntro:
-      "The cost of crowns and bridges in Hadapsar depends mainly on the material and the number of units. We give you a clear written estimate before preparing any tooth, so there are no surprises later.",
-    costFactors: [
-      "The material: zirconia, all-ceramic or metal-ceramic",
-      "The number of crowns or units in a bridge",
-      "Whether a root canal or build-up is needed first",
-      "Whether a temporary restoration is required for longer",
-      "The complexity of your bite and the shade matching involved",
-    ],
     localNote:
-      "Our location on Tupe Patil Road, close to Kotak Mahindra Bank, makes it simple for patients from Amanora Park Town and Magarpatta to attend both visits without a long trip.",
+      "Crowns usually take two visits, about a week or two apart. Our Tupe Patil Road clinic, close to Kotak Mahindra Bank, is a short trip from Amanora Park Town, Magarpatta City and Keshav Nagar, and the temporary crown keeps you comfortable until the final one is ready.",
     faqs: [
       { q: "How long does a dental crown last?", a: "Crowns commonly last ten years or more when you keep up good brushing, flossing and regular check-ups. Habits such as teeth grinding can shorten their life." },
-      { q: "Is the crown procedure painful?", a: "The tooth is numbed with local anaesthesia, so you should feel no pain during preparation. The tooth may feel sensitive for a few days afterwards." },
-      { q: "Which crown material is best?", a: "There is no single answer. Zirconia is very strong, all-ceramic looks the most natural at the front, and metal-ceramic is a long-established option. We recommend what suits the tooth and your budget." },
-      { q: "Can a crown be fitted in one visit?", a: "Most crowns need two visits because they are made in a dental laboratory. A temporary crown is fitted in between." },
-      { q: "What is the difference between a crown and a bridge?", a: "A crown covers one tooth. A bridge is a set of connected crowns that also holds an artificial tooth, so it replaces a missing tooth." },
+      { q: "Is the crown procedure painful?", a: "The tooth is numbed with local anaesthesia, so you should feel pressure rather than pain during preparation. The tooth may feel sensitive for a few days afterwards." },
+      { q: "Which crown material is right for me?", a: "There is no single answer. Zirconia is very strong, all-ceramic looks the most natural at the front, and metal-ceramic is a long-established option. We recommend what suits the tooth and your budget." },
+      { q: "What is the difference between a dental crown and a bridge?", a: "A crown covers one tooth. A bridge is a set of connected crowns that also holds an artificial tooth, so it replaces a missing tooth." },
+      { q: "How much do dental crowns and bridges cost in Pune?", a: "The main factors are the material (zirconia, all-ceramic or metal-ceramic), the number of crowns or units in a bridge, and whether a root canal or build-up is needed first. We quote after examining the tooth, so you know the full cost before we prepare it." },
+      local(
+        "Where can I get a dental crown near Amanora Park Town or Keshav Nagar?",
+        "Both crown visits, preparation and fitting, take place at our clinic, and a temporary crown keeps you comfortable in between.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-implants", "root-canal-treatment", "tooth-fillings"],
     keywords: ["tooth cap cost in pune", "zirconia crown hadapsar", "dental bridge pune", "ceramic crown amanora"],
@@ -221,18 +246,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     metaDescription:
       "Dentures in Hadapsar, Pune: comfortable, natural-looking complete and partial dentures made to fit well. See how fitting works and book a consultation.",
     heroSub:
-      "Get comfortable, well-fitting dentures that restore your chewing, your speech and your confidence, with careful adjustments until they feel right.",
-    facts: [
-      ["Types", "Complete and partial"],
-      ["Visits", "Usually 4–5"],
-      ["Best for", "Several or all teeth missing"],
-    ],
+      "Comfortable, well-fitting dentures in Hadapsar restore your chewing, your speech and your confidence, with careful adjustments until they feel right.",
     quickAnswer:
       "Dentures are removable replacement teeth made to fit your gums. Complete dentures replace all the teeth in an arch, while partial dentures fill gaps and clip onto remaining natural teeth. Well-made dentures restore chewing and speech and support the shape of your face.",
-    overview: [
+    overview:
       "Dentures remain a dependable and affordable way to replace missing teeth. A good result depends on accurate impressions, careful bite records and patient adjustments, not just on the materials used.",
-      "We take the time to make dentures that fit comfortably and look natural. If you have an old set that no longer fits, we can assess whether relining or remaking it is the better choice.",
-    ],
     symptomsTitle: "When are dentures a good option?",
     symptoms: [
       "You have lost many or all of your teeth",
@@ -242,11 +260,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Your current denture is loose, cracked or uncomfortable",
     ],
     steps: [
-      { title: "Consultation and planning", text: "We examine your mouth, discuss complete, partial or implant-retained options and explain the cost." },
-      { title: "Impressions", text: "Accurate impressions of your gums and remaining teeth are taken to guide the denture design." },
-      { title: "Bite records and tooth selection", text: "We record how your jaws meet and choose the size, shape and shade of the teeth with you." },
-      { title: "Try-in", text: "You try a wax model of the denture, so the fit and appearance can be adjusted before the final version is made." },
-      { title: "Fitting and adjustments", text: "The finished denture is fitted and fine-tuned. Follow-up visits remove any sore spots as you get used to it." },
+      { title: "Consultation and planning", text: "We examine your mouth, discuss complete, partial or implant-retained options and explain the cost.", art: "consult" },
+      { title: "Impressions", text: "Accurate impressions of your gums and remaining teeth are taken to guide the denture design.", art: "impression" },
+      { title: "Bite records and tooth selection", text: "We record how your jaws meet and choose the size, shape and shade of the teeth with you.", art: "bite" },
+      { title: "Try-in", text: "You try a wax model of the denture, so the fit and appearance can be adjusted before the final version is made.", art: "denture" },
+      { title: "Fitting and adjustments", text: "The finished denture is fitted and fine-tuned. Follow-up visits remove any sore spots as you get used to it.", art: "smile" },
     ],
     benefits: [
       "Restores your ability to chew a wider range of foods",
@@ -265,23 +283,18 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Keep them out at night in water or a denture solution",
       "Return for adjustments if any area feels sore",
     ],
-    costIntro:
-      "Denture costs in Pune depend on the type and the materials. We give you a written estimate after your examination so you know the full cost, including any adjustments, before you begin.",
-    costFactors: [
-      "Complete or partial denture",
-      "The quality of the acrylic and teeth used",
-      "Whether extractions are needed first",
-      "Relining or repairing an existing denture",
-      "Whether the denture is retained by implants",
-    ],
     localNote:
-      "Elderly patients from the societies around Amanora Park Town and Hadapsar appreciate the short travel and the unhurried, patient way we handle the several fitting visits.",
+      "Denture fittings need several visits over a few weeks, so a nearby clinic makes the process easier, especially for older patients. Our Tupe Patil Road clinic in Amanora Park Town is a short trip from Hadapsar, Mundhwa and Magarpatta City, and we allow unhurried time at each fitting.",
     faqs: [
       { q: "How long do dentures take to make?", a: "Most dentures take several visits over a few weeks, covering impressions, bite records, a try-in and the final fitting." },
-      { q: "Will dentures look natural?", a: "Yes. We choose the shape and shade of the teeth with you and check the try-in before the final denture is made." },
       { q: "How long does it take to get used to dentures?", a: "Most people adapt within a few weeks. Speaking and eating can feel strange at first, and we adjust the fit as needed." },
       { q: "How long do dentures last?", a: "Dentures commonly last five to ten years, but gums change shape over time, so relining or replacement may be needed sooner." },
-      { q: "Can I sleep with my dentures in?", a: "It is generally best to take them out at night so your gums can rest and stay healthy." },
+      { q: "How much do dentures cost in Pune?", a: "The price depends on whether the denture is complete or partial, the quality of the teeth and base, and whether extractions, relining or implant retention are involved. We give you a written estimate after your examination, including the adjustment visits." },
+      local(
+        "Where can I get dentures near Hadapsar and Mundhwa?",
+        "Impressions, try-in and fitting are all carried out at our clinic, and we schedule the visits so you are not left without teeth for longer than necessary.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-implants", "full-mouth-implants", "crowns-bridges"],
     keywords: ["complete denture cost in pune", "partial denture hadapsar", "false teeth pune", "denture relining"],
@@ -291,18 +304,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     metaDescription:
       "Tooth-coloured fillings in Hadapsar, Pune: repair cavities and chips with natural-looking composite fillings, often in one visit. Book your appointment today.",
     heroSub:
-      "Repair cavities, chips and worn spots with tooth-coloured fillings that blend in with your smile and protect the tooth, usually in a single visit.",
-    facts: [
-      ["Visits", "Usually 1"],
-      ["Anaesthesia", "Local"],
-      ["Material", "Tooth-coloured composite"],
-    ],
+      "Tooth-coloured fillings in Hadapsar repair cavities, chips and worn spots so they blend in with your smile, usually in a single visit.",
     quickAnswer:
       "A tooth-coloured filling repairs a tooth damaged by decay or a chip, using a composite resin that matches the natural shade of your teeth. The resin is bonded to the tooth and hardened with a light, so the repair is strong and almost invisible.",
-    overview: [
+    overview:
       "Small cavities are easy to treat, and the earlier they are found the simpler and cheaper the treatment. Composite fillings need less tooth removed than old-style silver fillings and can be shaped to match your bite.",
-      "We remove the decay carefully, protect the nerve of the tooth where possible, and build the filling in layers so it feels smooth and natural. If a cavity is too large for a filling, we will explain when a crown or root canal is the better choice.",
-    ],
     symptomsTitle: "When do you need a filling?",
     symptoms: [
       "A visible dark spot or hole on a tooth",
@@ -312,11 +318,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "A rough spot you can feel with your tongue",
     ],
     steps: [
-      { title: "Examination and X-ray", text: "We find the extent of the decay, often with a small X-ray, and choose the right treatment." },
-      { title: "Numbing the tooth", text: "Local anaesthesia makes the treatment comfortable." },
-      { title: "Removing the decay", text: "The decayed part is carefully cleaned away while keeping as much healthy tooth as possible." },
-      { title: "Placing the composite", text: "The resin is matched to your tooth shade, applied in layers and hardened with a curing light." },
-      { title: "Shaping and polishing", text: "We check your bite, trim the filling and polish it so it feels smooth." },
+      { title: "Examination and X-ray", text: "We find the extent of the decay, often with a small X-ray, and choose the right treatment.", art: "xray" },
+      { title: "Numbing the tooth", text: "Local anaesthesia makes the treatment comfortable.", art: "anaesthesia" },
+      { title: "Removing the decay", text: "The decayed part is carefully cleaned away while keeping as much healthy tooth as possible.", art: "decay" },
+      { title: "Placing the composite", text: "The resin is matched to your tooth shade, applied in layers and hardened with a curing light.", art: "composite" },
+      { title: "Shaping and polishing", text: "We check your bite, trim the filling and polish it so it feels smooth.", art: "polish" },
     ],
     benefits: [
       "Blends in with your natural teeth",
@@ -327,7 +333,7 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     ],
     suitableTitle: "When a filling is not enough",
     suitableFor:
-      "If decay is very deep and has reached the nerve, a root canal may be needed. If a large part of the tooth is missing, a crown will protect it better than a filling. We tell you which is best after the examination.",
+      "If decay is very deep and has reached the nerve, a root canal may be needed. If a large part of the tooth is missing, a crown will protect it better than a filling. We tell you which suits the tooth after the examination.",
     aftercare: [
       "Wait until the numbness has worn off before eating",
       "Mild sensitivity for a few days is common",
@@ -335,23 +341,19 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Brush twice daily and floss to prevent new cavities",
       "Visit every six months so small problems are caught early",
     ],
-    costIntro:
-      "Tooth-coloured fillings are one of the most affordable restorative treatments. The price depends on the size and position of the cavity, and we confirm it with you before starting.",
-    costFactors: [
-      "The size and depth of the cavity",
-      "The number of surfaces on the tooth involved",
-      "Front or back tooth",
-      "Whether a lining or build-up is needed",
-      "Whether more than one tooth is treated in the same visit",
-    ],
     localNote:
-      "Busy professionals from Magarpatta City and Amanora often book an evening slot after work, since most fillings take a single visit.",
+      "Most fillings are finished in one visit, so they fit easily into a working day. Our Tupe Patil Road clinic in Amanora Park Town is a short drive from Magarpatta City, Mundhwa and Keshav Nagar, with evening appointments until 9 PM and a Sunday-morning slot.",
     faqs: [
       { q: "Is a tooth-coloured filling painful?", a: "The tooth is numbed first, so you should not feel pain during treatment. Some mild sensitivity afterwards is normal and settles quickly." },
       { q: "How long does a composite filling last?", a: "Often between five and ten years or more, depending on its size, your bite and how well you look after your teeth." },
       { q: "Are tooth-coloured fillings safe?", a: "Yes. Composite resin fillings are widely used worldwide and contain no mercury." },
       { q: "Can I eat after a filling?", a: "Wait until the numbness has worn off completely, then eat softer foods first so you do not bite your cheek or tongue." },
-      { q: "How do I know if I need a filling or a root canal?", a: "A filling treats decay before it reaches the nerve. If you have severe, lingering or night-time pain, the nerve may be involved and a root canal may be needed. We confirm this with an X-ray." },
+      { q: "How much does a tooth-coloured filling cost in Pune?", a: "It depends on the size and position of the cavity and how many surfaces are involved. Fillings are one of the more affordable treatments, and we confirm the cost of each tooth before we begin." },
+      local(
+        "Where can I get tooth-coloured fillings near Magarpatta City?",
+        "Most fillings are completed in a single visit, so you can fit one around a working day.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["crowns-bridges", "root-canal-treatment", "dental-checkup"],
     keywords: ["composite filling cost pune", "cavity treatment hadapsar", "white fillings", "dental filling near amanora"],
@@ -361,18 +363,11 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
     metaDescription:
       "Full mouth rehabilitation in Hadapsar, Pune: a phased plan to restore worn, damaged or missing teeth and a healthy bite. Understand the process and book.",
     heroSub:
-      "When many teeth need attention, a single coordinated, phased plan restores your health, your bite and your smile, rather than a series of unconnected repairs.",
-    facts: [
-      ["Approach", "Phased, step by step"],
-      ["Planning", "Full examination first"],
-      ["Best for", "Complex or widespread problems"],
-    ],
+      "Full mouth rehabilitation in Pune restores worn, damaged or missing teeth in one coordinated, phased plan, so your health, bite and smile are rebuilt together instead of through unconnected repairs.",
     quickAnswer:
       "Full mouth rehabilitation is a comprehensive treatment plan that restores most or all of the teeth in both jaws. It combines treatments such as gum care, fillings, root canals, crowns, implants and bite correction, planned together so the final result is healthy, comfortable and long-lasting.",
-    overview: [
+    overview:
       "Years of grinding, acid wear, untreated decay, gum disease or tooth loss can leave a mouth that needs many treatments. Treating each problem separately can be costly and may not fix the underlying bite problem.",
-      "Dr. Gayatri begins with a full examination, X-rays and a discussion of your goals. She then sets out a staged plan in a logical order, usually starting with health and stability before moving to rebuilding and cosmetics, so you can pace treatment and cost.",
-    ],
     symptomsTitle: "When is full mouth rehabilitation advised?",
     symptoms: [
       "Many teeth are worn down by grinding or acid",
@@ -382,12 +377,12 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Your teeth have changed shape and you want to restore your smile",
     ],
     steps: [
-      { title: "Comprehensive examination", text: "We assess your teeth, gums, jaw joints and bite, and record your concerns and goals." },
-      { title: "Diagnosis and X-rays", text: "Full-mouth X-rays and photographs help us understand the underlying causes, not just the visible damage." },
-      { title: "Phased treatment plan", text: "You receive a clear, ordered plan with timelines and estimated costs for each phase." },
-      { title: "Stabilise health first", text: "We treat infection, gum disease and decay so the foundation is healthy before rebuilding." },
-      { title: "Rebuild function and appearance", text: "Crowns, fillings, implants, veneers or other restorations are completed in planned stages." },
-      { title: "Protect the result", text: "A night guard or retainer and regular reviews help protect the work you have invested in." },
+      { title: "Comprehensive examination", text: "We assess your teeth, gums, jaw joints and bite, and record your concerns and goals.", art: "exam" },
+      { title: "Diagnosis and X-rays", text: "Full-mouth X-rays and photographs help us understand the underlying causes, not just the visible damage.", art: "xray" },
+      { title: "Phased treatment plan", text: "You receive a clear, ordered plan with timelines and estimated costs for each phase.", art: "plan" },
+      { title: "Stabilise health first", text: "We treat infection, gum disease and decay so the foundation is healthy before rebuilding.", art: "stabilise" },
+      { title: "Rebuild function and appearance", text: "Crowns, fillings, implants, veneers or other restorations are completed in planned stages.", art: "crown" },
+      { title: "Protect the result", text: "A night guard or retainer and regular reviews help protect the work you have invested in.", art: "nightguard" },
     ],
     benefits: [
       "One coordinated plan instead of many separate treatments",
@@ -406,23 +401,18 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "Limit acidic drinks that can wear teeth down",
       "Contact us promptly if any restoration feels loose or uncomfortable",
     ],
-    costIntro:
-      "Because every mouth is different, we do not quote a standard price. After your examination you receive a phase-by-phase estimate so you can decide how and when to proceed.",
-    costFactors: [
-      "How many teeth need treatment and which treatments are required",
-      "The materials chosen for crowns and other restorations",
-      "Whether implants, gum treatment or root canals are needed",
-      "The number of visits and the length of the plan",
-      "Whether a night guard or retainers are included",
-    ],
     localNote:
-      "Staged treatment works best when visits are convenient, and patients from across Hadapsar and Magarpatta tell us the evening and Sunday-morning slots help them keep to the plan.",
+      "Staged treatment works best when visits are convenient. Our Tupe Patil Road clinic is a short drive from Hadapsar, Magarpatta City and Amanora Park Town, with evening and Sunday-morning slots, and you receive the plan and each phase's estimate in writing.",
     faqs: [
       { q: "How long does full mouth rehabilitation take?", a: "It depends on the plan. Straightforward cases may take a few months, while complex cases with implants can take longer. We give you an estimated timeline after the examination." },
-      { q: "Is it done all at once?", a: "Usually not. Treatment is phased so that health problems are resolved first and the work is spread out comfortably." },
       { q: "Will it be painful?", a: "Treatments are performed with local anaesthesia, and we discuss comfort options with you. Mild soreness after some stages is normal." },
-      { q: "What if I only need a few teeth treated?", a: "Then a full rehabilitation is not necessary. We recommend the simplest effective treatment for your situation." },
-      { q: "Can I stage payments?", a: "Because the plan is phased, you can pace the cost across the visits. We explain each phase's estimate in advance." },
+      { q: "What is the difference between full mouth rehabilitation and a smile makeover?", a: "A smile makeover mainly changes how your teeth look. Full mouth rehabilitation also treats function, such as worn teeth, a collapsed bite, missing teeth or jaw strain, so the work is planned as a whole. Some patients need both, and we explain which applies to you." },
+      { q: "How much does full mouth rehabilitation cost in Pune?", a: "There is no standard price, because it depends on which teeth need which treatments, the materials chosen and the number of visits. After your examination you receive a phase-by-phase estimate, so you can see what each stage costs and decide the pace." },
+      local(
+        "Where can I get full mouth rehabilitation near Hadapsar and Magarpatta?",
+        "The examination, planning and every phase of treatment are coordinated at one clinic, so your plan and your records stay in one place.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-implants", "crowns-bridges", "smile-makeover"],
     keywords: ["full mouth restoration pune", "bite correction", "worn teeth treatment", "complete dental rehabilitation"],

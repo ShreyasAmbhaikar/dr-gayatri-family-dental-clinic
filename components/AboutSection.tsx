@@ -79,7 +79,7 @@ export default function AboutSection({ onOpenBooking }: AboutSectionProps) {
           />
 
           <p className="text-body text-[14.5px] sm:text-[15.5px] leading-relaxed mt-5 mb-8 max-w-[540px]">
-            At Dr. Gayatri&apos;s Family Dental Clinic, we combine advanced technology with a compassionate approach to provide high-quality and painless dental care for you and your family. Our focus is on building long-term relationships and helping you achieve healthy, confident smiles at every stage of life.
+            At Dr. Gayatri&apos;s Family Dental Clinic, we combine advanced technology with a compassionate approach to provide high-quality, gentle dental care for you and your family. Our focus is on building long-term relationships and helping you achieve healthy, confident smiles at every stage of life.
           </p>
 
           <Button href="/about" arrow className="mb-10 px-8">

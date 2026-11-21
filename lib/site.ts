@@ -61,6 +61,14 @@ export const SITE = {
   contentReviewedByDoctor: false,
   contentUpdated: "2026-11-07",
 
+  /**
+   * Homepage "Patient Stories" carousel. Its current entries are PLACEHOLDERS (invented names and dates).
+   * Keep this false until components/PatientStoriesSection.tsx is fed with real, consented reviews
+   * (for example from the Google Business Profile). Publishing invented reviews breaches Google's
+   * policies and Indian consumer-protection rules on fake reviews.
+   */
+  showPatientStories: false,
+
   ogImage: "/images/hero-patient.jpg",
 } as const;
 

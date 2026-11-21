@@ -32,16 +32,16 @@ const CASES: TransformationCase[] = [
     tabLabel: "Crooked Teeth",
     title: "Crooked & Crowded Teeth Correction",
     category: "Orthodontics",
-    tag: "Clear Aligners Result",
-    duration: "7 Months",
+    tag: "Clear Aligners",
+    duration: "Varies by case",
     beforeImage: "/images/before-after/crowded-before.jpg",
     afterImage: "/images/before-after/crowded-after.jpg",
     description:
-      "Corrected crowded, overlapping front teeth and misalignment using comfortable, clear invisible aligners without needing extractions.",
+      "Clear aligners or braces can straighten crowded, overlapping front teeth. The right option, and how long it takes, depends on your teeth and bite.",
     bookingTreatment: "Orthodontics / Aligners",
     benefits: [
-      "Custom clear aligners, zero metal brackets",
-      "Corrected arch alignment and bite function",
+      "Clear aligners with no metal brackets",
+      "Planned around your alignment and bite",
       "Discreet and comfortable everyday wear",
     ],
     icon: Smile,
@@ -51,36 +51,36 @@ const CASES: TransformationCase[] = [
     tabLabel: "Chipped Tooth",
     title: "Chipped Tooth Cosmetic Restoration",
     category: "Restorative Dentistry",
-    tag: "Composite Bonding & Veneer",
-    duration: "Single Sitting (40 Mins)",
+    tag: "Tooth-Coloured Filling",
+    duration: "Often one visit",
     beforeImage: "/images/before-after/restoration-before.jpg",
     afterImage: "/images/before-after/restoration-after.jpg",
     description:
-      "Rebuilt a fractured incisal edge and chipped enamel seamlessly using artistic nano-hybrid composite resin that blends invisibly with natural teeth.",
+      "A chipped edge can often be rebuilt with tooth-coloured composite resin that is shaped and polished to blend in with the natural tooth.",
     bookingTreatment: "Cosmetic Dentistry",
     benefits: [
-      "Painless single-visit repair, no needles or discomfort",
-      "Exact match to natural tooth translucency and hue",
-      "High-strength bonding for confident chewing",
+      "Often completed in a single visit",
+      "Shade matched to your natural tooth",
+      "Bonded to the tooth to restore strength",
     ],
     icon: Layers,
   },
   {
     id: "whitening",
     tabLabel: "Teeth Whitening",
-    title: "Laser Teeth Whitening",
+    title: "Professional Teeth Whitening",
     category: "Cosmetic Dentistry",
-    tag: "Deep Stain Removal",
-    duration: "Single 45-Min Sitting",
+    tag: "Stain Removal",
+    duration: "About 60-90 mins",
     beforeImage: "/images/before-after/whitening-before.jpg",
     afterImage: "/images/before-after/whitening-after.jpg",
     description:
-      "Lifted stubborn years-old yellowing and tea/coffee enamel stains using gentle in-office laser whitening with tooth desensitizing protection.",
+      "Dentist-supervised whitening can lift yellowing and tea or coffee stains. How much lighter your teeth become depends on your starting shade.",
     bookingTreatment: "Teeth Whitening",
     benefits: [
-      "Up to 6 shades brighter in 45 minutes",
-      "Enamel-safe, doctor-administered formula",
-      "Zero post-treatment sensitivity or discomfort",
+      "Supervised by a dentist, with gums protected",
+      "Realistic results explained at your consultation",
+      "Desensitising care if you feel any sensitivity",
     ],
     icon: Sparkles,
   },
@@ -101,11 +101,11 @@ export default function BeforeAfterSection({ onOpenBooking }: BeforeAfterSection
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <SectionHeading
             eyebrow="Smile Transformations"
-            title="Real Before & After Results"
+            title="Before & After Smile Examples"
             align="center"
           />
           <p className="text-body text-[15px] sm:text-[16px] leading-relaxed mt-3.5">
-            Explore authentic transformations performed by Dr. Gayatri. Slide interactively to witness how precision family dentistry restores smiles and confidence.
+            Slide to compare what these treatments can change. Results vary from person to person and depend on your starting condition, so we explain what is realistic for you at your consultation.
           </p>
 
           {/* Scenario Tab Pills with vibrant clinic teal active styling */}

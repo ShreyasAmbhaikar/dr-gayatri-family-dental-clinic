@@ -192,7 +192,7 @@ export const TREATMENTS: TreatmentSummary[] = [
     slug: "full-mouth-implants",
     name: "Full Mouth Implants",
     h1: "Full Mouth Dental Implants in Hadapsar, Pune",
-    titleName: "Full Mouth Dental Implants",
+    titleName: "Full Mouth Implants",
     category: "Restorative",
     keyword: "full mouth dental implants pune",
     short: "A fixed, full-arch solution to replace all or most of your teeth.",
@@ -327,7 +327,8 @@ export const CATEGORY_INTRO: Record<Category, { title: string; text: string }> =
   },
 };
 
-export const CATEGORY_ORDER: Category[] = ["Restorative", "Orthodontic", "Preventive", "Surgical", "Cosmetic", "Pediatric", "Emergency"];
+/** Hub, menu and llms.txt order. Follows search demand from docs/seo-strategy.md (implants/RCT, braces/aligners, kids first). */
+export const CATEGORY_ORDER: Category[] = ["Restorative", "Orthodontic", "Pediatric", "Preventive", "Surgical", "Cosmetic", "Emergency"];
 
 export const getSummary = (slug: string) => TREATMENTS.find((t) => t.slug === slug);
 export const treatmentPath = (slug: string) => `/treatments/${slug}`;

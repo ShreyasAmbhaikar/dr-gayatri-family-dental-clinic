@@ -3,7 +3,7 @@ import React from "react";
 /** Three separated dashes (navy, coral, cyan) used under some headings. */
 export function AccentBar({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-1.5 ${className}`} aria-hidden="true">
+    <div className={`inline-flex items-center justify-center gap-1.5 ${className}`} aria-hidden="true">
       <span className="h-[3px] w-9 rounded-full bg-purple" />
       <span className="h-[3px] w-5 rounded-full bg-coral" />
       <span className="h-[3px] w-9 rounded-full bg-teal-bright/80" />

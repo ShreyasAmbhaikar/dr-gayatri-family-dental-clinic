@@ -1,4 +1,5 @@
 import type { TreatmentContent } from "./types";
+import { local } from "./local";
 
 /** Orthodontic, children's and preventive care. */
 export const CONTENT_B: Record<string, TreatmentContent> = {
@@ -6,18 +7,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Braces in Hadapsar, Pune: straighten crooked, crowded or gapped teeth with metal or ceramic braces for teens and adults. See the process and book a visit.",
     heroSub:
-      "Straighten crooked, crowded or gapped teeth and correct your bite with metal or ceramic braces, planned carefully for teens and adults.",
-    facts: [
-      ["Typical duration", "About 12–24 months"],
-      ["Adjustments", "Every 4–6 weeks"],
-      ["Options", "Metal and ceramic"],
-    ],
+      "Braces in Hadapsar, Pune straighten crooked, crowded or gapped teeth and correct your bite, with metal or ceramic options planned carefully for teens and adults.",
     quickAnswer:
       "Braces are fixed appliances made of brackets and wires that gently move teeth into better positions over time. They correct crooked teeth, gaps, crowding and bite problems. Options include metal braces and tooth-coloured ceramic braces, and they suit both teenagers and adults.",
-    overview: [
+    overview:
       "Straight teeth are easier to clean, more comfortable to chew with and often more attractive. Braces work by applying light, steady pressure, and a plan tailored to your mouth decides how long the process takes.",
-      "At our clinic, treatment begins with a full examination, X-rays and a discussion of your goals. We explain the options, the expected duration and the cost, and we tell you honestly if clear aligners could suit your case better.",
-    ],
     symptomsTitle: "When are braces recommended?",
     symptoms: [
       "Crooked, overlapping or crowded teeth",
@@ -28,12 +22,12 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Wanting a straighter smile as a teenager or as an adult",
     ],
     steps: [
-      { title: "Consultation and records", text: "We examine your teeth and bite, take X-rays and photographs, and discuss what you want to achieve." },
-      { title: "Treatment plan", text: "You receive a written plan with the type of braces, expected duration and estimated cost." },
-      { title: "Preparation", text: "Any cavities or gum problems are treated first, and sometimes a tooth needs to be removed to make space." },
-      { title: "Fitting the braces", text: "Brackets are bonded to the teeth and the first wire is placed. The procedure is not painful, though teeth feel tender for a few days." },
-      { title: "Regular adjustments", text: "Every four to six weeks we adjust the wires to keep teeth moving. Good hygiene during this period is essential." },
-      { title: "Retention", text: "Once the braces are removed, retainers keep your teeth in their new position." },
+      { title: "Consultation and records", text: "We examine your teeth and bite, take X-rays and photographs, and discuss what you want to achieve.", art: "exam" },
+      { title: "Treatment plan", text: "You receive a written plan with the type of braces, expected duration and estimated cost.", art: "plan" },
+      { title: "Preparation", text: "Any cavities or gum problems are treated first, and sometimes a tooth needs to be removed to make space.", art: "stabilise" },
+      { title: "Fitting the braces", text: "Brackets are bonded to the teeth and the first wire is placed. Fitting is usually comfortable, though teeth can feel tender for a few days.", art: "braces" },
+      { title: "Regular adjustments", text: "Every four to six weeks we adjust the wires to keep teeth moving. Good hygiene during this period is essential.", art: "calendar" },
+      { title: "Retention", text: "Once the braces are removed, retainers keep your teeth in their new position.", art: "retainer" },
     ],
     benefits: [
       "Straighter, more even teeth",
@@ -52,24 +46,18 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Attend every adjustment visit",
       "Wear retainers as instructed after treatment",
     ],
-    costIntro:
-      "The cost of braces in Hadapsar and the rest of Pune depends on the type of braces and the complexity of your case. After the examination you receive a written estimate, and we explain how payment can be spread across the treatment.",
-    costFactors: [
-      "The type of braces: metal or ceramic",
-      "The complexity of the case and the expected duration",
-      "Whether extractions or other preparation are needed",
-      "The number of adjustment visits",
-      "Retainers and follow-up after treatment",
-    ],
     localNote:
-      "Students and working professionals from Magarpatta City and Amanora Park Town find our evening and Sunday-morning slots convenient for regular adjustments.",
+      "Braces mean regular visits every four to six weeks for a year or two, so a convenient clinic matters. Our Tupe Patil Road clinic is a short drive from Magarpatta City, Amanora Park Town and Keshav Nagar, with evening hours until 9 PM and Sunday-morning slots for adjustments.",
     faqs: [
-      { q: "Do braces hurt?", a: "Fitting is not painful, but your teeth and gums can feel sore for a few days after fitting and after adjustments. Over-the-counter pain relief and soft foods help." },
+      { q: "Do braces hurt?", a: "Fitting is usually comfortable, but your teeth and gums can feel sore for a few days after fitting and after adjustments. Over-the-counter pain relief and soft foods help." },
       { q: "How long will I need braces?", a: "Most treatments take around 12 to 24 months, but this varies with your case. We give you an estimate after the examination." },
-      { q: "Am I too old for braces?", a: "No. Many adults have orthodontic treatment, provided their gums and teeth are healthy." },
       { q: "What is the difference between metal and ceramic braces?", a: "Metal braces are the most durable and often the most affordable. Ceramic braces are tooth-coloured and less noticeable but can stain more easily if not cleaned well." },
-      { q: "Will I need teeth removed?", a: "Only some patients do, mainly where crowding is severe. We discuss this in advance and only recommend it when needed." },
-      { q: "Do I have to wear a retainer?", a: "Yes. Teeth tend to drift back without retainers, so they are an essential part of keeping the result." },
+      { q: "How much do braces cost in Pune?", a: "The cost depends on the type of braces (metal or ceramic), how complex your case is and how long treatment takes. After your examination and records you receive a written estimate that includes retainers, so you know the full cost up front." },
+      local(
+        "Where can I get braces near Magarpatta City or Keshav Nagar?",
+        "Your examination, braces fitting and every monthly adjustment take place at one clinic, which keeps the many visits simple.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["clear-aligners", "kids-dentistry", "teeth-cleaning"],
     keywords: ["braces cost in pune", "ceramic braces pune", "orthodontic treatment hadapsar", "metal braces amanora"],
@@ -79,18 +67,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Clear aligners in Hadapsar, Pune: straighten teeth discreetly with nearly invisible, removable trays. See who is suitable, how it works and book a visit.",
     heroSub:
-      "Straighten your teeth discreetly with nearly invisible, removable trays, planned carefully and checked at regular visits with us.",
-    facts: [
-      ["Wear time", "About 20–22 hours a day"],
-      ["Tray change", "Every 1–2 weeks"],
-      ["Best for", "Mild to moderate crowding or gaps"],
-    ],
+      "Clear aligners in Hadapsar, Pune straighten your teeth discreetly with nearly invisible, removable trays, planned carefully and checked at regular visits with us.",
     quickAnswer:
       "Clear aligners are a series of transparent, custom-made plastic trays that gradually move your teeth. You wear each set for a week or two, then move to the next. They are removable for eating and cleaning, and are far less noticeable than traditional braces.",
-    overview: [
+    overview:
       "Many adults avoid orthodontic treatment because they do not want visible metal. Clear aligners offer a more discreet option for suitable cases, and being removable they make brushing and flossing easier than with fixed braces.",
-      "Not every case suits aligners, and results depend on wearing them consistently. We assess your teeth carefully and tell you honestly whether aligners or braces will give the better outcome.",
-    ],
     symptomsTitle: "When are clear aligners a good choice?",
     symptoms: [
       "Mild to moderate crowding or spacing",
@@ -100,12 +81,12 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "A wish for a removable appliance you can take out to eat",
     ],
     steps: [
-      { title: "Consultation and assessment", text: "We examine your teeth and gums, take records and decide whether aligners suit your case." },
-      { title: "Digital planning", text: "A digital scan or impressions are used to plan how your teeth will move, and we show you the expected result." },
-      { title: "Receiving your aligners", text: "You receive your first sets, along with clear instructions on wearing and cleaning them." },
-      { title: "Switching trays", text: "You change to the next tray every one to two weeks, wearing them for most of the day and night." },
-      { title: "Check-ups", text: "We review progress regularly and make adjustments such as small attachments if they are needed." },
-      { title: "Retainers", text: "After treatment, retainers hold your teeth in their new position." },
+      { title: "Consultation and assessment", text: "We examine your teeth and gums, take records and decide whether aligners suit your case.", art: "exam" },
+      { title: "Digital planning", text: "A digital scan or impressions are used to plan how your teeth will move, and we show you the expected result.", art: "scan" },
+      { title: "Receiving your aligners", text: "You receive your first sets, along with clear instructions on wearing and cleaning them.", art: "aligner" },
+      { title: "Switching trays", text: "You change to the next tray every one to two weeks, wearing them for most of the day and night.", art: "calendar" },
+      { title: "Check-ups", text: "We review progress regularly and make adjustments such as small attachments if they are needed.", art: "inspect" },
+      { title: "Retainers", text: "After treatment, retainers hold your teeth in their new position.", art: "retainer" },
     ],
     benefits: [
       "Nearly invisible, so they suit professional and social life",
@@ -124,23 +105,19 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Clean the aligners daily with a soft brush and cool water",
       "Keep spare sets safe and attend all check-ups",
     ],
-    costIntro:
-      "The cost of clear aligners in Hadapsar depends on how many trays your case needs and how complex it is. We give you a written estimate after the assessment so you know exactly what is included.",
-    costFactors: [
-      "The complexity of your case and expected treatment time",
-      "The number of aligner trays required",
-      "Any attachments or refinements needed",
-      "Retainers after treatment",
-      "The number of review visits",
-    ],
     localNote:
-      "Working professionals around Magarpatta City and Amanora often choose aligners for their discreet look, and our evening hours fit around an office schedule.",
+      "Aligners are worn at home, with short review visits every few weeks. Our Tupe Patil Road clinic is a short drive from Magarpatta City, Amanora Park Town, Mundhwa and Keshav Nagar, and evening hours until 9 PM and Sunday-morning slots make it easier to fit reviews around work.",
     faqs: [
       { q: "Are clear aligners painful?", a: "You may feel pressure or mild soreness for a day or two each time you start a new tray. This is normal and usually settles quickly." },
-      { q: "How long does treatment take?", a: "It depends on the case. Many treatments last between six and eighteen months. We give you an estimate after your assessment." },
+      { q: "How long does clear aligner treatment take?", a: "It depends on the case. Many treatments last between six and eighteen months. We give you an estimate after your assessment." },
       { q: "Can I eat with aligners in?", a: "No. Remove them to eat and drink anything other than water, then clean your teeth before putting them back." },
-      { q: "Are aligners as effective as braces?", a: "For suitable mild to moderate cases they can be very effective. More complex bite problems may be better treated with braces." },
-      { q: "What if I forget to wear them?", a: "Wearing them less than recommended slows progress and can affect the result. Consistent wear is the key to success." },
+      { q: "Are clear aligners as effective as braces?", a: "For suitable mild to moderate cases they can be very effective. More complex bite problems may be better treated with braces." },
+      { q: "How much do clear aligners cost in Pune?", a: "It depends on how many trays your case needs and how complex it is, since a mild case needs fewer trays than a crowded one. After the assessment we give you a written estimate that says what is included, such as retainers and review visits." },
+      local(
+        "Where can I get clear aligners near Amanora Park Town or Magarpatta?",
+        "Your assessment, scan, aligner fitting and the review visits every few weeks are all at our clinic, so you can fit them around an office schedule.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["braces", "teeth-whitening", "smile-makeover"],
     keywords: ["invisible braces pune", "clear aligner cost pune", "teeth straightening hadapsar", "removable braces"],
@@ -150,18 +127,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Kids dentist in Hadapsar, Pune: gentle, fear-free dental care for infants, children and teens, with check-ups, sealants and fluoride. Book your child's visit.",
     heroSub:
-      "Gentle, friendly dental care that helps your child build healthy habits and feel relaxed about visiting the dentist.",
-    facts: [
-      ["First visit", "By the first birthday"],
-      ["Approach", "Gentle and child-friendly"],
-      ["Ages", "Infants to teens"],
-    ],
+      "A gentle kids dentist in Hadapsar, Pune: friendly, fear-free dental care that helps your child build healthy habits and feel relaxed about visiting the dentist.",
     quickAnswer:
       "Kids dentistry focuses on the dental health of infants, children and teenagers. It covers check-ups, cleaning, fluoride, sealants, treating cavities in baby and adult teeth, and guiding healthy habits. The aim is to prevent problems and make dental visits a comfortable, positive experience.",
-    overview: [
+    overview:
       "Baby teeth matter. They hold space for adult teeth, help children chew and speak, and decay in them can cause pain and infection. Starting dental visits early lets us prevent problems and helps children feel at ease.",
-      "We take our time with children. Dr. Gayatri explains each step in simple words, lets children see the tools, and moves at the pace they are comfortable with. Parents are welcome to stay beside the chair throughout.",
-    ],
     symptomsTitle: "When should you bring your child to the dentist?",
     symptoms: [
       "By your child's first birthday or when the first tooth appears",
@@ -172,11 +142,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "A knocked, chipped or loose tooth after an injury",
     ],
     steps: [
-      { title: "Friendly first meeting", text: "We let your child look around and meet us, with no rush and no treatment on the first visit if they are nervous." },
-      { title: "Gentle examination", text: "We count and check the teeth, gums and bite, and explain what we see to both child and parent." },
-      { title: "Cleaning and fluoride", text: "A gentle clean and fluoride application strengthen teeth and help prevent cavities." },
-      { title: "Preventive care", text: "Where suitable, we apply sealants to the deep grooves of back teeth to block decay." },
-      { title: "Treatment if needed", text: "Cavities are treated gently, and we advise on diet, brushing and habits at home." },
+      { title: "Friendly first meeting", text: "We let your child look around and meet us, with no rush and no treatment on the first visit if they are nervous.", art: "kid" },
+      { title: "Gentle examination", text: "We count and check the teeth, gums and bite, and explain what we see to both child and parent.", art: "exam" },
+      { title: "Cleaning and fluoride", text: "A gentle clean and fluoride application strengthen teeth and help prevent cavities.", art: "fluoride" },
+      { title: "Preventive care", text: "Where suitable, we apply sealants to the deep grooves of back teeth to block decay.", art: "sealant" },
+      { title: "Treatment if needed", text: "Cavities are treated gently, and we advise on diet, brushing and habits at home.", art: "composite" },
     ],
     benefits: [
       "Early detection of cavities and bite problems",
@@ -195,23 +165,18 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Do not let babies sleep with a bottle of milk or juice",
       "Return every six months for a check-up",
     ],
-    costIntro:
-      "Preventive care for children is among the most affordable dentistry. If treatment is needed, we explain the cost clearly before we begin, so parents are never surprised.",
-    costFactors: [
-      "Whether the visit is a check-up or involves treatment",
-      "The number of teeth that need care",
-      "Preventive extras such as fluoride and sealants",
-      "The age and cooperation of the child",
-      "Whether space maintainers or other appliances are needed",
-    ],
     localNote:
-      "Families from the many housing societies in Amanora Park Town and Hadapsar often bring several children in the same visit, and our Sunday-morning slot suits school schedules.",
+      "Families from the housing societies around Amanora Park Town, Magarpatta City and Mundhwa can bring more than one child in the same visit. Our Sunday-morning slot suits school timetables, and a clinic close to home helps children see the dentist as a normal, friendly part of life.",
     faqs: [
       { q: "When should my baby first see a dentist?", a: "By the first birthday, or when the first tooth appears. An early visit lets us check development and guide you on cleaning and feeding." },
       { q: "Do baby teeth really need fillings?", a: "Yes. Untreated decay in baby teeth can cause pain and infection, and may affect the adult teeth coming through." },
-      { q: "What are dental sealants?", a: "Sealants are thin protective coatings placed on the deep grooves of back teeth to stop food and bacteria collecting there." },
-      { q: "How do I stop my child's thumb sucking?", a: "Praise and gentle reminders usually work best. If the habit continues past the age of four or five, we can suggest further ways to help." },
-      { q: "What should I do if my child's tooth is knocked out?", a: "For an adult tooth, keep it moist in milk and see a dentist right away. A knocked-out baby tooth should not be put back, but have your child checked." },
+      { q: "Will my child feel pain at the dentist?", a: "A check-up and cleaning should not hurt. If a filling is needed we numb the area first, explain each step in simple words and stop if your child needs a break." },
+      { q: "How much does a dentist visit cost for a child in Hadapsar?", a: "A routine child check-up is one of the most affordable dental visits, while treatment such as a filling costs more. We tell you the cost of anything beyond the check-up before we begin, so parents are never surprised." },
+      local(
+        "Where can I find a kids dentist near Amanora Park Town and Magarpatta?",
+        "We welcome children from infants to teenagers, and parents are welcome to sit beside the chair throughout.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-checkup", "teeth-cleaning", "braces"],
     keywords: ["pediatric dentist pune", "child dentist hadapsar", "baby teeth care", "kids dental check-up amanora"],
@@ -221,18 +186,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Teeth cleaning in Hadapsar, Pune: professional scaling and polishing to remove plaque and tartar and protect your gums. Book your six-monthly cleaning today.",
     heroSub:
-      "Professional scaling and polishing removes the plaque and tartar that brushing misses, protecting your gums and leaving your teeth fresh and smooth.",
-    facts: [
-      ["Visit length", "About 30–45 minutes"],
-      ["How often", "Every six months"],
-      ["Comfort", "Gentle, usually no anaesthesia"],
-    ],
+      "Teeth cleaning in Hadapsar, Pune: professional scaling and polishing removes the plaque and tartar that brushing misses, protecting your gums and leaving your teeth fresh and smooth.",
     quickAnswer:
       "Professional teeth cleaning, also called scaling and polishing, removes plaque and hardened tartar from above and just below the gum line using ultrasonic and hand instruments, then polishes the teeth. It helps prevent gum disease and cavities and removes surface stains.",
-    overview: [
+    overview:
       "Even careful brushing leaves some plaque behind, and over time it hardens into tartar that only a dental professional can remove. Left alone, it irritates the gums and can lead to bleeding, bad breath and gum disease.",
-      "A cleaning every six months keeps gums healthy and lets us spot early problems. Many patients find their mouth feels noticeably fresher and smoother afterwards, and we give you tailored advice to improve your daily routine.",
-    ],
     symptomsTitle: "When do you need a dental cleaning?",
     symptoms: [
       "It has been six months or more since your last cleaning",
@@ -243,11 +201,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "You wear braces or have crowded teeth that are hard to clean",
     ],
     steps: [
-      { title: "Quick examination", text: "We check your teeth and gums before cleaning, so any area of concern can be noted." },
-      { title: "Scaling", text: "An ultrasonic scaler and hand instruments remove tartar and plaque above and below the gum line." },
-      { title: "Stain removal and polishing", text: "The teeth are polished with a fine paste to remove surface stains and leave them smooth." },
-      { title: "Flossing and rinsing", text: "We clean between the teeth and rinse away debris." },
-      { title: "Personal advice", text: "We show you how to brush and floss effectively and advise on any areas that need extra care." },
+      { title: "Quick examination", text: "We check your teeth and gums before cleaning, so any area of concern can be noted.", art: "exam" },
+      { title: "Scaling", text: "An ultrasonic scaler and hand instruments remove tartar and plaque above and below the gum line.", art: "scaling" },
+      { title: "Stain removal and polishing", text: "The teeth are polished with a fine paste to remove surface stains and leave them smooth.", art: "polish" },
+      { title: "Flossing and rinsing", text: "We clean between the teeth and rinse away debris.", art: "floss" },
+      { title: "Personal advice", text: "We show you how to brush and floss effectively and advise on any areas that need extra care.", art: "brush" },
     ],
     benefits: [
       "Removes tartar that brushing cannot",
@@ -266,23 +224,19 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Use a soft toothbrush and fluoride toothpaste",
       "Book your next cleaning in six months",
     ],
-    costIntro:
-      "A routine professional cleaning is one of the most affordable dental treatments. The cost can vary if you need a deeper clean for heavy tartar or gum disease, and we confirm this before we start.",
-    costFactors: [
-      "The amount of tartar and staining",
-      "Whether gum disease needs a deeper clean",
-      "Whether a check-up or X-ray is done at the same visit",
-      "Whether extra polishing for stains is wanted",
-      "Whether more than one visit is needed",
-    ],
     localNote:
-      "Many of our regular patients from Amanora Park Town and Magarpatta City pair their six-monthly cleaning with a quick check-up during an evening visit.",
+      "A scale and polish takes about half an hour, so it fits into a weekday evening. Our Tupe Patil Road clinic is close to Amanora Park Town, Magarpatta City and Keshav Nagar, and you can book the whole household on a Sunday morning, when we are open from 11 AM to 2 PM.",
     faqs: [
       { q: "Does teeth cleaning hurt?", a: "Most people find it comfortable. If your gums are inflamed or your teeth are sensitive, you might feel some tenderness, and we work gently to keep you comfortable." },
       { q: "How often should I have my teeth cleaned?", a: "Most people benefit from a cleaning every six months. If you have gum disease or other risk factors, we may suggest more frequent visits." },
       { q: "Does scaling damage tooth enamel?", a: "No. Scaling removes tartar, not enamel. Done correctly by a dentist, it is safe and protects your teeth." },
       { q: "Will cleaning whiten my teeth?", a: "Cleaning removes surface stains, so teeth can look brighter. It does not change the natural shade. For that, you would need whitening treatment." },
-      { q: "Why do my gums bleed after a cleaning?", a: "Mild bleeding is common when gums are inflamed and usually settles within a few days as they heal with good home care." },
+      { q: "How much does teeth cleaning cost in Pune?", a: "A routine scaling and polishing is one of the most affordable dental treatments. The price rises if you have heavy tartar or gum disease, or need a deeper clean over more than one visit. We confirm the cost with you before we start." },
+      local(
+        "Where can I get teeth cleaning near Magarpatta City and Amanora Park Town?",
+        "A scaling and polishing visit takes about half an hour, so it fits easily around work or school.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["dental-checkup", "gum-treatment", "teeth-whitening"],
     keywords: ["scaling and polishing pune", "dental cleaning cost pune", "tartar removal hadapsar", "teeth cleaning near amanora"],
@@ -292,18 +246,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Dental check-up and digital X-ray in Hadapsar, Pune: a thorough six-monthly exam to catch cavities and gum problems early. Book your family check-up today.",
     heroSub:
-      "A thorough six-monthly examination, with digital X-rays when needed, catches cavities, gum disease and other problems early, when they are simple to treat.",
-    facts: [
-      ["How often", "Every six months"],
-      ["Visit length", "About 30 minutes"],
-      ["X-rays", "Digital, only when needed"],
-    ],
+      "A dental check-up and digital X-ray in Hadapsar, Pune: a thorough six-monthly examination catches cavities, gum disease and other problems early, when they are simple to treat.",
     quickAnswer:
       "A dental check-up is a routine examination of your teeth, gums, bite and mouth to find problems early. It usually includes a visual check, a review of your oral hygiene, an oral cancer screen and, when needed, digital X-rays that show decay and bone health that cannot be seen by eye.",
-    overview: [
+    overview:
       "Most dental problems start without pain. A small cavity or early gum disease can quietly progress until it needs more involved treatment. Regular check-ups catch these issues while they are still easy to treat.",
-      "At our clinic each check-up is unhurried. We take the time to listen, examine properly and explain what we find in plain language, so you know exactly what is happening and what, if anything, needs doing.",
-    ],
     symptomsTitle: "When should you book a check-up?",
     symptoms: [
       "Every six months, even if nothing hurts",
@@ -314,11 +261,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "During pregnancy or when planning a pregnancy",
     ],
     steps: [
-      { title: "Health history", text: "We note any medical conditions, medicines and concerns so we can plan safely." },
-      { title: "Examination", text: "We check every tooth, your gums, bite, jaw joints, tongue and the soft tissues of your mouth." },
-      { title: "Digital X-rays when needed", text: "Low-dose digital X-rays are taken only when they will help us find or monitor a problem." },
-      { title: "Explanation", text: "We go through our findings with you and show you anything of concern." },
-      { title: "A clear plan", text: "You receive a simple plan in priority order, with the estimated cost, and decide how to proceed." },
+      { title: "Health history", text: "We note any medical conditions, medicines and concerns so we can plan safely.", art: "notes" },
+      { title: "Examination", text: "We check every tooth, your gums, bite, jaw joints, tongue and the soft tissues of your mouth.", art: "exam" },
+      { title: "Digital X-rays when needed", text: "Low-dose digital X-rays are taken only when they will help us find or monitor a problem.", art: "xray" },
+      { title: "Explanation", text: "We go through our findings with you and show you anything of concern.", art: "consult" },
+      { title: "A clear plan", text: "You receive a simple plan in priority order, with the estimated cost, and decide how to proceed.", art: "plan" },
     ],
     benefits: [
       "Early detection of cavities and gum disease",
@@ -337,23 +284,19 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Keep a six-monthly check-up routine",
       "Contact us if anything changes between visits",
     ],
-    costIntro:
-      "A routine check-up is an affordable way to prevent expensive treatment later. If X-rays or cleaning are added, we tell you in advance, so the total is clear.",
-    costFactors: [
-      "Whether X-rays are needed",
-      "Whether a cleaning is done at the same visit",
-      "Whether it is a first visit or a review",
-      "How many family members are seen",
-      "Whether further treatment is advised",
-    ],
     localNote:
-      "Families from across Hadapsar and Amanora Park Town book check-ups for the whole household at once, often in the evening or on Sunday morning.",
+      "You can book check-ups for the whole household at once, on a weekday evening or on a Sunday morning. We are on Tupe Patil Road, opposite Sadhna Bank in Amanora Park Town, a short trip from Hadapsar, Magarpatta City and Mundhwa, so a visit fits easily around school pick-ups or work.",
     faqs: [
       { q: "How often should I have a dental check-up?", a: "Most people should have a check-up every six months. Some may need more frequent visits, depending on their gum health and risk of decay." },
       { q: "What does a dental check-up include?", a: "We examine your teeth, gums, bite and mouth, review your oral hygiene, take X-rays when needed and discuss any treatment." },
       { q: "Do I need X-rays at every check-up?", a: "No. We take X-rays only when they are needed, such as for a new patient, a specific concern or routine monitoring at suitable intervals." },
-      { q: "Can I get a check-up if nothing hurts?", a: "Yes, and that is the best time. Many problems cause no pain until they are advanced." },
       { q: "Are check-ups necessary for children?", a: "Yes. Regular visits help protect baby and adult teeth and help children feel comfortable with the dentist." },
+      { q: "How much does a dental check-up cost in Hadapsar?", a: "A routine check-up is an affordable way to prevent costly treatment later. The total depends on whether X-rays or a cleaning are added at the same visit, and we tell you in advance so the total is clear." },
+      local(
+        "Where can I get a dental check-up near Amanora Park Town and Mundhwa?",
+        "We see adults and children, so the whole family can be examined in one visit.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["teeth-cleaning", "tooth-fillings", "kids-dentistry"],
     keywords: ["dental checkup near me", "digital x-ray dental pune", "oral examination hadapsar", "family dentist amanora"],
@@ -363,18 +306,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Gum treatment in Hadapsar, Pune: stop bleeding, swollen or receding gums and treat gum disease with gentle, modern care. Book your gum health check today.",
     heroSub:
-      "Treat bleeding, swollen or receding gums and stop gum disease before it threatens your teeth, with gentle care and a clear plan to keep gums healthy.",
-    facts: [
-      ["Approach", "Deep cleaning and gum care"],
-      ["Anaesthesia", "Local if needed"],
-      ["Best for", "Bleeding or swollen gums"],
-    ],
+      "Gum treatment in Hadapsar, Pune: stop bleeding, swollen or receding gums and control gum disease with gentle care and a clear plan to keep your gums healthy.",
     quickAnswer:
       "Gum treatment cleans away the plaque and tartar causing gum disease, including below the gum line, and helps the gums heal and reattach. Early gum disease, called gingivitis, can usually be reversed. More advanced disease, called periodontitis, can be controlled with deeper cleaning and careful maintenance.",
-    overview: [
-      "Gum disease is a leading cause of tooth loss in adults, and it is often painless in the early stages. Bleeding when you brush, red or puffy gums and a bad taste are warning signs that should not be ignored.",
-      "At our clinic we assess the health of your gums and the bone supporting your teeth, then recommend the treatment that suits the stage of the disease. We also show you how to keep your gums healthy at home, because home care is what makes treatment last.",
-    ],
+    overview:
+      "Gum disease is a leading cause of tooth loss in adults, and it often does not hurt in the early stages. Bleeding when you brush, red or puffy gums and a bad taste are warning signs that should not be ignored.",
     symptomsTitle: "Signs you may need gum treatment",
     symptoms: [
       "Gums that bleed when you brush or floss",
@@ -385,11 +321,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Pus or discomfort around the gum line",
     ],
     steps: [
-      { title: "Gum assessment", text: "We measure the gum pockets around each tooth and take X-rays where needed to check the supporting bone." },
-      { title: "Diagnosis and plan", text: "We explain whether you have gingivitis or a more advanced disease and what treatment is needed." },
-      { title: "Deep cleaning", text: "Scaling and root planing remove plaque and tartar from above and below the gum line, with local anaesthesia for comfort if required." },
-      { title: "Home-care coaching", text: "We show you the brushing and interdental cleaning techniques that suit your mouth." },
-      { title: "Review and maintenance", text: "We re-check your gums after healing and set up regular maintenance visits." },
+      { title: "Gum assessment", text: "We measure the gum pockets around each tooth and take X-rays where needed to check the supporting bone.", art: "gum" },
+      { title: "Diagnosis and plan", text: "We explain whether you have gingivitis or a more advanced disease and what treatment is needed.", art: "plan" },
+      { title: "Deep cleaning", text: "Scaling and root planing remove plaque and tartar from above and below the gum line, with local anaesthesia for comfort if required.", art: "scaling" },
+      { title: "Home-care coaching", text: "We show you the brushing and interdental cleaning techniques that suit your mouth.", art: "brush" },
+      { title: "Review and maintenance", text: "We re-check your gums after healing and set up regular maintenance visits.", art: "calendar" },
     ],
     benefits: [
       "Stops gum bleeding and inflammation",
@@ -408,23 +344,18 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Rinse as advised and avoid very hot food on the first day",
       "Attend all maintenance visits, usually every three to six months",
     ],
-    costIntro:
-      "The cost of gum treatment depends on how advanced the disease is and how many teeth are involved. After a gum assessment we give you a written estimate so you can decide with confidence.",
-    costFactors: [
-      "The stage and extent of gum disease",
-      "How many areas of the mouth need deep cleaning",
-      "Whether local anaesthesia and extra visits are needed",
-      "Whether other treatment, such as fillings, is required",
-      "Ongoing maintenance visits",
-    ],
     localNote:
-      "Evening appointments help patients from Amanora Park Town and Magarpatta fit the multiple visits that deep gum cleaning sometimes needs around work.",
+      "Deep gum cleaning sometimes needs more than one visit, and evening appointments until 9 PM help you fit them around work. Our Tupe Patil Road clinic is close to Amanora Park Town, Magarpatta City and Keshav Nagar, which also makes the regular maintenance visits easier to keep.",
     faqs: [
       { q: "Can gum disease be cured?", a: "Early gum disease (gingivitis) can usually be reversed with good cleaning and home care. More advanced disease can be controlled but needs ongoing maintenance." },
       { q: "Why do my gums bleed?", a: "Bleeding is usually a sign of inflammation caused by plaque. Better cleaning and professional treatment normally stops it within a couple of weeks." },
-      { q: "Is gum treatment painful?", a: "We keep you comfortable, using local anaesthesia for deeper cleaning where needed. Your gums may feel tender for a few days afterwards." },
       { q: "Can receding gums grow back?", a: "Gum tissue does not grow back by itself, but treatment can stop further recession. Some cases may need gum grafting, and we advise on this if relevant." },
-      { q: "Does gum disease cause bad breath?", a: "Yes. Bacteria in gum pockets produce odours. Treating the gum disease usually improves breath." },
+      { q: "How much does gum treatment cost in Pune?", a: "It depends on how advanced the disease is and how many areas need deep cleaning. A mild case may need one visit, while a more advanced case can need several visits and ongoing maintenance. After a gum assessment we give you a written estimate." },
+      local(
+        "Where can I get gum treatment near Keshav Nagar and Magarpatta?",
+        "Assessment, deep cleaning and the follow-up maintenance visits are all at our clinic.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["teeth-cleaning", "bad-breath-treatment", "dental-checkup"],
     keywords: ["bleeding gums treatment pune", "periodontal treatment hadapsar", "gingivitis treatment", "receding gums treatment"],
@@ -434,18 +365,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Bad breath treatment in Hadapsar, Pune: find and treat the real cause of persistent bad breath, from gum disease to tongue coating. Book a discreet visit.",
     heroSub:
-      "Persistent bad breath has a cause, and in most cases it can be found and treated. We help you get to the bottom of it, discreetly and without judgement.",
-    facts: [
-      ["Approach", "Find the cause first"],
-      ["Visit length", "About 30–45 minutes"],
-      ["Best for", "Persistent bad breath"],
-    ],
+      "Bad breath treatment in Hadapsar, Pune: persistent bad breath has a cause, and in most cases it can be found and treated. We help you get to the bottom of it, discreetly and without judgement.",
     quickAnswer:
       "Bad breath, or halitosis, is most often caused by bacteria in the mouth, from plaque, gum disease, a coated tongue, cavities or dry mouth. Treatment depends on the cause and usually involves a professional clean, treating gum disease or decay, tongue cleaning and better home care.",
-    overview: [
+    overview:
       "Almost everyone has bad breath sometimes, but when it is constant it can affect your confidence at work and in social life. Mouthwashes only mask the smell for a short time and do not fix its source.",
-      "In most cases the cause is in the mouth itself, which means a dentist can usually help. We examine your teeth, gums and tongue, explain what we find, and, if the cause seems to lie elsewhere, we will suggest you see your physician.",
-    ],
     symptomsTitle: "Signs you may need treatment for bad breath",
     symptoms: [
       "Bad breath that persists even after brushing",
@@ -456,11 +380,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Others, or you, notice an odour",
     ],
     steps: [
-      { title: "Discussion and history", text: "We ask about your diet, habits and health, since many things can affect breath." },
-      { title: "Mouth examination", text: "We check your teeth, gums, tongue and any old dental work for sources of odour." },
-      { title: "Professional cleaning", text: "Scaling and polishing remove plaque and tartar, a common source of odour." },
-      { title: "Treat the underlying cause", text: "We treat gum disease, cavities or broken fillings, which can all trap bacteria." },
-      { title: "Tongue and home-care guidance", text: "We show you how to clean your tongue and teeth properly, and advise on diet and hydration." },
+      { title: "Discussion and history", text: "We ask about your diet, habits and health, since many things can affect breath.", art: "consult" },
+      { title: "Mouth examination", text: "We check your teeth, gums, tongue and any old dental work for sources of odour.", art: "inspect" },
+      { title: "Professional cleaning", text: "Scaling and polishing remove plaque and tartar, a common source of odour.", art: "scaling" },
+      { title: "Treat the underlying cause", text: "We treat gum disease, cavities or broken fillings, which can all trap bacteria.", art: "stabilise" },
+      { title: "Tongue and home-care guidance", text: "We show you how to clean your tongue and teeth properly, and advise on diet and hydration.", art: "tongue" },
     ],
     benefits: [
       "Fresher breath that lasts",
@@ -479,23 +403,19 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Cut down on tobacco, which worsens breath and gum disease",
       "Visit for a check-up and clean every six months",
     ],
-    costIntro:
-      "The cost depends on what is causing the problem. A cleaning may be all that is needed, while gum disease or decay needs additional treatment. We explain the cost clearly before we begin.",
-    costFactors: [
-      "Whether a professional cleaning is enough",
-      "Whether gum disease or decay needs treatment",
-      "Whether old fillings or crowns need repair",
-      "The number of visits required",
-      "Any referral or tests recommended",
-    ],
     localNote:
-      "We see many patients from nearby offices in Magarpatta and Amanora who are worried about this very issue, and our approach is always private and discreet.",
+      "Our approach is always discreet and judgement-free. Our Tupe Patil Road clinic in Amanora Park Town is a short trip from nearby offices in Magarpatta City and from homes across Hadapsar and Keshav Nagar, and evening appointments until 9 PM make it easy to come after work.",
     faqs: [
       { q: "What causes bad breath?", a: "Most cases come from bacteria in the mouth: plaque, gum disease, a coated tongue, cavities or dry mouth. Certain foods, tobacco and some health conditions can also contribute." },
       { q: "Can mouthwash cure bad breath?", a: "Mouthwash may freshen your breath for a short time but does not fix the cause. A dental examination finds what needs treating." },
       { q: "Is bad breath a sign of a serious problem?", a: "Usually it is a dental issue that is easy to treat. Occasionally it can point to a medical problem, and we will advise you if that appears to be the case." },
-      { q: "How long does it take to improve?", a: "Many patients notice a clear difference after a professional cleaning and better tongue care. Gum disease may take a few weeks to settle." },
-      { q: "Does dry mouth cause bad breath?", a: "Yes. Saliva helps wash away bacteria, so a dry mouth lets odour build up. We advise on ways to manage it." },
+      { q: "Can bad breath come from the stomach or throat?", a: "Sometimes. Reflux, tonsil stones, sinus problems and some medicines can contribute. If your teeth, gums and tongue are healthy, we say so and suggest you speak to your physician, so you do not keep treating the wrong thing." },
+      { q: "How much does bad breath treatment cost in Hadapsar?", a: "It depends on the cause. A professional cleaning may be all that is needed, while gum disease or decay needs additional treatment. We explain the cost clearly before we begin." },
+      local(
+        "Where can I get bad breath treatment near Magarpatta City and Amanora Park Town?",
+        "Our approach is private and judgement-free, and most visits take about 30 to 45 minutes.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["teeth-cleaning", "gum-treatment", "dental-checkup"],
     keywords: ["halitosis treatment pune", "mouth odour hadapsar", "fresh breath dentist", "persistent bad breath cause"],
@@ -505,18 +425,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
     metaDescription:
       "Sensitive teeth treatment in Hadapsar, Pune: find the cause of sharp pain with hot, cold or sweet foods and get lasting relief. Book your consultation today.",
     heroSub:
-      "If hot, cold or sweet foods make you wince, there is usually a reason and a fix. We find the cause and give you lasting relief.",
-    facts: [
-      ["Approach", "Find the cause, then treat"],
-      ["Anaesthesia", "Usually not needed"],
-      ["Best for", "Pain with hot, cold or sweet"],
-    ],
+      "Sensitive teeth treatment in Hadapsar, Pune: if hot, cold or sweet foods make you wince, there is usually a reason and a fix. We find the cause and treat it, so you can enjoy food and drink again.",
     quickAnswer:
       "Tooth sensitivity is a short, sharp pain when teeth meet hot, cold, sweet or acidic food or air. It happens when the protective enamel wears or gums recede, exposing the sensitive dentine beneath. Treatment depends on the cause and can include desensitising agents, fluoride, fillings or bonding.",
-    overview: [
+    overview:
       "Sensitivity is common and treatable, but it can also be an early sign of a cavity, a cracked tooth or gum recession. Switching toothpaste may help in mild cases, but it is worth having the cause checked.",
-      "We start by finding which teeth are sensitive and why, and then recommend the simplest treatment that works. We will also look at your brushing technique and diet, since these often play a part.",
-    ],
     symptomsTitle: "Common signs of sensitive teeth",
     symptoms: [
       "A sharp twinge with cold drinks or ice cream",
@@ -527,11 +440,11 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Sensitivity after teeth whitening or a recent filling",
     ],
     steps: [
-      { title: "Find the sensitive teeth", text: "We test your teeth and examine your gums, enamel and bite to pinpoint the problem." },
-      { title: "Check for other causes", text: "We rule out cavities, cracks, loose fillings or gum disease, which need different treatment." },
-      { title: "Desensitising treatment", text: "We apply desensitising agents or fluoride varnish to block the exposed tubules in the dentine." },
-      { title: "Repair worn areas", text: "Exposed or worn areas near the gum line can be sealed or bonded to protect them." },
-      { title: "Home-care advice", text: "We advise on toothpaste, brushing technique and diet, and suggest a night guard if you grind your teeth." },
+      { title: "Find the sensitive teeth", text: "We test your teeth and examine your gums, enamel and bite to pinpoint the problem.", art: "inspect" },
+      { title: "Check for other causes", text: "We rule out cavities, cracks, loose fillings or gum disease, which need different treatment.", art: "xray" },
+      { title: "Desensitising treatment", text: "We apply desensitising agents or fluoride varnish to block the exposed tubules in the dentine.", art: "fluoride" },
+      { title: "Repair worn areas", text: "Exposed or worn areas near the gum line can be sealed or bonded to protect them.", art: "composite" },
+      { title: "Home-care advice", text: "We advise on toothpaste, brushing technique and diet, and suggest a night guard if you grind your teeth.", art: "brush" },
     ],
     benefits: [
       "Relief from sharp pain with hot, cold or sweet foods",
@@ -550,23 +463,18 @@ export const CONTENT_B: Record<string, TreatmentContent> = {
       "Use a night guard if you grind your teeth",
       "Return if the sensitivity does not improve",
     ],
-    costIntro:
-      "The cost of treating sensitive teeth depends on the cause. Simple desensitising treatments are inexpensive, while a filling or bonding costs more. We explain the options and the price before beginning.",
-    costFactors: [
-      "The underlying cause of the sensitivity",
-      "How many teeth are affected",
-      "Whether a filling or bonding is needed",
-      "Whether a night guard is recommended",
-      "Whether gum treatment is also required",
-    ],
     localNote:
-      "Patients from Hadapsar and Amanora Park Town often come to us after weeks of putting up with the problem, and a short visit usually brings quick relief.",
+      "If you have been putting up with the problem for weeks, a short visit to find the cause is the first step towards relief. Our Tupe Patil Road clinic in Amanora Park Town is easy to reach from Hadapsar, Magarpatta City and Mundhwa, with evening appointments until 9 PM.",
     faqs: [
       { q: "What causes sensitive teeth?", a: "Common causes include worn enamel, receding gums, tooth decay, cracked teeth, aggressive brushing, grinding and acidic foods." },
       { q: "Will sensitive teeth go away?", a: "In many cases yes, with the right treatment and habits. Some people need ongoing care to keep it under control." },
       { q: "Does sensitive-teeth toothpaste work?", a: "For many people it helps, especially with daily use for a few weeks. If the problem persists, a dental treatment may be needed." },
-      { q: "Is sensitivity after whitening normal?", a: "Yes, mild temporary sensitivity can occur after whitening and usually settles within a few days." },
-      { q: "When is sensitivity an emergency?", a: "Pain that lingers, throbs at night or comes with swelling should be checked quickly, because it may be a sign of infection." },
+      { q: "How much does sensitive teeth treatment cost in Pune?", a: "Simple desensitising treatments are inexpensive, while a filling or bonding costs more. We find the cause first, then explain the options and their prices before we start." },
+      local(
+        "Where can I get sensitive teeth treated near Hadapsar and Magarpatta?",
+        "A short visit to find the cause is the first step towards relief, and we can usually tell you our findings the same day.",
+        "Magarpatta City, Mundhwa and Keshav Nagar",
+      ),
     ],
     related: ["tooth-fillings", "gum-treatment", "teeth-whitening"],
     keywords: ["tooth sensitivity treatment pune", "cold sensitivity teeth", "desensitising treatment", "hot and cold tooth pain hadapsar"],

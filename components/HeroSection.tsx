@@ -12,7 +12,7 @@ interface HeroSectionProps {
 }
 
 const TRUST_ITEMS = [
-  { icon: ToothIcon, label: ["Painless", "Treatments"] },
+  { icon: ToothIcon, label: ["Gentle", "Treatments"] },
   { icon: ShieldCheck, label: ["Modern", "Technology"] },
   { icon: Users, label: ["All Age Groups", "Welcome"] },
 ];
@@ -63,22 +63,23 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
       <div className="page-container relative z-10">
         {/* Content positioned comfortably downwards */}
-        <div className="lg:w-[56%] xl:w-[53%] flex flex-col items-start pt-32 sm:pt-36 lg:pt-36 xl:pt-40 pb-12 lg:pb-16">
-          <span className="text-[12px] sm:text-[13px] font-semibold tracking-[0.24em] text-teal uppercase mb-3.5">
-            Gentle Care. Confident Smiles.
-          </span>
+        <div className="lg:w-[56%] xl:w-[53%] flex flex-col items-start pt-28 sm:pt-32 lg:pt-32 xl:pt-36 pb-12 lg:pb-16">
+          {/* The H1 carries the primary keywords; the large slogan below keeps the approved design. */}
+          <h1 className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.24em] text-teal uppercase mb-3.5">
+            Dentist &amp; Dental Clinic in Hadapsar, Pune
+          </h1>
 
-          <h1 className="font-serif font-bold text-navy text-[42px] sm:text-[52px] lg:text-[56px] xl:text-[64px] leading-[1.05] tracking-[-0.015em] mb-4">
+          <p className="font-serif font-bold text-navy text-[42px] sm:text-[52px] lg:text-[56px] xl:text-[64px] leading-[1.05] tracking-[-0.015em] mb-4">
             Healthy <br />
             Smiles for <br />
             <span className="text-teal">
               a Brighter <br />
               Tomorrow
             </span>
-          </h1>
+          </p>
 
           <p className="text-body text-[15.5px] sm:text-[17px] max-w-[440px] mb-6 leading-relaxed">
-            Modern, painless and personalized dental care for you and your family in Hadapsar, Pune.
+            Gentle, modern and personalised dental care for you and your family in Amanora Park Town, Hadapsar, Pune.
           </p>
 
           {/* Action buttons */}

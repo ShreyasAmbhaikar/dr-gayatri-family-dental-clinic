@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    agentUpgrade: "security",
+  },
   cacheComponents: true,
   partialPrefetching: true,
   // Permanent (308) redirects so old or alternative URLs pass their ranking to the canonical page.

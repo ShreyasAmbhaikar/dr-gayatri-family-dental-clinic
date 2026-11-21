@@ -1,33 +1,25 @@
 "use client";
 
 import React from "react";
-import { Trophy, Star } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { ShieldCheckFilledIcon, UsersFilledIcon } from "@/components/ui/icons";
 
+// Only facts the clinic can stand behind (no review counts, ratings or patient totals until they are verified).
 const STATS = [
   {
-    icon: <Trophy className="w-10 h-10 text-teal stroke-[2.2]" />,
-    value: "10+",
-    label: "Years of Care",
-    note: "Trusted by families in Hadapsar",
-  },
-  {
-    icon: <Star className="w-10 h-10 fill-amber-400 stroke-amber-500 stroke-[1.2] drop-shadow-[0_3px_6px_rgba(245,158,11,0.35)]" />,
-    value: "4.9/5",
-    label: "Patient Rating",
-    note: "Based on 200+ Google reviews",
+    icon: <CalendarCheck className="w-10 h-10 text-teal stroke-[2.2]" />,
+    value: "7 Days",
+    label: "Open Every Week",
   },
   {
     icon: <UsersFilledIcon className="w-11 h-10 text-teal-bright" />,
-    value: "1000+",
-    label: "Happy Smiles",
-    note: "Across all age groups",
+    value: null,
+    label: "Written Estimates",
   },
   {
     icon: <ShieldCheckFilledIcon className="w-9 h-10 text-teal-bright" />,
     value: null,
     label: "Patient-First Approach",
-    note: "Safe, hygienic & compassionate care",
   },
 ];
 
@@ -50,7 +42,7 @@ export default function StatsBanner() {
 
       <div className="page-container relative z-10">
         <div className="glass-card rounded-[26px] sm:rounded-[30px] py-6 sm:py-7 px-6 sm:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200/80">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200/80">
             {STATS.map((stat) => (
               <div key={stat.label} className="flex items-center gap-4 lg:justify-center lg:px-5 xl:px-8">
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center">{stat.icon}</div>
@@ -63,7 +55,7 @@ export default function StatsBanner() {
                   <span className={`font-bold text-navy leading-tight ${stat.value ? "text-[14px]" : "text-[16px] max-w-[130px]"}`}>
                     {stat.label}
                   </span>
-                  <span className="text-[12px] text-body leading-snug mt-1 max-w-[160px]">{stat.note}</span>
+                  
                 </div>
               </div>
             ))}

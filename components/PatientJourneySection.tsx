@@ -9,7 +9,7 @@ const JOURNEY_STEPS = [
   {
     number: "01",
     title: "Book Appointment",
-    description: "Choose a convenient time online or by calling our friendly desk.",
+    description: "Choose a convenient time by calling or messaging us on WhatsApp.",
     icon: CalendarDays,
     gradient: "from-[#38bdf8] via-[#22d3ee] to-[#06b6d4]",
     halo: "rgba(34, 211, 238, 0.35)",
@@ -18,7 +18,7 @@ const JOURNEY_STEPS = [
   {
     number: "02",
     title: "Consultation",
-    description: "We understand your concerns with digital oral screening.",
+    description: "We listen to your concerns and examine your teeth, with digital X-rays if needed.",
     icon: Stethoscope,
     gradient: "from-[#a78bfa] via-[#818cf8] to-[#6366f1]",
     halo: "rgba(167, 139, 250, 0.35)",
@@ -36,7 +36,7 @@ const JOURNEY_STEPS = [
   {
     number: "04",
     title: "Enjoy Your Smile",
-    description: "Experience gentle care and long-lasting dental confidence.",
+    description: "Experience gentle care and the confidence of a healthy, comfortable smile.",
     icon: ToothIcon,
     gradient: "from-[#34d399] via-[#2dd4bf] to-[#14b8a6]",
     halo: "rgba(45, 212, 191, 0.35)",
@@ -82,7 +82,7 @@ export default function PatientJourneySection() {
               return (
                 <li key={step.number} className="flex flex-col items-center text-center group">
                   {/* Distinct, colorful circle that never blends into background */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-10">
                     {/* Glowing outer soft ring */}
                     <div
                       className="w-[96px] h-[96px] rounded-full flex items-center justify-center p-2 transition-transform duration-300 group-hover:scale-105"
@@ -100,7 +100,7 @@ export default function PatientJourneySection() {
 
                     {/* Step Number Badge - single line guarantee */}
                     <span
-                      className={`absolute -bottom-2 left-1/2 -translate-x-1/2 ${step.badgeBg} text-[11px] font-bold tracking-wider px-3.5 py-0.5 rounded-full shadow-md border-2 border-white uppercase whitespace-nowrap inline-flex items-center justify-center min-w-[76px]`}
+                      className={`absolute -bottom-6 left-1/2 -translate-x-1/2 ${step.badgeBg} text-[11px] font-bold tracking-wider px-3.5 py-0.5 rounded-full shadow-md border-2 border-white uppercase whitespace-nowrap inline-flex items-center justify-center min-w-[76px]`}
                     >
                       Step {step.number}
                     </span>

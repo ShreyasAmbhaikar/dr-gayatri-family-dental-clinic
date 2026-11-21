@@ -78,8 +78,6 @@ ${c.quickAnswer}
 
 **How it works:** ${c.steps.map((s, i) => `${i + 1}. ${s.title}`).join(" ")}
 
-**Cost:** ${c.costIntro}
-
 ### Frequently asked questions
 
 ${faqs}`;

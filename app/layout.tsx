@@ -31,9 +31,9 @@ const scriptFont = Sacramento({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: "Dentist in Hadapsar, Pune | Dr. Gayatri's Family Dental Clinic",
+  title: "Dentist & Dental Clinic in Hadapsar | Dr. Gayatri's Clinic",
   description:
-    "Family dental clinic in Amanora Park Town, Hadapsar, Pune. Root canals, implants, braces, aligners, kids dentistry and more. Open evenings and Sundays.",
+    "Family dentist in Amanora Park Town, Hadapsar, Pune: root canals, implants, braces, aligners and kids dentistry. Open evenings and Sundays. Book today.",
   keywords: [
     "Dentist in Hadapsar",
     "Dental clinic in Hadapsar",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: SITE.locale,
     siteName: SITE.name,
-    title: "Dentist in Hadapsar, Pune | Dr. Gayatri's Family Dental Clinic",
+    title: "Dentist & Dental Clinic in Hadapsar | Dr. Gayatri's Clinic",
     description:
       "Gentle, modern and personalised dental care for the whole family in Amanora Park Town, Hadapsar, Pune.",
     url: SITE.url,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dentist in Hadapsar, Pune | Dr. Gayatri's Family Dental Clinic",
+    title: "Dentist & Dental Clinic in Hadapsar | Dr. Gayatri's Clinic",
     description: "Modern, personalised dental care in Amanora Park Town, Hadapsar, Pune.",
     images: [SITE.ogImage],
   },
@@ -76,7 +76,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/clinic-logo.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport: Viewport = {

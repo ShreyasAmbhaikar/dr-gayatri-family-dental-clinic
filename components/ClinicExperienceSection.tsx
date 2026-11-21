@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, X, Leaf, ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { Sparkles, X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 import Button from "@/components/ui/Button";
 import OrganicImage from "@/components/ui/OrganicImage";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -12,7 +12,7 @@ const TOUR_SLIDES = [
   {
     src: "/images/gallery/clinic-operatory-dental-chair.webp",
     title: "Ergonomic Operatory & Treatment Suite",
-    desc: "Plush dental chair with computerized delivery console and clean cabinetry for maximum patient comfort in Amanora Park Town, Hadapsar.",
+    desc: "A comfortable dental chair in a bright, clean treatment room, set up for your comfort in Amanora Park Town, Hadapsar.",
     alt: "Modern ergonomic dental operatory with comfortable treatment chair and welcoming interior at Dr. Gayatri's Family Dental Clinic",
   },
   {
@@ -23,15 +23,15 @@ const TOUR_SLIDES = [
   },
   {
     src: "/images/gallery/sterilized-dental-instruments-tray.webp",
-    title: "Hospital-Grade Sterilization Protocols",
-    desc: "Autoclaved Class-B sterilized precision instruments prepared freshly for each appointment in sealed, hygienic trays.",
-    alt: "Autoclaved and sterilized precision dental diagnostic instruments on surgical tray demonstrating strict hygiene protocols",
+    title: "Sterilised Instruments, Every Visit",
+    desc: "Instruments are sterilised and laid out fresh for each appointment, with strict infection control throughout.",
+    alt: "Sterilised dental instruments laid out on a clean tray before an appointment",
   },
   {
     src: "/images/gallery/advanced-digital-dental-treatment-chair.webp",
-    title: "Computerized Digital Dental Console",
-    desc: "Equipped with high-definition digital consultation screen, apex locators, and rotary endodontics for pain-free treatment.",
-    alt: "Advanced computerized dental delivery unit with high-definition digital consultation monitor for precise dental diagnosis",
+    title: "Digital Consultation Screen",
+    desc: "A digital screen lets us show you your X-rays and explain your diagnosis and treatment plan clearly.",
+    alt: "Dental treatment chair with a digital consultation monitor used to explain X-rays and diagnosis",
   },
   {
     src: "/images/gallery/custom-dental-crown-prosthesis-model.webp",
@@ -41,9 +41,9 @@ const TOUR_SLIDES = [
   },
   {
     src: "/images/gallery/single-sitting-root-canal-treatment-xray.webp",
-    title: "Verified Single-Sitting RCT Radiography",
-    desc: "Digital X-rays confirming complete hermetic canal obturation and pain relief in a single convenient visit.",
-    alt: "Digital dental X-ray radiograph proving successful single-sitting root canal treatment and hermetic obturation at Dr. Gayatri's Dental Clinic",
+    title: "Root Canal X-ray",
+    desc: "An X-ray taken after a root canal helps us check that the canals have been cleaned and sealed.",
+    alt: "Dental X-ray of a tooth after root canal treatment",
   },
 ];
 
@@ -51,7 +51,7 @@ function OperatoryPhoto({ onOpenTour, compact = false }: { onOpenTour: () => voi
   return (
     <OrganicImage
       src="/images/gallery/clinic-operatory-dental-chair.webp"
-      alt="State-of-the-art sterile dental operatory and ergonomic treatment chair at Dr. Gayatri's Family Dental Clinic in Hadapsar, Pune"
+      alt="Bright dental operatory with a comfortable treatment chair at Dr. Gayatri's Family Dental Clinic in Hadapsar, Pune"
       shape="clinic"
       sizes="(max-width: 1024px) 100vw, 60vw"
       className="w-full h-full"
@@ -62,17 +62,6 @@ function OperatoryPhoto({ onOpenTour, compact = false }: { onOpenTour: () => voi
         { className: "bg-gradient-to-br from-[#bfe9f3] via-[#e6f7fb] to-[#cdeff6]", x: compact ? "-8px" : "-14px", y: compact ? "6px" : "10px" },
       ]}
     >
-      <div
-        className={`absolute glass-card rounded-2xl flex items-center gap-3 pointer-events-none ${
-          compact ? "right-[5%] bottom-[7%] px-3 py-2" : "right-[6%] bottom-[9%] px-4 py-3"
-        }`}
-      >
-        <Leaf className="w-6 h-6 text-teal stroke-[1.6] flex-shrink-0" />
-        <p className="leading-tight">
-          <span className="block text-[13px] font-bold text-navy">A Calm Space</span>
-          <span className="block text-[11.5px] text-body">for Healthier Smiles</span>
-        </p>
-      </div>
     </OrganicImage>
   );
 }
@@ -105,7 +94,7 @@ export default function ClinicExperienceSection() {
           />
 
           <p className="text-body text-[14.5px] sm:text-[15.5px] leading-relaxed mt-5 mb-8 max-w-[460px]">
-            Our clinic in Ambrosia Alley, Amanora Park Town is meticulously designed to make every visit calm and pleasant. From computerized rotary instruments to international Class-B sterilization and soothing sky ceilings, we prioritize your peace of mind.
+            Our clinic in Ambrosia Alley, Amanora Park Town is designed to make every visit calm and pleasant. From a comfortable chair and sterilised instruments to a soothing sky-view ceiling, every detail is chosen to help you feel at ease.
           </p>
 
           <div className="flex flex-wrap items-center gap-3.5">

@@ -19,6 +19,10 @@ interface PatientReview {
   date: string;
 }
 
+/**
+ * PLACEHOLDER REVIEWS. Not shown on the site while SITE.showPatientStories is false (lib/site.ts).
+ * Replace every entry below with a real review the patient has agreed to share before turning it on.
+ */
 const REVIEWS_DATA: PatientReview[] = [
   {
     id: 1,
@@ -120,18 +124,7 @@ export default function PatientStoriesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column: Heading, Trust signals, and Controls */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            {/* Google Rating Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-amber-200 shadow-xs mb-3.5">
-              <div className="flex items-center gap-0.5 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-                ))}
-              </div>
-              <span className="text-[12px] font-semibold text-navy">
-                4.9 / 5 Rating on Google • 250+ Happy Smiles
-              </span>
-            </div>
-
+            {/* Add an overall rating pill here only once it can be taken from real, verifiable reviews. */}
             <SectionHeading
               eyebrow="Patient Stories"
               title="Real Smiles, Real Stories"
@@ -139,18 +132,18 @@ export default function PatientStoriesSection() {
             />
 
             <p className="text-body text-[15px] sm:text-[16px] leading-relaxed mt-4 mb-6 max-w-md">
-              Read authentic experiences from families and working professionals across Hadapsar who trust Dr. Gayatri&apos;s gentle, anxiety-free care.
+              Experiences shared by families and working professionals across Hadapsar who visit Dr. Gayatri for gentle, unhurried dental care.
             </p>
 
             {/* Quick trust feature tags */}
             <div className="flex flex-col gap-2.5 mb-8 w-full max-w-sm">
               <div className="flex items-center gap-2.5 text-[13px] font-medium text-slate-700 bg-white/70 rounded-xl px-3.5 py-2 border border-slate-200/60">
                 <HeartHandshake className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>100% Gentle & Anxiety-Free Dentistry</span>
+                <span>Gentle, Unhurried Dental Care</span>
               </div>
               <div className="flex items-center gap-2.5 text-[13px] font-medium text-slate-700 bg-white/70 rounded-xl px-3.5 py-2 border border-slate-200/60">
                 <ShieldCheck className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>10+ Years of Clinical Excellence in Pune</span>
+                <span>Written Estimates Before Treatment</span>
               </div>
             </div>
 
@@ -232,10 +225,6 @@ export default function PatientStoriesSection() {
                         <figcaption className="text-[16px] font-bold text-navy">
                           {currentReview.name}
                         </figcaption>
-                        <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold text-teal bg-teal/10 px-2 py-0.5 rounded-full">
-                          <ShieldCheck className="w-3 h-3 text-teal" />
-                          <span>Verified</span>
-                        </span>
                       </div>
                       <p className="text-[13px] text-slate-500 font-medium">
                         {currentReview.location}
@@ -266,8 +255,8 @@ export default function PatientStoriesSection() {
 
               {/* Bottom Metadata */}
               <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-400">
-                <span>Google Verified Review</span>
-                <span>Posted {currentReview.date}</span>
+                <span>Patient review</span>
+                <span>{currentReview.date}</span>
               </div>
             </figure>
           </div>

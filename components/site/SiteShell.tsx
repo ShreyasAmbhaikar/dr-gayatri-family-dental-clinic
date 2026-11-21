@@ -1,12 +1,12 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AppointmentModal from "@/components/AppointmentModal";
 
 interface BookingApi {
-  /** Opens the booking modal, optionally preselecting a treatment. */
+  /** Navigates to the Contact Us page. */
   open: (treatment?: string) => void;
 }
 
@@ -15,9 +15,8 @@ const BookingContext = createContext<BookingApi>({ open: () => {} });
 export const useBooking = () => useContext(BookingContext);
 
 /**
- * Page chrome for every inner page: header, footer and the booking modal.
- * Page content stays a server component and opens the modal through <BookButton />,
- * which keeps the page body fully server-rendered for SEO and speed.
+ * Page chrome for every inner page: header and footer.
+ * Directs consultation requests to the Contact Us page.
  */
 export default function SiteShell({
   children,
@@ -26,15 +25,14 @@ export default function SiteShell({
   children: React.ReactNode;
   defaultTreatment?: string;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [treatment, setTreatment] = useState(defaultTreatment);
+  const router = useRouter();
 
   const open = useCallback(
     (t?: string) => {
-      setTreatment(t ?? defaultTreatment);
-      setIsOpen(true);
+      const treatment = t ?? defaultTreatment;
+      router.push(`/contact?treatment=${encodeURIComponent(treatment)}`);
     },
-    [defaultTreatment],
+    [router, defaultTreatment],
   );
 
   const api = useMemo(() => ({ open }), [open]);
@@ -53,7 +51,6 @@ export default function SiteShell({
           {children}
         </main>
         <Footer />
-        <AppointmentModal isOpen={isOpen} onClose={() => setIsOpen(false)} initialTreatment={treatment} />
       </div>
     </BookingContext.Provider>
   );

@@ -10,43 +10,20 @@ import {
   ChevronDown,
   Check,
   ArrowRight,
-  Users,
   ShieldCheck,
+  Clock,
   MapPin,
+  Sparkles,
+  Home,
 } from "lucide-react";
 import RctHeroArt from "@/components/rct/RctHeroArt";
 import WaveDivider from "@/components/ui/WaveDivider";
 import ImageCard from "@/components/site/ImageCard";
+import WhyChooseSection from "@/components/site/WhyChooseSection";
 import { AccentBar, Highlight } from "@/components/ui/SectionHeading";
 
 interface RootCanalPageContentProps {
   onOpenBooking: () => void;
-}
-
-/**
- * Computer monitor displaying dental tooth icon, exactly matching Image Attachment 2.
- */
-function MonitorToothIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2" y="3" width="20" height="14" rx="2" />
-      <path d="M8 21h8M12 17v4" />
-      {/* Mini tooth glyph on screen */}
-      <path
-        d="M10 8c-.6 0-1 .4-1 1 0 .8.3 1.5.5 2.5.2.8.5.8.8.8.3 0 .5-.6.7-1.4.1-.3.3-.4.5-.4s.4.1.5.4c.2.8.4 1.4.7 1.4.3 0 .6 0 .8-.8.2-1 .5-1.7.5-2.5 0-.6-.4-1-1-1-.5 0-.7.3-1 .5-.3-.2-.5-.5-1-.5Z"
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
 }
 
 const FAQS = [
@@ -132,29 +109,6 @@ const BENEFITS = [
   },
 ];
 
-const WHY_CHOOSE_FEATURES = [
-  {
-    icon: Users,
-    title: "Experienced Dentist",
-    desc: "Skilled and gentle treatment with a patient-friendly approach",
-  },
-  {
-    icon: MonitorToothIcon,
-    title: "Modern Technology",
-    desc: "Digital X-rays & advanced tools for higher accuracy",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Hygienic & Safe",
-    desc: "Strict sterilization and infection control protocols",
-  },
-  {
-    icon: MapPin,
-    title: "Convenient Location",
-    desc: "Easily accessible in Hadapsar with flexible appointment slots",
-  },
-];
-
 /** Photo card: uses the shared ImageCard design (teal tab on one side). */
 function PhotoFrame(props: {
   src: string;
@@ -178,105 +132,73 @@ export default function RootCanalPageContent({ onOpenBooking }: RootCanalPageCon
 
   return (
     <div className="w-full overflow-x-clip text-body selection:bg-cyan-500 selection:text-white">
-      {/* ───────────────────────── Hero Section ───────────────────────── */}
-      <section className="relative isolate">
-        {/* Soft aqua gradient background + wave edge */}
-        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#eef9fc_0%,#f7fcfe_55%,#fdfeff_100%)]" />
-          <div className="absolute -right-[8%] top-[6%] w-[62%] h-[88%] rounded-full bg-[radial-gradient(closest-side,rgba(190,234,243,0.55),rgba(190,234,243,0)_100%)]" />
-          <svg
-            viewBox="0 0 1440 120"
-            preserveAspectRatio="none"
-            className="absolute bottom-0 left-0 w-full h-[55px] sm:h-[75px] lg:h-[95px]"
-          >
-            <path
-              d="M0,78 C260,108 470,70 760,84 C1040,98 1240,56 1440,26 L1440,120 L0,120 Z"
-              fill="#ffffff"
-              opacity="0.55"
-            />
-            <path
-              d="M0,96 C300,118 540,92 820,100 C1080,108 1260,78 1440,60 L1440,120 L0,120 Z"
-              fill="#fdfeff"
-            />
-          </svg>
-        </div>
+      {/* ───────────────────────── Panoramic Hero Banner Section ───────────────────────── */}
+      <section className="relative w-full min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] overflow-hidden flex items-center">
+        {/* Panoramic Background Photo with Smiling Patient on the Right */}
+        <Image
+          src="/images/hero-patient-right.jpg"
+          alt="Root Canal Treatment at Dr. Gayatri's Family Dental Clinic"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[78%_25%] sm:object-[82%_28%] lg:object-[88%_32%]"
+        />
 
-        {/* Hero container */}
-        <div className="page-container relative pt-[86px] sm:pt-[94px] lg:pt-[100px] pb-10 sm:pb-12 lg:pb-14">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] sm:text-[13.5px] text-body mb-5 sm:mb-6">
-            <Link href="/" className="hover:text-teal transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-body/60" aria-hidden="true" />
-            <Link href="/#treatments" className="hover:text-teal transition-colors">
-              Treatments
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-body/60" aria-hidden="true" />
-            <span aria-current="page" className="font-semibold text-navy">
-              Root Canal Treatment in Hadapsar
-            </span>
-          </nav>
+        {/* Matching Rich Teal Gradient Overlay */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-[#06242c] via-[#093c47]/95 via-50% to-[#093c47]/45 lg:to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#06242c]/50 to-transparent pointer-events-none"
+        />
 
-          {/* Hero Content & Art in a 12-column grid vertically center-aligned */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column */}
-            <div className="lg:col-span-7 flex flex-col items-start max-w-[690px]">
-              <span className="text-[11.5px] sm:text-[12.5px] font-semibold tracking-[0.24em] text-teal uppercase mb-2.5 inline-block">
-                Painless Endodontic Care · Hadapsar, Pune
+        {/* Hero Content Container */}
+        <div className="page-container relative z-10 pt-[110px] sm:pt-[120px] lg:pt-[130px] pb-14 sm:pb-16 lg:pb-18 w-full">
+          <div className="max-w-[720px] flex flex-col items-start">
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] sm:text-[13.5px] text-white/80 mb-4 sm:mb-5">
+              <Link href="/" className="hover:text-white transition-colors flex items-center gap-1.5">
+                <Home className="w-3.5 h-3.5" />
+                <span>Home</span>
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-white/40" aria-hidden="true" />
+              <Link href="/treatments" className="hover:text-white transition-colors">
+                Treatments
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-white/40" aria-hidden="true" />
+              <span aria-current="page" className="font-semibold text-white">
+                Root Canal Treatment
               </span>
+            </nav>
 
-              {/* Exact heading requested: Root Canal Treatment in Hadapsar */}
-              <h1 className="font-serif font-bold text-navy text-[40px] sm:text-[50px] lg:text-[54px] xl:text-[58px] leading-[1.08] tracking-[-0.015em]">
-                Root Canal Treatment <br />
-                <Highlight>in Hadapsar</Highlight>
-              </h1>
+            {/* H1 Heading with vibrant gradient highlight on location */}
+            <h1 className="font-serif font-bold text-white text-[36px] sm:text-[46px] lg:text-[52px] xl:text-[56px] leading-[1.1] tracking-tight">
+              Root Canal Treatment <br />
+              <span className="bg-gradient-to-r from-[#4ee4f4] via-[#38d8e8] to-[#1ab3c2] bg-clip-text text-transparent inline-block pb-1">
+                in Hadapsar, Pune
+              </span>
+            </h1>
 
-              <p className="mt-4 text-[16px] sm:text-[17.5px] leading-relaxed text-body">
-                Relieve severe tooth pain, eliminate deep infection, and <strong>preserve your natural tooth</strong> with safe, advanced <strong>single-sitting root canal therapy</strong> by <strong>Dr. Gayatri</strong> at Ambrosia Alley, Amanora Park Town, Hadapsar.
-              </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
-                <button
-                  type="button"
-                  onClick={onOpenBooking}
-                  className="btn-primary-grad group inline-flex items-center gap-2.5 rounded-full px-7 sm:px-8 h-[50px] text-white text-[14.5px] sm:text-[15px] font-semibold hover:scale-[1.02] active:scale-[0.98] transition-transform cursor-pointer shadow-[0_12px_24px_-10px_rgba(75,43,181,0.65)]"
-                >
-                  <CalendarDays className="w-[18px] h-[18px]" aria-hidden="true" />
-                  <span>Book Appointment</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </button>
-                <a
-                  href="tel:+917841930325"
-                  className="inline-flex items-center gap-2.5 rounded-full px-6 sm:px-7 h-[50px] bg-white/90 text-navy border-[1.5px] border-purple/60 text-[14.5px] sm:text-[15px] font-semibold hover:bg-white hover:border-purple transition-all shadow-xs"
-                >
-                  <Phone className="w-[17px] h-[17px] text-purple" aria-hidden="true" />
-                  <span>Call: 078419 30325</span>
-                </a>
-              </div>
-
-              {/* Exactly 3 clean checklist points on a single clean row on desktop */}
-              <div className="mt-6 pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-x-5 lg:gap-x-6 gap-y-2 text-[12.5px] sm:text-[13px] font-medium text-body">
-                <span className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Check className="w-4 h-4 text-teal stroke-[2.5]" />
-                  <span><strong>100% Painless</strong> Local Anesthesia</span>
-                </span>
-                <span className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Check className="w-4 h-4 text-teal stroke-[2.5]" />
-                  <span><strong>Single-Sitting</strong> Available</span>
-                </span>
-                <span className="flex items-center gap-1.5 whitespace-nowrap">
-                  <Check className="w-4 h-4 text-teal stroke-[2.5]" />
-                  <span><strong>Amanora Park Town</strong>, Hadapsar</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Right Column: 3D tooth illustration vertically centered */}
-            <div className="lg:col-span-5 flex items-center justify-center">
-              <div className="w-[85%] max-w-[390px] lg:w-full lg:max-w-[430px]">
-                <RctHeroArt className="w-full h-auto" />
-              </div>
+            {/* Simple CTA Buttons */}
+            <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              <button
+                type="button"
+                onClick={onOpenBooking}
+                className="btn-primary-grad group inline-flex items-center gap-2.5 rounded-full px-7 sm:px-8 h-[50px] text-white text-[14.5px] sm:text-[15px] font-semibold hover:scale-[1.02] active:scale-[0.98] transition-transform cursor-pointer shadow-[0_12px_24px_-10px_rgba(75,43,181,0.65)]"
+              >
+                <CalendarDays className="w-4.5 h-4.5" aria-hidden="true" />
+                <span>Book Appointment</span>
+                <ArrowRight className="w-4 h-4 ml-0.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </button>
+              <a
+                href="tel:+917841930325"
+                className="inline-flex items-center gap-2.5 rounded-full px-6 sm:px-7 h-[50px] bg-white/10 hover:bg-white/20 active:scale-[0.98] backdrop-blur-md border border-white/25 text-white text-[14.5px] sm:text-[15px] font-semibold transition-all shadow-xs"
+              >
+                <Phone className="w-4.5 h-4.5 text-white" aria-hidden="true" />
+                <span>Call Clinic: 078419 30325</span>
+              </a>
             </div>
           </div>
         </div>
@@ -492,60 +414,11 @@ export default function RootCanalPageContent({ onOpenBooking }: RootCanalPageCon
         </div>
       </section>
 
-      {/* ───────────────────── 5. WHY CHOOSE Dr. Gayatri – Trusted Dental Care in Hadapsar (Exact Match to Theme & Image 2) ───────────────────── */}
-      <section className="relative py-14 sm:py-16 lg:py-18">
-        <div className="page-container">
-          <div className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-[linear-gradient(135deg,#4b2bb5_0%,#3d2096_50%,#2f1778_100%)] border border-white/15 shadow-[0_22px_48px_-18px_rgba(75,43,181,0.65)] p-6 sm:p-9 lg:p-10 text-white">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
-              {/* Left Column: Exactly matching Image Attachment 2 */}
-              <div className="lg:col-span-5 lg:pr-8 flex flex-col items-start">
-                <span className="text-teal-bright text-[11px] sm:text-[12px] font-bold tracking-[0.24em] uppercase mb-2 inline-block">
-                  WHY CHOOSE
-                </span>
-
-                <h2 className="font-serif font-bold text-white text-[26px] sm:text-[30px] lg:text-[34px] leading-[1.15]">
-                  Dr. Gayatri – Trusted<br />
-                  Dental Care <span className="text-teal-bright">in Hadapsar</span>
-                </h2>
-
-                <p className="mt-3.5 text-white/85 text-[13.5px] sm:text-[14.5px] leading-relaxed">
-                  Experience expert care, advanced technology, and a patient-first approach for safe and successful root canal treatment.
-                </p>
-              </div>
-
-              {/* Vertical Divider Line matching Attachment 2 */}
-              <div className="hidden lg:flex lg:col-span-1 justify-center">
-                <div className="w-px h-48 bg-white/20" />
-              </div>
-
-              {/* Right Column: 2x2 Grid with exact icons & copy from Attachment 2 */}
-              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {WHY_CHOOSE_FEATURES.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.title}
-                      className="rounded-[18px] bg-white/[0.12] hover:bg-white/[0.18] border border-white/15 p-4 flex items-start gap-3.5 transition-colors"
-                    >
-                      <div className="flex-shrink-0 text-teal-bright mt-0.5">
-                        <Icon className="w-6 h-6 stroke-[2]" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-[14px] leading-snug">
-                          {item.title}
-                        </h3>
-                        <p className="text-[12px] text-white/80 mt-1 leading-snug">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ───────────────────── 5. WHY CHOOSE Dr. Gayatri – Trusted Dental Care in Hadapsar ───────────────────── */}
+      <WhyChooseSection
+        id="why-us"
+        treatmentName="root canal treatment"
+      />
 
       {/* ───────────────────── 6. Frequently Asked Questions (Static Left Column) ───────────────────── */}
       <section id="faqs" className="relative scroll-mt-20 py-14 sm:py-16 lg:py-20">
