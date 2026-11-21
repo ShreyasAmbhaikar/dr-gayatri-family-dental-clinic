@@ -88,11 +88,12 @@ Sitemap lists real pages, redirects exist for the old URLs, hours are split corr
 ## Housekeeping pass (same day)
 
 - **Removed dead code and assets.** Nine unused components (the old root canal page, the booking modal and others), more than 60 unused or duplicate images (including exact duplicates of the whitening before/after photos and the favicon), the default create-next-app SVGs, the unused `gsap` dependency, unused imports and a dead booking context.
-- **All in-use images are WebP** (101 files, 14.9 MB down to 5.4 MB, about 64% smaller). Kept as JPEG/PNG on purpose: the social-share image, the logo and the app icons. Every image URL the site requests is served as `image/webp`.
+- **All in-use images are WebP** (101 files, 14.9 MB down to 5.4 MB, about 64% smaller). Kept as JPEG/PNG on purpose: the 1200x630 social-share image, the 512 px logo used by the manifest and structured data, and the app icons. The logo and home hero shown on the page are WebP too.
 - **Icons.** One proper icon set (`app/favicon.ico` with 16/32/48 px, `app/icon.png` at 192 px, `app/apple-icon.png`) instead of four copies declared twice, plus a web app manifest.
 - **SEO files.** `robots.txt` no longer blocks the framework's static media folder; the sitemap lists images and uses the new content date; `llms.txt` and `llms-full.txt` now carry procedure steps, benefits and aftercare; schema gained the logo and a primary image per treatment page.
 - **Accessibility** (colour contrast excluded): visible keyboard focus everywhere, keyboard-operable treatments menu, two skipped heading levels fixed, the floating buttons placed in a landmark. axe-core reports no violations on any page at desktop or phone width.
 - **Consistency.** The phone number now comes from `lib/site.ts` everywhere, and spellings follow British English like the rest of the copy.
+- **Static export for Cloudflare Pages.** The first deploy built fine but failed with "Output directory 'out' not found", because the site was set up as a server app. It is now `output: "export"` (build writes `out/`). Consequences: `next/image` no longer resizes on request, so images are pre-sized; redirects and headers moved to `public/_redirects` and `public/_headers`; the metadata routes are marked `force-static`; the experimental `cacheComponents` and `partialPrefetching` flags were dropped because a static export cannot use them.
 - **Left in place on purpose:** the `Dr. Gayatri/` folder (the clinic's original photos, outside the site) and `puppeteer-core` (dev-only screenshot tool).
 
 ## Open items (need the clinic)

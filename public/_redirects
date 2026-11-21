@@ -1,0 +1,8 @@
+# Permanent (301) redirects so old or alternative URLs pass their ranking to the canonical page.
+# Read by Cloudflare Pages (a static export cannot use next.config redirects).
+/treatments/root-canal  /treatments/root-canal-treatment  301
+/treatments/rct         /treatments/root-canal-treatment  301
+/services               /treatments                       301
+/services/*             /treatments/:splat                301
+/contact-us             /contact                          301
+/about-us               /about                            301

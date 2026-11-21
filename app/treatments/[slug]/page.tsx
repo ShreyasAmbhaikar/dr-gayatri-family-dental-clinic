@@ -25,8 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   });
 }
 
-// `params` is read inside a Suspense boundary so the route stays compatible with instant navigation
-// (cacheComponents + partialPrefetching). Every slug is prerendered, so the full HTML is still served.
+// `params` is awaited inside a Suspense boundary. Every slug is prerendered (generateStaticParams), so the full HTML is in the static export.
 async function TreatmentContent({ params }: { params: Params }) {
   const { slug } = await params;
   const t = getTreatment(slug);

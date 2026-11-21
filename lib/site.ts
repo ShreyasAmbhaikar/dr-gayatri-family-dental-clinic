@@ -69,7 +69,7 @@ export const SITE = {
    */
   showPatientStories: false,
 
-  ogImage: "/images/hero-patient.jpg",
+  ogImage: "/og-image.jpg",
 } as const;
 
 export const absoluteUrl = (path = "/") => `${SITE.url}${path.startsWith("/") ? path : `/${path}`}`;

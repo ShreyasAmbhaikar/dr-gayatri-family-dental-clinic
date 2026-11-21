@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
 /** Web app manifest: lets phones show the clinic icon and name if the site is added to the home screen. */
+// Static export: written to a plain file at build time.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE.name,

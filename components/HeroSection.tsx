@@ -21,7 +21,7 @@ const TRUST_ITEMS = [
 function HeroVisual({ compact = false }: { compact?: boolean }) {
   return (
     <OrganicImage
-      src="/images/hero-patient.jpg"
+      src="/images/hero-patient.webp"
       alt="Smiling patient relaxing in a dental chair at Dr. Gayatri's Family Dental Clinic"
       shape="hero"
       priority

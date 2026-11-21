@@ -25,7 +25,7 @@ export function LogoMark({ className = "w-11 h-11", inverted = false }: IconProp
   return (
     <span className={`relative inline-flex items-center justify-center ${className}`}>
       <Image
-        src="/clinic-logo.png"
+        src="/clinic-logo.webp"
         alt="Dr. Gayatri's Family Dental Clinic Logo"
         width={64}
         height={64}

@@ -5,33 +5,16 @@ const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: "security",
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  // The site is fully static: `next build` writes plain HTML, CSS, JS and images to the `out/` folder, which
+  // Cloudflare Pages (or any static host) serves directly. There is no server to run.
+  output: "export",
   images: {
-    // All source images are WebP; next/image resizes them per device and caches the result for 30 days.
-    formats: ["image/webp"],
-    minimumCacheTTL: 60 * 60 * 24 * 30,
+    // A static export cannot resize images on request, so next/image serves the files as they are.
+    // Every image in public/images is already WebP and sized for the page (heroes are 1920 px wide).
+    unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        // Static images rarely change; let browsers and CDNs keep them for a month and revalidate in the background.
-        source: "/images/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
-      },
-    ];
-  },
-  // Permanent (308) redirects so old or alternative URLs pass their ranking to the canonical page.
-  async redirects() {
-    return [
-      { source: "/treatments/root-canal", destination: "/treatments/root-canal-treatment", permanent: true },
-      { source: "/treatments/rct", destination: "/treatments/root-canal-treatment", permanent: true },
-      { source: "/services", destination: "/treatments", permanent: true },
-      { source: "/services/:slug", destination: "/treatments/:slug", permanent: true },
-      { source: "/contact-us", destination: "/contact", permanent: true },
-      { source: "/about-us", destination: "/about", permanent: true },
-    ];
-  },
+  // Redirects and cache headers are not supported by a static export. They live in
+  // public/_redirects and public/_headers, which Cloudflare Pages reads.
   turbopack: {
     rules: {
       "*.css": {

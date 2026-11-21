@@ -7,9 +7,18 @@ Website for Dr. Gayatri's Family Dental Clinic, Amanora Park Town, Hadapsar, Pun
 ```bash
 pnpm install
 pnpm dev          # http://localhost:3000
-pnpm build        # production build (generates all pages statically)
-pnpm start        # serve the production build
+pnpm build        # static export: writes the finished site to the out/ folder
+pnpm preview      # serve out/ locally to check the production build
 ```
+
+## Deploying (Cloudflare Pages)
+
+The site is a **static export** (`output: "export"` in `next.config.ts`), so there is no server to run. In Cloudflare Pages use:
+
+- Build command: `npx next build`
+- Build output directory: `out`
+
+Redirects for old URLs live in `public/_redirects` and cache/security headers in `public/_headers`; Cloudflare reads both. They replace the `redirects()`/`headers()` that `next.config.ts` cannot use in a static export. Add any new redirect to `public/_redirects`.
 
 Set `NEXT_PUBLIC_SITE_URL` (for example `https://your-domain.in`) in the hosting dashboard. It feeds canonical URLs, the sitemap, robots.txt, Open Graph tags and structured data. Until it is set, the placeholder `https://drgayatridental.com` is used.
 
@@ -37,8 +46,8 @@ The sitemap, hub page, menu, `llms.txt`, structured data and static generation p
 
 ## Images
 
-- Use **WebP** for everything in `public/images/` (`next/image` then resizes it per device). Hero banners are 1920 px wide.
-- Two deliberate exceptions: `public/images/hero-patient.jpg` is the social-share (Open Graph) image, and the icons in `app/` and `public/` are PNG/ICO because browsers and the manifest require them.
+- Use **WebP** for everything in `public/images/`. A static export cannot resize images on request (`images.unoptimized` is on), so **export each file at the size it is shown** (about 2x the displayed width). Hero banners are 1920 px wide.
+- Deliberate exceptions: `public/og-image.jpg` (1200x630, under 100 KB) is the social-share image, which Facebook and WhatsApp read best as JPEG; the icons in `app/` and the 512 px `public/clinic-logo.png` (manifest and structured data) are PNG/ICO. The logo shown on the page is `public/clinic-logo.webp`.
 - Stock photo sources are listed in `docs/image-credits.md`.
 
 ## Before launch
