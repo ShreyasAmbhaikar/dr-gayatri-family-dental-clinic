@@ -176,6 +176,12 @@
   box-shadow: 0 8px 24px rgba(15, 65, 75, 0.08);
 }
 
+/* Keyboard focus must always be visible, even where a component removes the browser outline. */
+:focus-visible {
+  outline: 2px solid #0e9aa7 !important;
+  outline-offset: 3px !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

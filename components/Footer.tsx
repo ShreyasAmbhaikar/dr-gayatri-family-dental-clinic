@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { MapPin, Clock, ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { LogoMark, RainbowBar } from "@/components/ui/icons";
 
 import { SITE, whatsappLink } from "@/lib/site";
-import { TREATMENTS, treatmentPath } from "@/lib/treatments/summary";
+import { treatmentPath } from "@/lib/treatments/summary";
 
 const MAPS_URL = SITE.mapsUrl;
 
@@ -80,7 +79,7 @@ export default function Footer() {
               Gentle Care. Beautiful Smiles.
             </p>
             <p className="text-white/75 text-[12.5px] leading-relaxed max-w-[300px] mt-1.5">
-              Gentle, personalized family dental care and advanced root canal therapy in Amanora Park Town, Hadapsar, Pune.
+              Gentle, personalised family dental care and advanced root canal therapy in Amanora Park Town, Hadapsar, Pune.
             </p>
 
             {/* Separate Dedicated Contact Block */}
@@ -90,13 +89,13 @@ export default function Footer() {
               </p>
               <div className="space-y-2 text-[12.5px]">
                 <a
-                  href="tel:+917841930325"
+                  href={`tel:${SITE.phone}`}
                   className="inline-flex items-center gap-2 text-white/90 hover:text-teal-bright transition-colors"
                 >
                   <span className="w-6 h-6 rounded-full bg-teal-bright/15 text-teal-bright flex items-center justify-center flex-shrink-0">
                     <Phone className="w-3.5 h-3.5" />
                   </span>
-                  <span className="font-medium">+91 78419 30325</span>
+                  <span className="font-medium">{SITE.phoneDisplay}</span>
                 </a>
                 <div>
                   <a

@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/static/media/"] },
+      { userAgent: "*", allow: "/" },
       // Explicitly welcome AI search and answer engines so the clinic can be cited in AI answers.
       {
         userAgent: [

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { CalendarDays, Stethoscope, ClipboardList } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { ToothIcon } from "@/components/ui/icons";

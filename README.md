@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dr. Gayatri's Family Dental Clinic
 
-## Getting Started
+Website for Dr. Gayatri's Family Dental Clinic, Amanora Park Town, Hadapsar, Pune. Built with Next.js (App Router), React, TypeScript and Tailwind CSS. The site is a local-SEO site: a home page, 22 treatment pages, a treatments hub, About, Contact and Gallery.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build        # production build (generates all pages statically)
+pnpm start        # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` (for example `https://your-domain.in`) in the hosting dashboard. It feeds canonical URLs, the sitemap, robots.txt, Open Graph tags and structured data. Until it is set, the placeholder `https://drgayatridental.com` is used.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | What it holds |
+| --- | --- |
+| `lib/site.ts` | Single source of truth for name, address, phone, hours, doctor and feature flags. Everything else reads from here. |
+| `lib/treatments/summary.ts` | The list of treatments (slug, names, keyword, category, icon) and category order. |
+| `lib/treatments/content-*.ts` | Long-form copy for each treatment: short answer, symptoms, procedure steps, benefits, aftercare, FAQs. |
+| `lib/treatments/media.ts` | Hero banner and three image-card photos for each treatment. |
+| `components/site/TreatmentPage.tsx` | The template every treatment page uses. |
+| `components/site/StepArt.tsx` | The 3D-style procedure-step illustrations. |
+| `lib/schema.ts`, `lib/seo.ts`, `lib/llms.ts` | Structured data, page metadata, `llms.txt`. |
+| `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts` | Sitemap, robots.txt and web app manifest. |
+| `docs/` | SEO strategy, the content audit and image credits. |
 
-## Learn More
+## Adding or editing a treatment
 
-To learn more about Next.js, take a look at the following resources:
+1. Add it to `lib/treatments/summary.ts`.
+2. Add its copy to `content-a.ts`, `content-b.ts` or `content-c.ts` (one overview paragraph, 5-6 FAQs including cost, an `art` key on every step).
+3. Add its three card photos and hero photo to `lib/treatments/media.ts`, and the hero file to `public/images/treatments/hero/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The sitemap, hub page, menu, `llms.txt`, structured data and static generation pick it up automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Images
 
-## Deploy on Vercel
+- Use **WebP** for everything in `public/images/` (`next/image` then resizes it per device). Hero banners are 1920 px wide.
+- Two deliberate exceptions: `public/images/hero-patient.jpg` is the social-share (Open Graph) image, and the icons in `app/` and `public/` are PNG/ICO because browsers and the manifest require them.
+- Stock photo sources are listed in `docs/image-credits.md`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Before launch
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See "Open items" in `docs/treatments-audit.md`: real prices, Dr. Gayatri's credentials, real patient reviews (`SITE.showPatientStories`), confirmation that the clinic offers laser dentistry, and the real domain.

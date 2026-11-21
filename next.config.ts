@@ -7,6 +7,20 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    // All source images are WebP; next/image resizes them per device and caches the result for 30 days.
+    formats: ["image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
+  async headers() {
+    return [
+      {
+        // Static images rarely change; let browsers and CDNs keep them for a month and revalidate in the background.
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
+      },
+    ];
+  },
   // Permanent (308) redirects so old or alternative URLs pass their ranking to the canonical page.
   async redirects() {
     return [

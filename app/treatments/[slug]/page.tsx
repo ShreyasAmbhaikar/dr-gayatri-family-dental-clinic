@@ -33,7 +33,7 @@ async function TreatmentContent({ params }: { params: Params }) {
   if (!t) notFound();
 
   return (
-    <SiteShell defaultTreatment={t.bookingValue ?? t.name}>
+    <SiteShell>
       <TreatmentPage treatment={t} />
     </SiteShell>
   );

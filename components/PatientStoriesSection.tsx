@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, HeartHandshake } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -28,7 +28,7 @@ const REVIEWS_DATA: PatientReview[] = [
     id: 1,
     name: "Priya S.",
     location: "Hadapsar, Pune",
-    avatar: "/images/patient-priya.jpg",
+    avatar: "/images/patient-priya.webp",
     initials: "PS",
     avatarBg: "from-rose-400 to-pink-500",
     treatment: "Routine Cleaning & Preventive Care",
@@ -71,7 +71,7 @@ const REVIEWS_DATA: PatientReview[] = [
     rating: 5,
     date: "2 months ago",
     review:
-      "Got an implant placed by Dr. Gayatri. The 3D scan planning and painless local anesthesia made the entire procedure seamless. Chewing feels completely natural now. Truly world-class dental expertise right in Amanora.",
+      "Got an implant placed by Dr. Gayatri. The 3D scan planning and painless local anaesthesia made the entire procedure seamless. Chewing feels completely natural now. Truly world-class dental expertise right in Amanora.",
   },
   {
     id: 5,

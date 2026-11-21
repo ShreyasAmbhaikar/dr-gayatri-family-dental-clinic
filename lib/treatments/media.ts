@@ -17,13 +17,13 @@ export interface Photo {
 }
 
 const STOCK = "/images/treatments/photos";
-const p = (file: string, alt: string, position = "50% 50%"): Photo => ({ src: `${STOCK}/${file}.jpg`, alt, position });
+const p = (file: string, alt: string, position = "50% 50%"): Photo => ({ src: `${STOCK}/${file}.webp`, alt, position });
 
 export const TREATMENT_PHOTOS: Record<string, [Photo, Photo, Photo]> = {
   "root-canal-treatment": [
-    { src: "/images/rct/generated-dentist-model.jpg", alt: "Dentist pointing to the nerve canals on a cross-section tooth model", position: "50% 72%", zoom: 1.35, origin: "52% 82%" },
+    { src: "/images/rct/generated-dentist-model.webp", alt: "Dentist pointing to the nerve canals on a cross-section tooth model", position: "50% 72%", zoom: 1.35, origin: "52% 82%" },
     p("toothache-hand-on-cheek", "Woman holding her cheek because of a throbbing toothache", "50% 35%"),
-    { src: "/images/rct/generated-tooth-restoration.jpg", alt: "Restored natural tooth model on a clear display stand in a modern dental clinic", position: "50% 50%", zoom: 1.05 },
+    { src: "/images/rct/generated-tooth-restoration.webp", alt: "Restored natural tooth model on a clear display stand in a modern dental clinic", position: "50% 50%", zoom: 1.05 },
   ],
   "dental-implants": [
     p("implant-model-on-desk", "Dental implant model showing the titanium post, abutment and crown in the jawbone", "50% 55%"),
@@ -32,7 +32,7 @@ export const TREATMENT_PHOTOS: Record<string, [Photo, Photo, Photo]> = {
   ],
   braces: [
     p("braces-smile", "Smiling patient showing metal braces on the upper teeth", "50% 16%"),
-    { src: "/images/before-after/crowded-before.jpg", alt: "Crowded, overlapping front teeth before orthodontic treatment", position: "50% 50%" },
+    { src: "/images/before-after/crowded-before.webp", alt: "Crowded, overlapping front teeth before orthodontic treatment", position: "50% 50%" },
     p("braces-closeup-mono", "Close-up of a smile with metal brackets and archwire", "50% 4%"),
   ],
   "clear-aligners": [
@@ -62,7 +62,7 @@ export const TREATMENT_PHOTOS: Record<string, [Photo, Photo, Photo]> = {
   ],
   "teeth-whitening": [
     p("whitening-light-treatment", "Patient receiving a professional teeth whitening treatment in the clinic", "50% 45%"),
-    { src: "/images/before-after/whitening-before.jpg", alt: "Yellowed and stained teeth before whitening", position: "50% 50%" },
+    { src: "/images/before-after/whitening-before.webp", alt: "Yellowed and stained teeth before whitening", position: "50% 50%" },
     p("tooth-shade-guide", "Dentist's tooth shade guide used to record and match tooth colour", "50% 55%"),
   ],
   "crowns-bridges": [
@@ -87,7 +87,7 @@ export const TREATMENT_PHOTOS: Record<string, [Photo, Photo, Photo]> = {
   ],
   "tooth-fillings": [
     p("mouth-exam-instruments", "Dentist examining a tooth with a mirror and probe before placing a filling", "50% 45%"),
-    { src: "/images/before-after/restoration-before.jpg", alt: "Front tooth with a chipped edge before a tooth-coloured restoration", position: "50% 50%" },
+    { src: "/images/before-after/restoration-before.webp", alt: "Front tooth with a chipped edge before a tooth-coloured restoration", position: "50% 50%" },
     p("natural-teeth-closeup", "Natural-looking teeth that blend with a tooth-coloured filling", "50% 50%"),
   ],
   "gum-treatment": [
@@ -123,7 +123,7 @@ export const TREATMENT_PHOTOS: Record<string, [Photo, Photo, Photo]> = {
   "sensitive-teeth": [
     p("toothache-concerned", "Woman with a hand on her cheek, feeling tooth sensitivity", "50% 62%"),
     p("iced-drinks", "Iced drinks, a common trigger for sensitive teeth", "50% 40%"),
-    { src: `${STOCK}/ice-lolly.jpg`, alt: "Cold ice lolly that sensitive teeth can struggle with", position: "50% 45%", zoom: 1.2, origin: "47% 45%" },
+    { src: `${STOCK}/ice-lolly.webp`, alt: "Cold ice lolly that sensitive teeth can struggle with", position: "50% 45%", zoom: 1.2, origin: "47% 45%" },
   ],
   "laser-dentistry": [
     p("dental-laser-device", "Dental laser unit with a handpiece used for gentle soft-tissue treatment", "50% 88%"),
@@ -147,7 +147,7 @@ export interface HeroPhoto {
 }
 
 const HERO = "/images/treatments/hero";
-const hero = (slug: string, alt: string, position = "50% 40%"): HeroPhoto => ({ src: `${HERO}/${slug}.jpg`, alt, position });
+const hero = (slug: string, alt: string, position = "50% 40%"): HeroPhoto => ({ src: `${HERO}/${slug}.webp`, alt, position });
 
 /**
  * Wide banner photo at the top of each treatment page. One per treatment, chosen to show that service

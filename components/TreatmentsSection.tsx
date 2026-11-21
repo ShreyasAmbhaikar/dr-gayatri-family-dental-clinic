@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Calendar, ExternalLink } from "lucide-react";
@@ -35,7 +35,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Custom oral hygiene regimen",
     ],
     duration: "30 - 45 Mins",
-    image: "/images/treatments/v2-general-dentistry.png",
+    image: "/images/treatments/v2-general-dentistry.webp",
   },
   {
     id: "root-canal",
@@ -50,7 +50,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Examination and X-ray before any decision",
     ],
     duration: "45 - 60 Mins",
-    image: "/images/treatments/v2-root-canal.png",
+    image: "/images/treatments/v2-root-canal.webp",
   },
   {
     id: "dental-implants",
@@ -65,7 +65,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Helps protect the jawbone where a tooth was lost",
     ],
     duration: "2 - 3 Visits",
-    image: "/images/treatments/v2-dental-implants.png",
+    image: "/images/treatments/v2-dental-implants.webp",
   },
   {
     id: "pediatric-dentistry",
@@ -80,7 +80,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Gentle space maintainers for early tooth loss",
     ],
     duration: "30 Mins",
-    image: "/images/treatments/v2-pediatric-dentistry.png",
+    image: "/images/treatments/v2-pediatric-dentistry.webp",
   },
   {
     id: "teeth-whitening",
@@ -95,7 +95,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Aftercare advice to help you keep the shade",
     ],
     duration: "45 - 60 Mins",
-    image: "/images/treatments/v2-teeth-whitening.png",
+    image: "/images/treatments/v2-teeth-whitening.webp",
   },
   {
     id: "braces-aligners",
@@ -110,7 +110,7 @@ export const TREATMENTS_DATA: TreatmentItem[] = [
       "Aligners are removable for eating and brushing",
     ],
     duration: "Custom Roadmap",
-    image: "/images/treatments/v2-braces-aligners.png",
+    image: "/images/treatments/v2-braces-aligners.webp",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function TreatmentsSection({ onSelectTreatment }: TreatmentsSecti
             />
 
             <p className="text-body text-[14.5px] sm:text-[15.5px] leading-relaxed mt-5 mb-8 max-w-[470px]">
-              From preventive care to advanced treatments, we offer personalized solutions for every member of your family.
+              From preventive care to advanced treatments, we offer personalised solutions for every member of your family.
             </p>
 
             <Button href="/treatments" variant="outline" size="sm" arrow className="px-6">

@@ -6,7 +6,6 @@ export { AccentBar, Highlight };
 
 /** Body copy: identical scale to the homepage and root canal page. */
 export const BODY = "text-body text-[15px] sm:text-[16px] xl:text-[16.5px] leading-relaxed";
-export const BODY_SM = "text-body text-[14px] sm:text-[14.5px] leading-relaxed";
 
 /** Small uppercase teal label above a heading. */
 export function Eyebrow({ children, light = false, className = "" }: { children: React.ReactNode; light?: boolean; className?: string }) {
@@ -94,16 +93,5 @@ export function Band({
     <section id={id} aria-labelledby={labelledBy} className={`relative scroll-mt-20 py-14 sm:py-16 lg:py-18 ${TONES[tone]} ${className}`}>
       <div className="page-container">{children}</div>
     </section>
-  );
-}
-
-/** Deep purple gradient panel (same look as the root canal page's "Why choose" band). */
-export function DarkPanel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div
-      className={`relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-[linear-gradient(135deg,#4b2bb5_0%,#3d2096_50%,#2f1778_100%)] border border-white/15 shadow-[0_22px_48px_-18px_rgba(75,43,181,0.65)] text-white ${className}`}
-    >
-      {children}
-    </div>
   );
 }

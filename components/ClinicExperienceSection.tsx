@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, X, ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 import Button from "@/components/ui/Button";
 import OrganicImage from "@/components/ui/OrganicImage";
 import SectionHeading from "@/components/ui/SectionHeading";

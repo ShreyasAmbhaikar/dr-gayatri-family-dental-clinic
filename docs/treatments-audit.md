@@ -68,7 +68,7 @@ If `startingPrice` is set on a page, its cost answer starts with that price. The
 
 - **Step badges.** The root canal tooth drawings appeared on all 21 other pages, for example under "Scaling" on the teeth-cleaning page. Replaced by 43 original illustrations that show the actual step (scaler with tartar, impression tray, aligner tray, forceps, laser and so on).
 - **Photo cards.** Each of the three cards on every page was chosen for that treatment. Sources are in [image-credits.md](./image-credits.md). Real clinic photos were reused where they fit (the crown bridge on the crowns page).
-- **Hero banners.** Each page has its own wide photo that shows the service (a shade guide for whitening, forceps for extraction, an implant model for implants, a full-arch bridge for full-mouth implants and so on). On desktop the photo fills the right two-thirds of the banner and fades into the teal behind the headline; on phones it sits behind a dark overlay. Files are 1920 px JPEGs under 175 KB, loaded with `priority` and a `sizes` hint so each device downloads only what it shows.
+- **Hero banners.** Each page has its own wide photo that shows the service (a shade guide for whitening, forceps for extraction, an implant model for implants, a full-arch bridge for full-mouth implants and so on). On desktop the photo fills the right two-thirds of the banner and fades into the teal behind the headline; on phones it sits behind a dark overlay. Files are 1920 px WebP images, loaded with `priority` and a `sizes` hint so each device downloads only what it shows.
 - **The clinic's root canal X-ray was dropped from that page.** The photo has the text "SINGLE SEATING ROOT CANAL TREATMENT" baked into the image (it should say "sitting"). The same image is still used in the gallery and in the home-page clinic tour (`public/images/gallery/single-sitting-root-canal-treatment-xray.webp`), so re-export it with the spelling fixed or retire it.
 
 ### Other pages
@@ -85,6 +85,16 @@ If `startingPrice` is set on a page, its cost answer starts with that price. The
 
 Sitemap lists real pages, redirects exist for the old URLs, hours are split correctly everywhere, the map pin matches the Business Profile, there are no "Viman Nagar" references and the phone number is the same on every page.
 
+## Housekeeping pass (same day)
+
+- **Removed dead code and assets.** Nine unused components (the old root canal page, the booking modal and others), more than 60 unused or duplicate images (including exact duplicates of the whitening before/after photos and the favicon), the default create-next-app SVGs, the unused `gsap` dependency, unused imports and a dead booking context.
+- **All in-use images are WebP** (101 files, 14.9 MB down to 5.4 MB, about 64% smaller). Kept as JPEG/PNG on purpose: the social-share image, the logo and the app icons. Every image URL the site requests is served as `image/webp`.
+- **Icons.** One proper icon set (`app/favicon.ico` with 16/32/48 px, `app/icon.png` at 192 px, `app/apple-icon.png`) instead of four copies declared twice, plus a web app manifest.
+- **SEO files.** `robots.txt` no longer blocks the framework's static media folder; the sitemap lists images and uses the new content date; `llms.txt` and `llms-full.txt` now carry procedure steps, benefits and aftercare; schema gained the logo and a primary image per treatment page.
+- **Accessibility** (colour contrast excluded): visible keyboard focus everywhere, keyboard-operable treatments menu, two skipped heading levels fixed, the floating buttons placed in a landmark. axe-core reports no violations on any page at desktop or phone width.
+- **Consistency.** The phone number now comes from `lib/site.ts` everywhere, and spellings follow British English like the rest of the copy.
+- **Left in place on purpose:** the `Dr. Gayatri/` folder (the clinic's original photos, outside the site) and `puppeteer-core` (dev-only screenshot tool).
+
 ## Open items (need the clinic)
 
 1. **Prices.** The doc's biggest-volume searches are cost searches, and the template asks for real prices. Nothing was invented. Fill `startingPrice` in each page's content once the clinic confirms; the cost FAQ answer then opens with it.
@@ -93,7 +103,7 @@ Sitemap lists real pages, redirects exist for the old URLs, hours are split corr
 4. **Before and after photos.** The Dental Council of India's code requires written patient consent. Confirm these belong to consented cases, or replace them.
 5. **Reviews.** Collect real ones (the doc's engine), then fill the patient stories carousel.
 6. **Real photos.** Replace stock cards and hero photos with clinic photos as you take them.
-7. **Unused code.** `components/rct/*` and `components/site/TreatmentHeroArt.tsx` are no longer used. They were left in place because they hold uncommitted changes; safe to delete. The `related` field in the treatment data is also unused now (the section was removed) but kept in case it returns.
+7. **The `related` field** in the treatment data is unused now (the section was removed) but kept in case it returns.
 
 ## Adding or editing a treatment
 

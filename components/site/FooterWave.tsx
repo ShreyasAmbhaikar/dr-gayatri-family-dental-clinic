@@ -1,4 +1,3 @@
-import React from "react";
 import WaveDivider from "@/components/ui/WaveDivider";
 
 /** The aqua > teal > indigo wave that flows into the footer (same ending as the root canal page). */

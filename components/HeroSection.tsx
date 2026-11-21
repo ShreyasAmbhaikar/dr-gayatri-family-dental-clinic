@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
 import { Phone, ShieldCheck, Users, CalendarDays } from "lucide-react";
 import Button from "@/components/ui/Button";
 import OrganicImage from "@/components/ui/OrganicImage";
 import ScriptBubble from "@/components/ui/ScriptBubble";
 import { ToothIcon } from "@/components/ui/icons";
+import { SITE } from "@/lib/site";
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -87,7 +87,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             <Button onClick={onOpenBooking} icon={<CalendarDays className="w-4 h-4" />} arrow>
               Book Appointment
             </Button>
-            <Button href="tel:+917841930325" variant="outline" icon={<Phone className="w-4 h-4 text-purple" />}>
+            <Button href={`tel:${SITE.phone}`} variant="outline" icon={<Phone className="w-4 h-4 text-purple" />}>
               Call Now
             </Button>
           </div>

@@ -59,7 +59,7 @@ export const SITE = {
    * content. Controls the "Medically reviewed by" line on treatment pages.
    */
   contentReviewedByDoctor: false,
-  contentUpdated: "2026-11-07",
+  contentUpdated: "2026-11-21",
 
   /**
    * Homepage "Patient Stories" carousel. Its current entries are PLACEHOLDERS (invented names and dates).

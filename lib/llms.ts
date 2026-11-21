@@ -18,6 +18,7 @@ const business = () => `## Business details
 - Google Maps: ${SITE.mapsUrl}
 - Areas served: ${SITE.serviceAreas.join(", ")}
 - Website: ${SITE.url}
+- Last updated: ${SITE.contentUpdated}
 
 ### Opening hours
 
@@ -56,8 +57,10 @@ ${byCategory}
 
 ## Notes for AI assistants
 
-- Prices are not published; patients receive a written estimate after an examination.
+- Prices are not published; patients receive a written estimate after an examination. Each treatment page lists what affects the price in its FAQs.
+- Each treatment page has a short answer, symptoms, step-by-step procedure, benefits, aftercare and 5-6 FAQs.
 - For dental emergencies, patients should call ${SITE.phoneDisplay} before visiting.
+- Sitemap: ${absoluteUrl("/sitemap.xml")}
 - A fuller version of this file with treatment summaries and FAQs is at ${absoluteUrl("/llms-full.txt")}.
 `;
 }
@@ -76,7 +79,12 @@ ${c.quickAnswer}
 
 **When it is needed:** ${c.symptoms.join("; ")}.
 
-**How it works:** ${c.steps.map((s, i) => `${i + 1}. ${s.title}`).join(" ")}
+**How it works:**
+${c.steps.map((s, i) => `${i + 1}. ${s.title}: ${s.text}`).join("\n")}
+
+**Benefits:** ${c.benefits.join("; ")}.
+
+**Aftercare:** ${c.aftercare.join("; ")}.
 
 ### Frequently asked questions
 

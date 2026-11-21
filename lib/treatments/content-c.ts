@@ -1,5 +1,6 @@
 import type { TreatmentContent } from "./types";
 import { hoursSentence, local } from "./local";
+import { SITE } from "../site";
 
 /** Surgical, emergency and cosmetic treatments. */
 export const CONTENT_C: Record<string, TreatmentContent> = {
@@ -166,7 +167,7 @@ export const CONTENT_C: Record<string, TreatmentContent> = {
       "Call us if pain, swelling or fever worsens",
     ],
     localNote:
-      "We are on Tupe Patil Road, close to Kotak Mahindra Bank in Amanora Park Town, so patients in Hadapsar, Magarpatta City, Mundhwa and Keshav Nagar can reach us quickly. Please call +91 78419 30325 before you set out, so we can give first-aid advice on the way.",
+      `We are on Tupe Patil Road, close to Kotak Mahindra Bank in Amanora Park Town, so patients in Hadapsar, Magarpatta City, Mundhwa and Keshav Nagar can reach us quickly. Please call ${SITE.phoneDisplay} before you set out, so we can give first-aid advice on the way.`,
     faqs: [
       { q: "What should I do if my tooth is knocked out?", a: "Handle it by the crown, not the root. Rinse gently without scrubbing, keep it moist in milk, and see a dentist within the hour if you can. Do not let it dry out." },
       { q: "I have a swollen face. Is it serious?", a: "Swelling can be a sign of spreading infection and should be seen quickly. If you have trouble breathing or swallowing, go to a hospital emergency department straight away." },

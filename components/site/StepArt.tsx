@@ -1,4 +1,3 @@
-import React from "react";
 import type { StepArt as StepArtKey } from "@/lib/treatments/types";
 
 /**
@@ -1095,10 +1094,3 @@ export default function StepArt({ kind, className = "" }: { kind: StepArtKey; cl
     </svg>
   );
 }
-
-export const STEP_ART_KEYS: StepArtKey[] = [
-  "exam", "inspect", "xray", "plan", "notes", "consult", "kid", "anaesthesia", "decay", "composite", "polish", "scaling",
-  "floss", "brush", "tongue", "fluoride", "sealant", "implant", "healing", "prep", "impression", "scan", "temp", "crown",
-  "veneer", "bite", "denture", "braces", "aligner", "retainer", "nightguard", "shade", "gel", "barrier", "smile",
-  "extraction", "stitch", "phone", "urgent", "calendar", "laser", "gum", "stabilise",
-];

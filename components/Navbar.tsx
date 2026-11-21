@@ -1,44 +1,18 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, Phone, ChevronDown, ChevronRight } from "lucide-react";
 import { LogoMark, RainbowBar } from "@/components/ui/icons";
 import { CATEGORY_ORDER, TREATMENTS, treatmentPath } from "@/lib/treatments/summary";
-
-interface NavbarProps {
-  onOpenBooking: () => void;
-}
+import { SITE } from "@/lib/site";
 
 // Every service, grouped by category, for the Treatments mega-menu and the mobile menu.
 const MENU_GROUPS = CATEGORY_ORDER.map((category) => ({
   category,
   items: TREATMENTS.filter((t) => t.category === category),
 })).filter((g) => g.items.length > 0);
-
-// Structured 3-column layout with balanced spacing between categories for desktop mega menu
-const MENU_COLUMNS = [
-  {
-    groups: [
-      { category: "Restorative", items: TREATMENTS.filter((t) => t.category === "Restorative") },
-      { category: "Orthodontic", items: TREATMENTS.filter((t) => t.category === "Orthodontic") },
-    ],
-  },
-  {
-    groups: [
-      { category: "Preventive", items: TREATMENTS.filter((t) => t.category === "Preventive") },
-      { category: "Surgical", items: TREATMENTS.filter((t) => t.category === "Surgical") },
-    ],
-  },
-  {
-    groups: [
-      { category: "Cosmetic", items: TREATMENTS.filter((t) => t.category === "Cosmetic") },
-      { category: "Pediatric", items: TREATMENTS.filter((t) => t.category === "Pediatric") },
-      { category: "Emergency", items: TREATMENTS.filter((t) => t.category === "Emergency") },
-    ],
-  },
-];
 
 // Three balanced columns for the desktop mega menu (each column lists its categories top to bottom).
 const MEGA_COLUMNS = [
@@ -47,7 +21,7 @@ const MEGA_COLUMNS = [
   ["Surgical", "Cosmetic", "Emergency"],
 ].map((cats) => cats.map((c) => MENU_GROUPS.find((g) => g.category === c)).filter((g): g is (typeof MENU_GROUPS)[number] => Boolean(g)));
 
-export default function Navbar({ onOpenBooking }: NavbarProps) {
+export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -130,9 +104,18 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                   className=""
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  onFocus={handleMouseEnter}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setTreatmentsDropdownOpen(false);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") setTreatmentsDropdownOpen(false);
+                  }}
                 >
                   <Link
                     href={link.href}
+                    aria-haspopup="true"
+                    aria-expanded={treatmentsDropdownOpen}
                     className={`relative py-1 flex items-center gap-1 transition-colors ${
                       link.isActive ? "text-navy font-semibold" : "text-slate-600 hover:text-teal"
                     }`}
@@ -169,9 +152,9 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                           </Link>
                           <div className="mt-auto pt-6">
                             <p className="text-[11px] uppercase tracking-[0.16em] font-bold text-body/70">Dental emergency?</p>
-                            <a href="tel:+917841930325" className="mt-1 inline-flex items-center gap-2 text-[14px] font-bold text-navy hover:text-teal transition-colors">
+                            <a href={`tel:${SITE.phone}`} className="mt-1 inline-flex items-center gap-2 text-[14px] font-bold text-navy hover:text-teal transition-colors">
                               <Phone className="w-4 h-4 text-teal" />
-                              +91 78419 30325
+                              {SITE.phoneDisplay}
                             </a>
                           </div>
                         </div>
@@ -301,7 +284,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:+917841930325"
+              href={`tel:${SITE.phone}`}
               className="w-full inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 py-2.5 rounded-full font-medium text-sm hover:bg-slate-50"
             >
               <Phone className="w-4 h-4 text-teal" />

@@ -1,4 +1,3 @@
-import React from "react";
 
 interface WhyChooseSectionProps {
   treatmentName?: string;
@@ -152,7 +151,7 @@ export const WHY_CHOOSE_ITEMS = [
   {
     icon: HygienicSafeIcon,
     title: "Hygienic & Safe",
-    desc: "Strict sterilization and infection control protocols",
+    desc: "Strict sterilisation and infection control protocols",
   },
   {
     icon: ConvenientLocationIcon,

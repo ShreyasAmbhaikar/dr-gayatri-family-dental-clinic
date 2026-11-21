@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDown, PhoneCall } from "lucide-react";
 import SectionHeading, { Highlight } from "@/components/ui/SectionHeading";
 import WaveDivider from "@/components/ui/WaveDivider";
 import { HOME_FAQS } from "@/lib/home-faqs";
+import { SITE } from "@/lib/site";
 
 export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState<string>("first-visit");
@@ -45,8 +46,8 @@ export default function FaqSection() {
               </div>
               <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
                 <span className="text-[12.5px] font-semibold text-navy">Call our desk:</span>
-                <a href="tel:+917841930325" className="text-[13.5px] font-bold text-teal hover:text-purple transition-colors">
-                  +91 78419 30325
+                <a href={`tel:${SITE.phone}`} className="text-[13.5px] font-bold text-teal hover:text-purple transition-colors">
+                  {SITE.phoneDisplay}
                 </a>
               </div>
             </div>

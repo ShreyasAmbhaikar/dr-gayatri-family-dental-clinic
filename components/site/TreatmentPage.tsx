@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { ChevronRight, Info, Phone } from "lucide-react";
 import PageHero from "@/components/site/PageHero";

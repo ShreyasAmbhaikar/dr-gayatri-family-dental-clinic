@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   Clock,
   ExternalLink,
@@ -18,7 +17,7 @@ import { pageGraph } from "@/lib/schema";
 
 const TITLE = "Contact Us | Dr. Gayatri's Family Dental Clinic Hadapsar";
 const DESCRIPTION =
-  "Contact our dental clinic in Amanora Park Town, Hadapsar, Pune. Call +91 78419 30325, get directions, see opening hours and message us on WhatsApp today.";
+  `Contact our dental clinic in Amanora Park Town, Hadapsar, Pune. Call ${SITE.phoneDisplay}, get directions, see opening hours and message us on WhatsApp today.`;
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -98,9 +97,9 @@ export default function ContactPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif font-bold text-navy text-[16.5px] leading-snug mt-2.5 group-hover:text-teal transition-colors">
+                      <h2 className="font-serif font-bold text-navy text-[16.5px] leading-snug mt-2.5 group-hover:text-teal transition-colors">
                         Call Clinic
-                      </h3>
+                      </h2>
                       <p className="text-[12px] text-slate-600 mt-0.5 leading-snug">
                         Direct doctor desk for appointments &amp; queries
                       </p>
@@ -128,9 +127,9 @@ export default function ContactPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif font-bold text-navy text-[16.5px] leading-snug mt-2.5 group-hover:text-emerald-700 transition-colors">
+                      <h2 className="font-serif font-bold text-navy text-[16.5px] leading-snug mt-2.5 group-hover:text-emerald-700 transition-colors">
                         WhatsApp Chat
-                      </h3>
+                      </h2>
                       <p className="text-[12px] text-slate-600 mt-0.5 leading-snug">
                         Send photos, ask questions, or request slots
                       </p>

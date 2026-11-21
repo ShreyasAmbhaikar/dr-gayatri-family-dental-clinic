@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -26,13 +25,13 @@ export default function HomePage() {
 
   return (
     <div className="page-bg min-h-screen flex flex-col overflow-x-hidden selection:bg-cyan-500 selection:text-white">
-      <Navbar onOpenBooking={() => handleNavigateToContact()} />
+      <Navbar />
 
       <main className="flex-grow">
         <HeroSection onOpenBooking={() => handleNavigateToContact("General Dentistry")} />
         <TreatmentsSection onSelectTreatment={handleNavigateToContact} />
         <StatsBanner />
-        <AboutSection onOpenBooking={() => handleNavigateToContact("Consultation")} />
+        <AboutSection />
         <ClinicExperienceSection />
         <BeforeAfterSection onOpenBooking={handleNavigateToContact} />
         {SITE.showPatientStories && <PatientStoriesSection />}

@@ -1,5 +1,6 @@
 import { SITE, absoluteUrl, fullAddress } from "./site";
 import { TREATMENTS, treatmentPath } from "./treatments/summary";
+import { heroFor } from "./treatments/media";
 import type { Treatment } from "./treatments";
 
 const clinicId = `${SITE.url}/#clinic`;
@@ -20,15 +21,16 @@ export function clinicSchema() {
     "@id": clinicId,
     name: SITE.name,
     url: SITE.url,
-    image: absoluteUrl(SITE.ogImage),
+    logo: absoluteUrl("/clinic-logo.png"),
+    image: [absoluteUrl(SITE.ogImage), absoluteUrl(SITE.doctor.image)],
     description: `${SITE.name} is a family dental clinic in Amanora Park Town, Hadapsar, Pune, offering root canal treatment, dental implants, braces, clear aligners, kids dentistry, teeth whitening and emergency dental care.`,
     telephone: SITE.phone,
     priceRange: "₹₹",
     medicalSpecialty: "Dentistry",
     address: {
       "@type": "PostalAddress",
-      streetAddress: SITE.address.street,
-      addressLocality: `${SITE.address.locality}, ${SITE.address.city}`,
+      streetAddress: `${SITE.address.street}, ${SITE.address.locality}`,
+      addressLocality: SITE.address.city,
       addressRegion: SITE.address.region,
       postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
@@ -113,6 +115,7 @@ export function treatmentGraph(t: Treatment) {
       about: { "@type": "MedicalProcedure", name: t.name },
       mainEntity: { "@id": `${url}#service` },
       dateModified: SITE.contentUpdated,
+      primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(heroFor(t.slug).src), caption: heroFor(t.slug).alt },
       ...(SITE.contentReviewedByDoctor
         ? { lastReviewed: SITE.contentUpdated, reviewedBy: { "@type": "Person", name: SITE.doctor.name } }
         : {}),

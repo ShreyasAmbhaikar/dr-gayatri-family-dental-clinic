@@ -22,10 +22,10 @@ export const CONTENT_A: Record<string, TreatmentContent> = {
       "A deep cavity or cracked tooth that reaches the nerve",
     ],
     steps: [
-      { title: "Diagnosis", text: "We examine the tooth, take a digital X-ray and test the nerve, so we can confirm a root canal is needed and plan the safest approach.", art: "xray", image: "/images/rct/step-1-diagnosis.png" },
-      { title: "Cleaning", text: "Under local anaesthesia we make a small opening, remove the infected pulp, and clean and shape the root canals with fine instruments.", art: "decay", image: "/images/rct/step-2-cleaning.png" },
-      { title: "Sealing", text: "The canals are disinfected and sealed with gutta-percha, a biocompatible filling material, so bacteria cannot return. A temporary filling protects the tooth.", art: "stabilise", image: "/images/rct/step-3-sealing.png" },
-      { title: "Restoration", text: "The tooth is rebuilt with a filling or, for back teeth that take heavy chewing forces, a crown, restoring its strength, function and appearance.", art: "crown", image: "/images/rct/step-4-restoration.png" },
+      { title: "Diagnosis", text: "We examine the tooth, take a digital X-ray and test the nerve, so we can confirm a root canal is needed and plan the safest approach.", art: "xray", image: "/images/rct/step-1-diagnosis.webp" },
+      { title: "Cleaning", text: "Under local anaesthesia we make a small opening, remove the infected pulp, and clean and shape the root canals with fine instruments.", art: "decay", image: "/images/rct/step-2-cleaning.webp" },
+      { title: "Sealing", text: "The canals are disinfected and sealed with gutta-percha, a biocompatible filling material, so bacteria cannot return. A temporary filling protects the tooth.", art: "stabilise", image: "/images/rct/step-3-sealing.webp" },
+      { title: "Restoration", text: "The tooth is rebuilt with a filling or, for back teeth that take heavy chewing forces, a crown, restoring its strength, function and appearance.", art: "crown", image: "/images/rct/step-4-restoration.webp" },
     ],
     benefits: [
       "Relieves the pain of an infected or inflamed tooth",

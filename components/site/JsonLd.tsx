@@ -1,4 +1,3 @@
-import React from "react";
 
 /** Renders a JSON-LD block. `<` is escaped so content can never close the script tag early. */
 export default function JsonLd({ data }: { data: object }) {

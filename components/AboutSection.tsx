@@ -1,18 +1,13 @@
 "use client";
 
-import React from "react";
 import { ClipboardPen, ShieldPlus, ShieldCheck, HeartHandshake } from "lucide-react";
 import Button from "@/components/ui/Button";
 import OrganicImage from "@/components/ui/OrganicImage";
 import ScriptBubble from "@/components/ui/ScriptBubble";
 import SectionHeading, { Highlight } from "@/components/ui/SectionHeading";
 
-interface AboutSectionProps {
-  onOpenBooking: () => void;
-}
-
 const FEATURES = [
-  { icon: ClipboardPen, label: ["Personalized", "Care Plans"] },
+  { icon: ClipboardPen, label: ["Personalised", "Care Plans"] },
   { icon: ShieldPlus, label: ["Hygienic & Safe", "Environment"] },
   { icon: ShieldCheck, label: ["Modern", "Technology"] },
   { icon: HeartHandshake, label: ["Comfortable", "Experience"] },
@@ -53,7 +48,7 @@ function DoctorPortrait({ compact = false }: { compact?: boolean }) {
   );
 }
 
-export default function AboutSection({ onOpenBooking }: AboutSectionProps) {
+export default function AboutSection() {
   return (
     <section id="about" className="relative scroll-mt-20 lg:min-h-[600px] xl:min-h-[640px] flex items-center">
       {/* Desktop portrait bleeding off the left edge */}

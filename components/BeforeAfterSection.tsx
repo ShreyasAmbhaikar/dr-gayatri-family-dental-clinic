@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Sparkles, CheckCircle2, ArrowRight, CalendarDays, Layers, Smile } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -34,8 +34,8 @@ const CASES: TransformationCase[] = [
     category: "Orthodontics",
     tag: "Clear Aligners",
     duration: "Varies by case",
-    beforeImage: "/images/before-after/crowded-before.jpg",
-    afterImage: "/images/before-after/crowded-after.jpg",
+    beforeImage: "/images/before-after/crowded-before.webp",
+    afterImage: "/images/before-after/crowded-after.webp",
     description:
       "Clear aligners or braces can straighten crowded, overlapping front teeth. The right option, and how long it takes, depends on your teeth and bite.",
     bookingTreatment: "Orthodontics / Aligners",
@@ -53,8 +53,8 @@ const CASES: TransformationCase[] = [
     category: "Restorative Dentistry",
     tag: "Tooth-Coloured Filling",
     duration: "Often one visit",
-    beforeImage: "/images/before-after/restoration-before.jpg",
-    afterImage: "/images/before-after/restoration-after.jpg",
+    beforeImage: "/images/before-after/restoration-before.webp",
+    afterImage: "/images/before-after/restoration-after.webp",
     description:
       "A chipped edge can often be rebuilt with tooth-coloured composite resin that is shaped and polished to blend in with the natural tooth.",
     bookingTreatment: "Cosmetic Dentistry",
@@ -72,8 +72,8 @@ const CASES: TransformationCase[] = [
     category: "Cosmetic Dentistry",
     tag: "Stain Removal",
     duration: "About 60-90 mins",
-    beforeImage: "/images/before-after/whitening-before.jpg",
-    afterImage: "/images/before-after/whitening-after.jpg",
+    beforeImage: "/images/before-after/whitening-before.webp",
+    afterImage: "/images/before-after/whitening-after.webp",
     description:
       "Dentist-supervised whitening can lift yellowing and tea or coffee stains. How much lighter your teeth become depends on your starting shade.",
     bookingTreatment: "Teeth Whitening",
